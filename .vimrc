@@ -21,6 +21,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/vimshell.vim'
@@ -61,7 +62,7 @@ if has('conceal')
 endif
 
 "neosnippet
-let g:neosnippet#snippets_directory='~/.vim/neosnippet-snippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 let g:neosnippet#disable_runtime_snippets = {
