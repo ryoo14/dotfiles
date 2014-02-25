@@ -27,6 +27,7 @@ NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'w0ng/vim-hybrid'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "読みこんだpluginも含め、ファイルタイプの検出、
