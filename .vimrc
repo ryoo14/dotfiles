@@ -15,7 +15,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 "読み込むpluginを記載
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
+" NeoBundle 'Shougo/vimproc'
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
@@ -56,6 +56,16 @@ else
     inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
     let g:neocomplcache_enable_cursor_hold_i = 1
 endif
+
+
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+    \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
