@@ -51,10 +51,10 @@ if s:meet_neocomplete_requirements()
     let g:neocomplete#enable_cursor_hold_i = 1
 else
     " 今までの neocomplcache の設定
-    g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_at_startup = 1
     inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-    g:neocomplcache_enable_cursor_hold_i = 1
+    let g:neocomplcache_enable_cursor_hold_i = 1
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
