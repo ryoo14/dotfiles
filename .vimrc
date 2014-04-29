@@ -110,6 +110,7 @@ nmap tc :tabnew
 nmap tree :NERDTree
 nmap install :NeoBundleInstall
 nmap indent :IndentGuidesToggle
+nmap uf :Unite
 :ab vsh VimShell
 :ab uf Unite file
 
@@ -152,3 +153,8 @@ set nobackup
 set noswapfile
 
 hi Comment ctermfg=8
+
+" Unite関連
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
