@@ -15,7 +15,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 "読み込むpluginを記載
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/neobundle.vim'
-" NeoBundle 'Shougo/vimproc'
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
@@ -25,7 +24,6 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'w0ng/vim-hybrid'
@@ -57,7 +55,7 @@ else
     let g:neocomplcache_enable_cursor_hold_i = 1
 endif
 
-
+" vimprocのauto install
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \     'windows' : 'make -f make_mingw32.mak',
