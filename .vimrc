@@ -19,7 +19,7 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplete.vim'
+" NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'jpalardy/vim-slime'
@@ -29,6 +29,34 @@ NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'w0ng/vim-hybrid'
+
+" 補完機能自動選択
+function! s:meet_neocomplete_requirements()
+    return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+endfunction
+
+if s:meet_neocomplete_requirements()
+    NeoBundle 'Shougo/neocomplete.vim'
+    NeoBundleFetch 'Shougo/neocomplcache.vim'
+else
+    NeoBundleFetch 'Shougo/neocomplete.vim'
+    NeoBundle 'Shougo/neocomplcache.vim'
+endif
+
+" 補完機能詳細
+if s:meet_neocomplete_requirements()
+    let g:neocomplete#enable_at_startup = 1
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+    let g:neocomplete#enable_cursor_hold_i = 1
+else
+    " 今までの neocomplcache の設定
+    g:neocomplcache_enable_at_startup = 1
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+    g:neocomplcache_enable_cursor_hold_i = 1
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "読みこんだpluginも含め、ファイルタイプの検出、
@@ -36,17 +64,6 @@ NeoBundle 'w0ng/vim-hybrid'
 filetype plugin indent on     " required!
 filetype indent on
 syntax on
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-"neocomplete関連の何かしらの設定
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neocomplete#enable_at_startup = 1
-
-"候補検索時使用
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-let g:neocomplete#enable_cursor_hold_i = 1
-""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 "snippets関連
