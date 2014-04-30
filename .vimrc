@@ -27,6 +27,7 @@ NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'yuratomo/w3m.vim'
 
 " 補完機能自動選択
 function! s:meet_neocomplete_requirements()
@@ -111,8 +112,11 @@ nmap tree :NERDTree
 nmap install :NeoBundleInstall
 nmap indent :IndentGuidesToggle
 nmap uf :Unite
+nmap w3m :W3m google
+nmap w3mt :W3mTab google
+nmap w3ms :W3mSplit google
+nmap w3mv :W3mVSplit google
 :ab vsh VimShell
-:ab uf Unite file
 
 "ウィンドウの切り替え
 nnoremap <c-j> <c-w>j
