@@ -116,7 +116,7 @@ nmap w3m :W3m google
 nmap w3mt :W3mTab google
 nmap w3ms :W3mSplit google
 nmap w3mv :W3mVSplit google
-:ab vsh VimShell
+nmap vsh :VimShell
 
 "ウィンドウの切り替え
 nnoremap <c-j> <c-w>j
