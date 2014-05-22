@@ -28,6 +28,7 @@ NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'yuratomo/w3m.vim'
+NeoBundle 'koron/chalice'
 
 " 補完機能自動選択
 function! s:meet_neocomplete_requirements()
@@ -117,6 +118,7 @@ nmap w3mt :W3mTab google
 nmap w3ms :W3mSplit google
 nmap w3mv :W3mVSplit google
 nmap vsh :VimShell
+nmap 2ch :Chalice
 
 "ウィンドウの切り替え
 nnoremap <c-j> <c-w>j
@@ -162,3 +164,5 @@ hi Comment ctermfg=8
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
+
+
