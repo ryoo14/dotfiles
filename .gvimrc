@@ -1,4 +1,4 @@
-"カラースキーム
+" カラースキーム
 colorscheme hybrid
 syntax enable
 
@@ -6,7 +6,7 @@ set transparency=10
 set guifont=Ricty:h16
 set lines=90 columns=200
 
-"背景の透過
+" 背景の透過
 set transparency=0 " initialize                                                                                       
 nnoremap <expr><F5> &transparency+20 >= 30 ? ":set transparency=0\<CR>" : ":let &transparency=&transparency+20\<CR>"
 
