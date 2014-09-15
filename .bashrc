@@ -5,7 +5,8 @@ eval "$(plenv init -)"
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
-export PS1='[\u@\h] [\W]\n[$(date | cut -d " " -f 2) \t]$'
+export PS1='\[\e[1;36m\][ \W ] \t \[\e[00m\]\n\[\e[1;32m\][\u]\[\e[00m\]$ '
+
 ######################################################################
 # aliases
 alias cdpy="cd project/python;clear;ls"
@@ -23,15 +24,14 @@ peco-select-history() {
 bind -x '"\C-r": peco-select-history'
 
 peco-cd() {
-    local PWD=$(ls -la | grep "^d" | awk '{print $9}' | peco)
-    if [ $PWD = "." ]; then
-        cd $PWD
+    local PWDD=$(ls -la | grep "^d" | awk '{print $9}' | peco)
+    if [ $PWDD = "." ]; then
+        cd $PWDD
     else
-        cd $PWD
+        cd $PWDD
         cdp
     fi
 }
-
 #######################################################################
 # 外部ファイル
 source /Users/ryo14_ana/.pythonbrew/etc/bashrc

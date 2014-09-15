@@ -51,17 +51,18 @@ set laststatus=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%06.6B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 " その他
-set backspace=indent,eol,start
 set number
-set wildmode=longest,list
-
+set backspace=indent,eol,start
+set wildmode=list,full              " :eなどの補完強化
+set cmdheight=1                     " 画面下部のコマンドラインの高さ
+set showmatch                       " 括弧の対応をハイライト
+set cursorline                      " カーソル行のハイライト
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugin関連
 " neobundleについてのおまじない
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible               " be iMproved
-filetype off
 
 " vim起動時のみruntimepathにneobundle.vimを追加
 if has('vim_starting')
@@ -125,10 +126,9 @@ NeoBundle 'Shougo/vimproc', {
       \    },
     \ }
 
-"読みこんだpluginも含め、ファイルタイプの検出、
-"ファイルタイプ別プラグイン/インデントを有効化
-filetype plugin indent on     " required!
-filetype indent on
+" ファイルタイプ検出
+" ファイルタイプ別プラグインandインデント検出
+filetype plugin indent on
 syntax on
 
 "snippets関連
@@ -156,4 +156,4 @@ let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 
 " Tree関連
-let NERDTreeShowHidden = 1
+let NERDTreeShowHidden = 1  " 隠しファイルも表示
