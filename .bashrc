@@ -9,8 +9,6 @@ export PS1='\[\e[1;36m\][ \W ] \t \[\e[00m\]\n\[\e[1;32m\][\u]\[\e[00m\]$ '
 
 ######################################################################
 # aliases
-alias cdpy="cd project/python;clear;ls"
-alias cdshell="cd project/shell;clear;ls"
 alias ll='ls -la'
 alias cdp='peco-cd'
 
