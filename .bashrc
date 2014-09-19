@@ -32,4 +32,4 @@ peco-cd() {
 }
 #######################################################################
 # 外部ファイル
-source /Users/ryo14_ana/.pythonbrew/etc/bashrc
+source $HOME/.pythonbrew/etc/bashrc
