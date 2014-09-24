@@ -1,15 +1,15 @@
-" キーマップ
+"---------------------------------------------------------------
+" key-map
+"---------------------------------------------------------------
 nmap tc :tabnew
 nmap tree :NERDTree
 nmap install :NeoBundleInstall
 nmap indent :IndentGuidesToggle
-nmap uf :Unite
+nmap uf :Unite file
 nmap w3m :W3m google
-nmap w3mt :W3mTab google
-nmap w3ms :W3mSplit google
-nmap w3mv :W3mVSplit google
 nmap vsh :VimShell
 nmap 2ch :Chalice
+nmap qr :QuickRun
 
 " ウィンドウの切り替え
 nnoremap <c-j> <c-w>j
@@ -29,6 +29,16 @@ noremap k gk
 inoremap jj <Esc>
 nnoremap <Tab> % 
 vnoremap <Tab> %
+
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+inoremap { {}<LEFT>
+inoremap ( ()<LEFT>
+inoremap [ []<LEFT>
+
+"---------------------------------------------------------------
+" options
+"---------------------------------------------------------------
 
 " タブライン
 set showtabline=2 "常にタブラインを表示
@@ -57,11 +67,12 @@ set wildmode=list,full              " :eなどの補完強化
 set cmdheight=1                     " 画面下部のコマンドラインの高さ
 set showmatch                       " 括弧の対応をハイライト
 set cursorline                      " カーソル行のハイライト
+set autochdir
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" plugin関連
+"---------------------------------------------------------------
+" plugin
+"---------------------------------------------------------------
 " neobundleについてのおまじない
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible               " be iMproved
 
 " vim起動時のみruntimepathにneobundle.vimを追加
@@ -73,6 +84,7 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 
+"---------------------------------------------------------------
 " 読み込むpluginを記載
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'VimClojure'
@@ -88,6 +100,9 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'koron/chalice'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'thinca/vim-quickrun'
+"---------------------------------------------------------------
 
 " 補完機能自動選択
 function! s:meet_neocomplete_requirements()
@@ -157,3 +172,9 @@ let g:unite_source_file_mru_limit = 200
 
 " Tree関連
 let NERDTreeShowHidden = 1  " 隠しファイルも表示
+
+" Status Line
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+

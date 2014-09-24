@@ -33,3 +33,5 @@ peco-cd() {
 #######################################################################
 # 外部ファイル
 source $HOME/.pythonbrew/etc/bashrc
+
+export EDITOR=vim
