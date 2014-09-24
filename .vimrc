@@ -55,6 +55,7 @@ set smartindent     "前行末尾によって次行判定
 set nowritebackup
 set nobackup
 set noswapfile
+set noundofile
 
 "ステータスライン
 set laststatus=2
@@ -68,7 +69,6 @@ set cmdheight=1                     " 画面下部のコマンドラインの高
 set showmatch                       " 括弧の対応をハイライト
 set cursorline                      " カーソル行のハイライト
 set autochdir
-set noundofile
 
 "---------------------------------------------------------------
 " plugin
