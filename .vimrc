@@ -1,15 +1,17 @@
 "---------------------------------------------------------------
 " key-map
 "---------------------------------------------------------------
-nmap tc :tabnew
-nmap tree :NERDTree
-nmap install :NeoBundleInstall
-nmap indent :IndentGuidesToggle
-nmap uf :Unite file
-nmap w3m :W3m google
-nmap vsh :VimShell
-nmap 2ch :Chalice
-nmap qr :QuickRun
+nnoremap tc :tabnew
+nnoremap tree :NERDTree
+nnoremap install :NeoBundleInstall
+nnoremap indent :IndentGuidesToggle
+nnoremap uf :Unite file
+nnoremap w3m :W3m google
+nnoremap vsh :VimShell
+nnoremap qr :QuickRun
+nnoremap tw :PosttoTwitter<CR>
+nnoremap tl :FriendsTwitter<CR><c-w>k
+
 
 " ウィンドウの切り替え
 nnoremap <c-j> <c-w>j
@@ -30,16 +32,9 @@ inoremap jj <Esc>
 nnoremap <Tab> % 
 vnoremap <Tab> %
 
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-inoremap { {}<LEFT>
-inoremap ( ()<LEFT>
-inoremap [ []<LEFT>
-
 "---------------------------------------------------------------
 " options
 "---------------------------------------------------------------
-
 " タブライン
 set showtabline=2 "常にタブラインを表示
 
@@ -68,7 +63,6 @@ set wildmode=list,full              " :eなどの補完強化
 set cmdheight=1                     " 画面下部のコマンドラインの高さ
 set showmatch                       " 括弧の対応をハイライト
 set cursorline                      " カーソル行のハイライト
-set autochdir
 
 "---------------------------------------------------------------
 " plugin
@@ -86,22 +80,21 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 
 "---------------------------------------------------------------
-" 読み込むpluginを記載
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'VimClojure'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'VimClojure'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+"---------------------------------------------------------------
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'koron/chalice'
 NeoBundle 'itchyny/lightline.vim'
+"---------------------------------------------------------------
+NeoBundle 'yuratomo/w3m.vim'
+NeoBundle 'TwitVim'
 NeoBundle 'thinca/vim-quickrun'
 "---------------------------------------------------------------
 
@@ -179,3 +172,10 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 
+" TwitVim関連
+autocmd FileType twitvim call s:twitvim_my_settings()
+function! s:twitvim_my_settings()
+  set nowrap
+  nnoremap tn :NextTwitter
+  nnoremap tr :RefreshTwitter
+endfunction
