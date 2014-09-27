@@ -1,25 +1,24 @@
 "---------------------------------------------------------------
 " key-map
 "---------------------------------------------------------------
+nnoremap indent :IndentGuidesToggle
+nnoremap install :NeoBundleInstall
+nnoremap qr :QuickRun
 nnoremap tc :tabnew
 nnoremap tree :NERDTree
-nnoremap install :NeoBundleInstall
-nnoremap indent :IndentGuidesToggle
-nnoremap uf :Unite file
-nnoremap w3m :W3m google
-nnoremap vsh :VimShell
-nnoremap qr :QuickRun
 nnoremap tw :PosttoTwitter<CR>
 nnoremap tl :FriendsTwitter<CR><c-w>k
+nnoremap uf :Unite file
+nnoremap vsh :VimShell
+nnoremap w3m :W3m google
 
-
-" ウィンドウの切り替え
+" change window
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l 
 
-" ウィンドウサイズの変更
+" change window size
 nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
 nnoremap <S-Up>    <C-w>-<CR>
@@ -36,33 +35,31 @@ vnoremap <Tab> %
 " options
 "---------------------------------------------------------------
 " タブライン
-set showtabline=2 "常にタブラインを表示
+set showtabline=2   " 常にタブラインを表示
 
 " タブ関連
 set expandtab
-set tabstop=4       "タブ幅
-set shiftwidth=4    "自動インデント幅
-set softtabstop=4   "連続した空白削除時
-set autoindent      "前行インデント継続
-set smartindent     "前行末尾によって次行判定
+set tabstop=4       " タブ幅
+set shiftwidth=4    " 自動インデント幅
+set softtabstop=4   " 連続した空白削除時
+set autoindent      " 前行インデント継続
+set smartindent     " 前行末尾によって次行判定
 
-" swapとbackupとか無効
-set nowritebackup
-set nobackup
-set noswapfile
-set noundofile
-
-"ステータスライン
+" status line
 set laststatus=2
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%06.6B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%06.6B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
-" その他
+" etc
 set number
 set backspace=indent,eol,start
 set wildmode=list,full              " :eなどの補完強化
 set cmdheight=1                     " 画面下部のコマンドラインの高さ
 set showmatch                       " 括弧の対応をハイライト
 set cursorline                      " カーソル行のハイライト
+set nowritebackup
+set nobackup
+set noswapfile
+set noundofile
 
 "---------------------------------------------------------------
 " plugin
