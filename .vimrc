@@ -56,6 +56,7 @@ set wildmode=list,full              " :eなどの補完強化
 set cmdheight=1                     " 画面下部のコマンドラインの高さ
 set showmatch                       " 括弧の対応をハイライト
 set cursorline                      " カーソル行のハイライト
+set hlsearch
 set nowritebackup
 set nobackup
 set noswapfile
@@ -77,6 +78,14 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 
 "---------------------------------------------------------------
+NeoBundle 'Shougo/vimproc', {
+\   'build' : {
+\     'windows' : 'make -f make_mingw32.mak',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\   },
+\ }
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -85,11 +94,10 @@ NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'VimClojure'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree.git'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-"---------------------------------------------------------------
+NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
-"---------------------------------------------------------------
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'TwitVim'
 NeoBundle 'thinca/vim-quickrun'
@@ -122,23 +130,10 @@ else
     let g:neocomplcache_enable_cursor_hold_i = 1
 endif
 
-" vimprocのauto install
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-    \ }
-
-" ファイルタイプ検出
-" ファイルタイプ別プラグインandインデント検出
 filetype plugin indent on
 syntax on
 
 "snippets関連
-" SuperTab like snippets behavior.
 "imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
@@ -157,8 +152,8 @@ let g:neosnippet#disable_runtime_snippets = {
 		\ }
 
 " Unite関連
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
+let g:unite_enable_start_insert = 1
+let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_mru_limit = 200
 
 " Tree関連
@@ -166,8 +161,8 @@ let NERDTreeShowHidden = 1  " 隠しファイルも表示
 
 " Status Line
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+\   'colorscheme': 'wombat',
+\}
 
 " TwitVim関連
 autocmd FileType twitvim call s:twitvim_my_settings()
@@ -176,3 +171,10 @@ function! s:twitvim_my_settings()
   nnoremap tn :NextTwitter
   nnoremap tr :RefreshTwitter
 endfunction
+
+" color scheme
+colorscheme wombat256mod
+
+" indentLine
+let g:indentLine_char = '¦'
+let g:indentLine_color_term = 7
