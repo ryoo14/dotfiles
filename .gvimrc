@@ -1,6 +1,6 @@
 " color Scheme
-"colorscheme hybrid
-"syntax enable
+colorscheme hybrid
+syntax enable
 
 
 " permeate background

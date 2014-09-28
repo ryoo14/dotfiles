@@ -178,3 +178,6 @@ colorscheme wombat256mod
 " indentLine
 let g:indentLine_char = '¦'
 let g:indentLine_color_term = 7
+
+" VimShell
+let g:vimshell_right_prompt = 'getcwd()'
