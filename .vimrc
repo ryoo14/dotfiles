@@ -26,7 +26,7 @@ nnoremap <S-Down>  <C-w>+<CR>
 
 noremap j gj
 noremap k gk
-
+nnoremap <expr> 0 col('.') == 1 ? '$' : '0'
 inoremap jj <Esc>
 nnoremap <Tab> % 
 vnoremap <Tab> %
