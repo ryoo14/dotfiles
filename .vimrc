@@ -4,7 +4,6 @@
 nnoremap indent :IndentGuidesToggle
 nnoremap install :NeoBundleInstall
 nnoremap qr :QuickRun
-nnoremap tc :tabnew
 nnoremap tree :NERDTree
 nnoremap tw :PosttoTwitter<CR>
 nnoremap tl :FriendsTwitter<CR><c-w>k
@@ -47,7 +46,6 @@ set smartindent     " 前行末尾によって次行判定
 
 " status line
 set laststatus=2
-" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%06.6B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 " etc
 set number
@@ -65,15 +63,12 @@ set noundofile
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
-" neobundleについてのおまじない
 set nocompatible               " be iMproved
 
-" vim起動時のみruntimepathにneobundle.vimを追加
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 
-"neobundle.vimの初期化
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 
@@ -103,6 +98,7 @@ NeoBundle 'TwitVim'
 NeoBundle 'thinca/vim-quickrun'
 "---------------------------------------------------------------
 
+"---------------------------------------------------------------
 " 補完機能自動選択
 function! s:meet_neocomplete_requirements()
     return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -151,20 +147,24 @@ let g:neosnippet#disable_runtime_snippets = {
 		\   'c' : 1, 'cpp' : 1,
 		\ }
 
-" Unite関連
+"---------------------------------------------------------------
+" Unite
 let g:unite_enable_start_insert = 1
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_mru_limit = 200
 
-" Tree関連
+"---------------------------------------------------------------
+" Tree
 let NERDTreeShowHidden = 1  " 隠しファイルも表示
 
+"---------------------------------------------------------------
 " Status Line
 let g:lightline = {
 \   'colorscheme': 'wombat',
 \}
 
-" TwitVim関連
+"---------------------------------------------------------------
+" TwitVim
 autocmd FileType twitvim call s:twitvim_my_settings()
 function! s:twitvim_my_settings()
   set nowrap
@@ -172,12 +172,48 @@ function! s:twitvim_my_settings()
   nnoremap tr :RefreshTwitter
 endfunction
 
+"---------------------------------------------------------------
 " color scheme
 colorscheme wombat256mod
 
+"---------------------------------------------------------------
 " indentLine
 let g:indentLine_char = '¦'
 let g:indentLine_color_term = 7
 
+"---------------------------------------------------------------
 " VimShell
 let g:vimshell_right_prompt = 'getcwd()'
+
+"---------------------------------------------------------------
+" tab 
+function! s:SID_PREFIX()
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+
+function! s:my_tabline()  "{{{
+  let s = ''
+  for i in range(1, tabpagenr('$'))
+    let bufnrs = tabpagebuflist(i)
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+    let no = i  " display 0-origin tabpagenr.
+    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+    let title = fnamemodify(bufname(bufnr), ':t')
+    let title = '[' . title . ']'
+    let s .= '%'.i.'T'
+    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+    let s .= no . ':' . title
+    let s .= mod
+    let s .= '%#TabLineFill# '
+  endfor
+  let s .= '%#TabLineFill#%T%=%#TabLine#'
+  return s
+endfunction "}}}
+let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+map <silent> tc :tablast <bar> tabnew<CR>
