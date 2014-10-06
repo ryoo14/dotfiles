@@ -50,15 +50,15 @@ set laststatus=2
 " etc
 set number
 set backspace=indent,eol,start
-set wildmode=list,full              " :eなどの補完強化
-set cmdheight=1                     " 画面下部のコマンドラインの高さ
-set showmatch                       " 括弧の対応をハイライト
-set cursorline                      " カーソル行のハイライト
+set wildmode=list,full
+set cmdheight=1
+set showmatch
+set cursorline
 set hlsearch
 set nobackup
 set noswapfile
 set noundofile
-
+set keywordprg=:help
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
