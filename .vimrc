@@ -55,7 +55,6 @@ set cmdheight=1                     " 画面下部のコマンドラインの高
 set showmatch                       " 括弧の対応をハイライト
 set cursorline                      " カーソル行のハイライト
 set hlsearch
-set nowritebackup
 set nobackup
 set noswapfile
 set noundofile
@@ -169,7 +168,7 @@ autocmd FileType twitvim call s:twitvim_my_settings()
 function! s:twitvim_my_settings()
   set nowrap
   nnoremap tn :NextTwitter
-  nnoremap tr :RefreshTwitter
+  nnoremap tr :RefreshTwitter<CR>
 endfunction
 
 "---------------------------------------------------------------
@@ -195,8 +194,8 @@ function! s:my_tabline()  "{{{
   let s = ''
   for i in range(1, tabpagenr('$'))
     let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-    let no = i  " display 0-origin tabpagenr.
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]
+    let no = i
     let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
     let title = fnamemodify(bufname(bufnr), ':t')
     let title = '[' . title . ']'
@@ -217,3 +216,13 @@ for n in range(1, 9)
 endfor
 
 map <silent> tc :tablast <bar> tabnew<CR>
+
+"---------------------------------------------------------------
+" w3m 
+function! W3mOpen()
+    let l:url = matchstr(getline('.'), 'htt[p|ps]:\/\/[^>,;:]*')
+    execute ':vs'
+    execute ':W3m' l:url
+endfunction
+
+nnoremap <silent> <c-i> :call W3mOpen()<CR>
