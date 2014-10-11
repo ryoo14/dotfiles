@@ -1,8 +1,8 @@
 "---------------------------------------------------------------
 " key-map
 "---------------------------------------------------------------
-nnoremap indent :IndentGuidesToggle
 nnoremap install :NeoBundleInstall
+nnoremap install :NeoBundleClean
 nnoremap qr :QuickRun
 nnoremap tree :NERDTree
 nnoremap tw :PosttoTwitter<CR>
@@ -53,7 +53,6 @@ set backspace=indent,eol,start
 set wildmode=list,full
 set cmdheight=1
 set showmatch
-set cursorline
 set hlsearch
 set nobackup
 set noswapfile
@@ -181,10 +180,6 @@ let g:indentLine_char = '¦'
 let g:indentLine_color_term = 7
 
 "---------------------------------------------------------------
-" VimShell
-let g:vimshell_right_prompt = 'getcwd()'
-
-"---------------------------------------------------------------
 " tab 
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -225,4 +220,13 @@ function! W3mOpen()
     execute ':W3m' l:url
 endfunction
 
-nnoremap <silent> <c-i> :call W3mOpen()<CR>
+nnoremap <silent> <c-w> :call W3mOpen()<CR>
+
+"---------------------------------------------------------------
+" cursol line 
+augroup cursor-line
+  autocmd!
+  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline
+  autocmd CursorHold,CursorHoldI * setlocal cursorline
+augroup END
+
