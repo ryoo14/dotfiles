@@ -215,7 +215,7 @@ map <silent> tc :tablast <bar> tabnew<CR>
 "---------------------------------------------------------------
 " w3m 
 function! W3mOpen()
-    let l:url = matchstr(getline('.'), 'htt[p|ps]:\/\/[^>,;:]*')
+    let l:url = matchstr(getline('.'), 'https\{0,1}:\/\/[^>,;:]*')
     execute ':vs'
     execute ':W3m' l:url
 endfunction
