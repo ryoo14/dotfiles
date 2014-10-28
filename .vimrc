@@ -2,7 +2,8 @@
 " key-map
 "---------------------------------------------------------------
 nnoremap install :NeoBundleInstall
-nnoremap install :NeoBundleClean
+nnoremap update :NeoBundleUpdate
+nnoremap clean :NeoBundleClean
 nnoremap qr :QuickRun
 nnoremap tree :NERDTree
 nnoremap tw :PosttoTwitter<CR>
@@ -61,15 +62,14 @@ set keywordprg=:help
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
-set nocompatible               " be iMproved
+if !1 | finish | endif
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
+  set nocompatible               " Be iMproved
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-
+call neobundle#begin(expand('~/.vim/bundle/'))
 "---------------------------------------------------------------
 NeoBundle 'Shougo/vimproc', {
 \   'build' : {
@@ -79,11 +79,15 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \   },
 \ }
-NeoBundle 'Shougo/neobundle.vim'
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimshell.vim'
+NeoBundleLazy 'Shougo/unite.vim',{
+\   'autoload' : { 'commands' : [ 'Unite'] }
+\}
+NeoBundleLazy 'Shougo/vimshell', {
+\   'autoload' : { 'commands' : [ 'VimShell', "VimShellPop", "VimShellInteractive" ] }
+\}
 NeoBundle 'VimClojure'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree.git'
@@ -94,7 +98,11 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'TwitVim'
 NeoBundle 'thinca/vim-quickrun'
+
 "---------------------------------------------------------------
+call neobundle#end()
+filetype plugin indent on
+syntax on
 
 "---------------------------------------------------------------
 " 補完機能自動選択
@@ -123,9 +131,6 @@ else
     inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
     let g:neocomplcache_enable_cursor_hold_i = 1
 endif
-
-filetype plugin indent on
-syntax on
 
 "snippets関連
 "imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -163,12 +168,15 @@ let g:lightline = {
 
 "---------------------------------------------------------------
 " TwitVim
-autocmd FileType twitvim call s:twitvim_my_settings()
-function! s:twitvim_my_settings()
-  set nowrap
-  nnoremap tn :NextTwitter
-  nnoremap tr :RefreshTwitter<CR>
-endfunction
+augroup twitvim_setting
+  autocmd!
+  autocmd FileType twitvim call s:twitvim_my_settings()
+  function! s:twitvim_my_settings()
+    set nowrap
+    nnoremap tn :NextTwitter
+    nnoremap tr :RefreshTwitter<CR>
+  endfunction
+augroup END
 
 "---------------------------------------------------------------
 " color scheme
@@ -215,9 +223,9 @@ map <silent> tc :tablast <bar> tabnew<CR>
 "---------------------------------------------------------------
 " w3m 
 function! W3mOpen()
-    let l:url = matchstr(getline('.'), 'https\{0,1}:\/\/[^>,;:]*')
-    execute ':vs'
-    execute ':W3m' l:url
+  let l:url = matchstr(getline('.'), 'https\{0,1}:\/\/[^>,;:]*')
+  execute ':vs'
+  execute ':W3m' l:url
 endfunction
 
 nnoremap <silent> <c-w> :call W3mOpen()<CR>
@@ -230,3 +238,9 @@ augroup cursor-line
   autocmd CursorHold,CursorHoldI * setlocal cursorline
 augroup END
 
+"---------------------------------------------------------------
+" filetype setting
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim set ts=2 sw=2 sts=2
+augroup END
