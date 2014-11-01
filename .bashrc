@@ -1,6 +1,6 @@
 #######################################################################
 # set var
-export PATH="$HOME/.plenv/bin:/$HOME/.plenv/versions/5.18.1/bin:$PATH:/usr/local/bin:$HOME/bin"
+export PATH="$HOME/.plenv/bin:$HOME/.plenv/versions/5.18.1/bin:/usr/local/bin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 eval "$(plenv init -)"
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export GOPATH=~/go

@@ -83,10 +83,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundleLazy 'Shougo/unite.vim',{
-\   'autoload' : { 'commands' : [ 'Unite'] }
+\   'autoload' : { 'commands' : [ 'Unite' ] }
 \}
 NeoBundleLazy 'Shougo/vimshell', {
-\   'autoload' : { 'commands' : [ 'VimShell', "VimShellPop", "VimShellInteractive" ] }
+\   'autoload' : { 'commands' : [ 'VimShell' ] }
 \}
 NeoBundle 'VimClojure'
 NeoBundle 'scrooloose/syntastic'
