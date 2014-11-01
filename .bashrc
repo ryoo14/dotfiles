@@ -1,6 +1,7 @@
 #######################################################################
 # set var
-export PATH="$HOME/.plenv/bin:$HOME/.plenv/versions/5.18.1/bin:/usr/local/bin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/.plenv/bin:$HOME/.plenv/versions/5.18.1/bin:/usr/local/bin:$HOME/bin:$PATH"
 eval "$(plenv init -)"
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export GOPATH=~/go
@@ -9,8 +10,11 @@ export PS1='\[\e[1;36m\][ \W ] \t \[\e[00m\]\n\[\e[1;32m\][\u]\[\e[00m\]$ '
 
 ######################################################################
 # aliases
+alias ls='ls -G'
 alias ll='ls -la'
 alias cdp='peco-cd'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
 
 ######################################################################
 # settings for peco

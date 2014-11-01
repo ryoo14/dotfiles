@@ -81,7 +81,6 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundleLazy 'Shougo/unite.vim',{
 \   'autoload' : { 'commands' : [ 'Unite' ] }
 \}
@@ -132,8 +131,6 @@ else
     let g:neocomplcache_enable_cursor_hold_i = 1
 endif
 
-"snippets関連
-"imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
@@ -143,7 +140,7 @@ if has('conceal')
 endif
 
 " neosnippet
-let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets'
+let g:neosnippet#snippets_directory='~/.vim/snippets'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 let g:neosnippet#disable_runtime_snippets = {
@@ -245,5 +242,12 @@ augroup filetype_vim
   autocmd FileType vim set ts=2 sw=2 sts=2
 augroup END
 
+"--------------------------------------------------------------
+" Vimshell
 let g:vimshell_prompt_expr = 'getcwd()." > "'
 let g:vimshell_prompt_pattern = '^\f\+ > '
+
+"--------------------------------------------------------------
+" syntastic
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list = 2
