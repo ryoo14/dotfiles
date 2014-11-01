@@ -244,3 +244,6 @@ augroup filetype_vim
   autocmd!
   autocmd FileType vim set ts=2 sw=2 sts=2
 augroup END
+
+let g:vimshell_prompt_expr = 'getcwd()." > "'
+let g:vimshell_prompt_pattern = '^\f\+ > '
