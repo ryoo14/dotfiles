@@ -10,11 +10,11 @@ export PS1='\[\e[1;36m\][ \W ] \t \[\e[00m\]\n\[\e[1;32m\][\u]\[\e[00m\]$ '
 
 ######################################################################
 # aliases
-alias ls='ls -G'
+alias ls='ls -G --color=auto'
 alias ll='ls -la'
-alias cdp='peco-cd'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
+alias cdp='peco-cd'
 
 ######################################################################
 # settings for peco
@@ -26,11 +26,11 @@ peco-select-history() {
 bind -x '"\C-r": peco-select-history'
 
 peco-cd() {
-    local PWDD=$(ls -la | grep "^d" | awk '{print $9}' | peco)
-    if [ $PWDD = "." ]; then
-        cd $PWDD
+    local DIRS=$(ls -la | grep "^d" | awk '{print $9}' | peco)
+    if [ $DIRS = "." ]; then
+        cd $DIRS
     else
-        cd $PWDD
+        cd $DIRS
         cdp
     fi
 }
