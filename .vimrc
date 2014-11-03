@@ -1,6 +1,8 @@
 "---------------------------------------------------------------
 " key-map
 "---------------------------------------------------------------
+nnoremap ev :edit $MYVIMRC
+nnoremap rv :source $MYVIMRC
 nnoremap install :NeoBundleInstall
 nnoremap update :NeoBundleUpdate
 nnoremap clean :NeoBundleClean
@@ -110,25 +112,24 @@ function! s:meet_neocomplete_requirements()
 endfunction
 
 if s:meet_neocomplete_requirements()
-    NeoBundle 'Shougo/neocomplete.vim'
-    NeoBundleFetch 'Shougo/neocomplcache.vim'
+  NeoBundle 'Shougo/neocomplete.vim'
+  NeoBundleFetch 'Shougo/neocomplcache.vim'
 else
-    NeoBundleFetch 'Shougo/neocomplete.vim'
-    NeoBundle 'Shougo/neocomplcache.vim'
+  NeoBundleFetch 'Shougo/neocomplete.vim'
+  NeoBundle 'Shougo/neocomplcache.vim'
 endif
 
 " 補完機能詳細
 if s:meet_neocomplete_requirements()
-    let g:neocomplete#enable_at_startup = 1
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-    let g:neocomplete#enable_cursor_hold_i = 1
+  let g:neocomplete#enable_at_startup = 1
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  let g:neocomplete#enable_cursor_hold_i = 1
 else
-    " neocomplcache の設定
-    let g:neocomplcache_enable_at_startup = 1
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-    let g:neocomplcache_enable_cursor_hold_i = 1
+  let g:neocomplcache_enable_at_startup = 1
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  let g:neocomplcache_enable_cursor_hold_i = 1
 endif
 
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
@@ -136,7 +137,7 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 
 " For snippet_complete marker.
 if has('conceal')
- set conceallevel=2 concealcursor=i
+  set conceallevel=2 concealcursor=i
 endif
 
 " neosnippet
