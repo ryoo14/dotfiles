@@ -10,7 +10,7 @@ export PS1='\[\e[1;36m\][ \W ] \t \[\e[00m\]\n\[\e[1;32m\][\u]\[\e[00m\]$ '
 
 ######################################################################
 # aliases
-alias ls='ls -G --color=auto'
+alias ls='ls -G'
 alias ll='ls -la'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'

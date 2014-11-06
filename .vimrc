@@ -146,7 +146,7 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 let g:neosnippet#disable_runtime_snippets = {
 		\   'c' : 1, 'cpp' : 1,
-		\ }
+  	\ }
 
 "---------------------------------------------------------------
 " Unite
@@ -191,26 +191,6 @@ function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
-function! s:my_tabline()  "{{{
-  let s = ''
-  for i in range(1, tabpagenr('$'))
-    let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]
-    let no = i
-    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-    let title = fnamemodify(bufname(bufnr), ':t')
-    let title = '[' . title . ']'
-    let s .= '%'.i.'T'
-    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-    let s .= no . ':' . title
-    let s .= mod
-    let s .= '%#TabLineFill# '
-  endfor
-  let s .= '%#TabLineFill#%T%=%#TabLine#'
-  return s
-endfunction "}}}
-let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-
 " Tab jump
 for n in range(1, 9)
   execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
@@ -252,3 +232,8 @@ let g:vimshell_prompt_pattern = '^\f\+ > '
 " syntastic
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
+
+"augroup vimenter
+"  autocmd!
+"  autocmd VimEnter * execute ":VimShell"
+"augroup END
