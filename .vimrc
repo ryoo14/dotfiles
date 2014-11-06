@@ -220,7 +220,7 @@ augroup END
 " filetype setting
 augroup filetype_vim
   autocmd!
-  autocmd FileType vim set ts=2 sw=2 sts=2
+  autocmd FileType vim,html set ts=2 sw=2 sts=2
 augroup END
 
 "--------------------------------------------------------------
@@ -233,7 +233,17 @@ let g:vimshell_prompt_pattern = '^\f\+ > '
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
 
-"augroup vimenter
-"  autocmd!
-"  autocmd VimEnter * execute ":VimShell"
-"augroup END
+"--------------------------------------------------------------
+" VimEnter
+augroup vimenter
+  autocmd!
+  autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 | execute ":VimShell" | endif
+  function! s:GetBufByte()
+    let byte = line2byte(line('$'))
+    if byte == -1
+      return 0
+    else
+      return 1
+    endif
+  endfunction
+augroup END
