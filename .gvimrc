@@ -1,7 +1,6 @@
 " color Scheme
 colorscheme hybrid
-syntax enable
-
+syntax on
 
 " permeate background
 set transparency=0 " initialize                                                                                       

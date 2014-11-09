@@ -73,7 +73,7 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 "---------------------------------------------------------------
-NeoBundle 'Shougo/vimproc', {
+NeoBundle 'Shougo/vimproc.vim', {
 \   'build' : {
 \     'windows' : 'make -f make_mingw32.mak',
 \     'cygwin' : 'make -f make_cygwin.mak',
@@ -86,7 +86,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundleLazy 'Shougo/unite.vim',{
 \   'autoload' : { 'commands' : [ 'Unite' ] }
 \}
-NeoBundleLazy 'Shougo/vimshell', {
+NeoBundleLazy 'Shougo/vimshell.vim', {
 \   'autoload' : { 'commands' : [ 'VimShell' ] }
 \}
 NeoBundle 'VimClojure'
@@ -98,7 +98,6 @@ NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'TwitVim'
-NeoBundle 'thinca/vim-quickrun'
 
 "---------------------------------------------------------------
 call neobundle#end()
@@ -218,7 +217,7 @@ augroup END
 
 "---------------------------------------------------------------
 " filetype setting
-augroup filetype_vim
+augroup filetypes
   autocmd!
   autocmd FileType vim,html set ts=2 sw=2 sts=2
 augroup END
