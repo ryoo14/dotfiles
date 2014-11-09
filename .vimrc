@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 "---------------------------------------------------------------
 " key-map
 "---------------------------------------------------------------
@@ -33,6 +35,21 @@ inoremap jj <Esc>
 nnoremap <Tab> % 
 vnoremap <Tab> %
 
+" buff change
+nnoremap ,1   :e #1<CR>
+nnoremap ,2   :e #2<CR>
+nnoremap ,3   :e #3<CR>
+nnoremap ,4   :e #4<CR>
+nnoremap ,5   :e #5<CR>
+nnoremap ,6   :e #6<CR>
+nnoremap ,7   :e #7<CR>
+nnoremap ,8   :e #8<CR>
+nnoremap ,9   :e #9<CR>
+
+" no use
+nnoremap ZZ <nop>
+nnoremap <c-z> <nop>
+
 "---------------------------------------------------------------
 " options
 "---------------------------------------------------------------
@@ -61,6 +78,7 @@ set nobackup
 set noswapfile
 set noundofile
 set keywordprg=:help
+
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
@@ -71,8 +89,8 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+
 call neobundle#begin(expand('~/.vim/bundle/'))
-"---------------------------------------------------------------
 NeoBundle 'Shougo/vimproc.vim', {
 \   'build' : {
 \     'windows' : 'make -f make_mingw32.mak',
@@ -83,63 +101,39 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
-NeoBundleLazy 'Shougo/unite.vim',{
-\   'autoload' : { 'commands' : [ 'Unite' ] }
-\}
-NeoBundleLazy 'Shougo/vimshell.vim', {
-\   'autoload' : { 'commands' : [ 'VimShell' ] }
-\}
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'VimClojure'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'scrooloose/nerdtree.git'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'TwitVim'
-
-"---------------------------------------------------------------
 call neobundle#end()
+
+
 filetype plugin indent on
 syntax on
 
 "---------------------------------------------------------------
-" 補完機能自動選択
-function! s:meet_neocomplete_requirements()
-    return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
-endfunction
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+let g:neocomplete#enable_cursor_hold_i = 1
 
-if s:meet_neocomplete_requirements()
-  NeoBundle 'Shougo/neocomplete.vim'
-  NeoBundleFetch 'Shougo/neocomplcache.vim'
-else
-  NeoBundleFetch 'Shougo/neocomplete.vim'
-  NeoBundle 'Shougo/neocomplcache.vim'
-endif
-
-" 補完機能詳細
-if s:meet_neocomplete_requirements()
-  let g:neocomplete#enable_at_startup = 1
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-  let g:neocomplete#enable_cursor_hold_i = 1
-else
-  let g:neocomplcache_enable_at_startup = 1
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-  let g:neocomplcache_enable_cursor_hold_i = 1
-endif
-
+"---------------------------------------------------------------
+" neosnippet
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-" neosnippet
 let g:neosnippet#snippets_directory='~/.vim/snippets'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -154,14 +148,12 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_mru_limit = 200
 
 "---------------------------------------------------------------
-" Tree
-let NERDTreeShowHidden = 1  " 隠しファイルも表示
+" color 
+colorscheme wombat256mod "color scheme
 
-"---------------------------------------------------------------
-" Status Line
 let g:lightline = {
 \   'colorscheme': 'wombat',
-\}
+\} "status line color
 
 "---------------------------------------------------------------
 " TwitVim
@@ -175,9 +167,6 @@ augroup twitvim_setting
   endfunction
 augroup END
 
-"---------------------------------------------------------------
-" color scheme
-colorscheme wombat256mod
 
 "---------------------------------------------------------------
 " indentLine
@@ -185,11 +174,6 @@ let g:indentLine_char = '¦'
 let g:indentLine_color_term = 7
 
 "---------------------------------------------------------------
-" tab 
-function! s:SID_PREFIX()
-  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
-endfunction
-
 " Tab jump
 for n in range(1, 9)
   execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
