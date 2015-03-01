@@ -10,8 +10,6 @@ nnoremap update :NeoBundleUpdate
 nnoremap clean :NeoBundleClean
 nnoremap qr :QuickRun
 nnoremap tree :NERDTree
-nnoremap tw :PosttoTwitter<CR>
-nnoremap tl :FriendsTwitter<CR><c-w>k
 nnoremap uf :Unite file
 nnoremap vsh :VimShell
 nnoremap w3m :W3m google
@@ -111,7 +109,6 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'TwitVim'
 call neobundle#end()
 
 
@@ -149,24 +146,11 @@ let g:unite_source_file_mru_limit = 200
 
 "---------------------------------------------------------------
 " color 
-colorscheme wombat256mod "color scheme
+colorscheme wombat256mod 
 
 let g:lightline = {
 \   'colorscheme': 'wombat',
 \} "status line color
-
-"---------------------------------------------------------------
-" TwitVim
-augroup twitvim_setting
-  autocmd!
-  autocmd FileType twitvim call s:twitvim_my_settings()
-  function! s:twitvim_my_settings()
-    set nowrap
-    nnoremap tn :NextTwitter
-    nnoremap tr :RefreshTwitter<CR>
-  endfunction
-augroup END
-
 
 "---------------------------------------------------------------
 " indentLine
