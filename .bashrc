@@ -4,13 +4,15 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.plenv/bin:$HOME/.plenv/versions/5.18.1/bin:/usr/local/bin:$HOME/bin:$PATH"
 eval "$(plenv init -)"
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-export GOPATH=~/go
-export PATH=$PATH:$GOPATH/bin
 export PS1='\[\e[1;36m\][ \W ] \t \[\e[00m\]\n\[\e[1;32m\][\u]\[\e[00m\]$ '
 
 ######################################################################
 # aliases
-alias ls='ls -G'
+if [ -f "/etc/redhat-release" ];then
+  alias ls='ls --color=auto'
+else
+  alias ls='ls -G'
+fi
 alias ll='ls -la'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'

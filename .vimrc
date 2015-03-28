@@ -8,8 +8,6 @@ nnoremap rv :source $MYVIMRC
 nnoremap install :NeoBundleInstall
 nnoremap update :NeoBundleUpdate
 nnoremap clean :NeoBundleClean
-nnoremap qr :QuickRun
-nnoremap tree :NERDTree
 nnoremap uf :Unite file
 nnoremap vsh :VimShell
 nnoremap w3m :W3m google
@@ -187,7 +185,7 @@ augroup END
 " filetype setting
 augroup filetypes
   autocmd!
-  autocmd FileType vim,html set ts=2 sw=2 sts=2
+  autocmd FileType vim,html,sh set ts=2 sw=2 sts=2
 augroup END
 
 "--------------------------------------------------------------
