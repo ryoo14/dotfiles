@@ -200,15 +200,15 @@ let g:syntastic_auto_loc_list = 2
 
 "--------------------------------------------------------------
 " VimEnter
-augroup vimenter
-  autocmd!
-  autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 | execute ":VimShell" | endif
-  function! s:GetBufByte()
-    let byte = line2byte(line('$') + 1)
-    if byte == -1
-      return 0
-    else
-      return 1
-    endif
-  endfunction
-augroup END
+" augroup vimenter
+"   autocmd!
+"   autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 | execute ":VimShell" | endif
+"   function! s:GetBufByte()
+"     let byte = line2byte(line('$') + 1)
+"     if byte == -1
+"       return 0
+"     else
+"       return 1
+"     endif
+"   endfunction
+" augroup END
