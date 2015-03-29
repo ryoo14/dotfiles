@@ -11,6 +11,8 @@ nnoremap clean :NeoBundleClean
 nnoremap uf :Unite file
 nnoremap vsh :VimShell
 nnoremap w3m :W3m google
+nnoremap tw :PosttoTwitter<CR>
+nnoremap tl :FriendsTwitter<CR><c-w>k
 
 " change window
 nnoremap <c-j> <c-w>j
@@ -107,6 +109,7 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
+NeoBundle 'TwitVim'
 call neobundle#end()
 
 
@@ -197,6 +200,18 @@ let g:vimshell_prompt_pattern = '^\f\+ > '
 " syntastic
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
+
+"--------------------------------------------------------------
+" TwitVim
+augroup twitvim_setting
+  autocmd!
+  autocmd FileType twitvim call s:twitvim_my_settings()
+  function! s:twitvim_my_settings()
+    set nowrap
+    nnoremap tn :NextTwitter
+    nnoremap tr :RefreshTwitter<CR>
+  endfunction
+augroup END
 
 "--------------------------------------------------------------
 " VimEnter
