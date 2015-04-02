@@ -1,5 +1,4 @@
 startup_message off
-escape ^Jj
 
 #画面下部に起動ウィンドウ名一覧を出す
 shelltitle "$ |bash"
