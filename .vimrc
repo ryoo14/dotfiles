@@ -5,6 +5,7 @@ scriptencoding utf-8
 "---------------------------------------------------------------
 nnoremap ev :edit $MYVIMRC
 nnoremap rv :source $MYVIMRC
+nnoremap vf :VimFiler
 nnoremap install :NeoBundleInstall
 nnoremap update :NeoBundleUpdate
 nnoremap clean :NeoBundleClean
@@ -62,7 +63,7 @@ set softtabstop=4   " 連続した空白削除時
 set autoindent      " 前行インデント継続
 set smartindent     " 前行末尾によって次行判定
 
-" status line
+" ステータスライン
 set laststatus=2
 
 " etc
@@ -110,6 +111,7 @@ NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'TwitVim'
+NeoBundle 'Shougo/vimfiler'
 call neobundle#end()
 
 
@@ -151,7 +153,7 @@ colorscheme wombat256mod
 
 let g:lightline = {
 \   'colorscheme': 'wombat',
-\} "status line color
+\} 
 
 "---------------------------------------------------------------
 " indentLine
@@ -174,7 +176,7 @@ function! W3mOpen()
   execute ':W3m' l:url
 endfunction
 
-nnoremap <silent> <c-w> :call W3mOpen()<CR>
+nnoremap <silent> <c-z> :call W3mOpen()<CR>
 
 "---------------------------------------------------------------
 " cursol line 
