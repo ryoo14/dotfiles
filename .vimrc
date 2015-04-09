@@ -53,15 +53,15 @@ nnoremap <c-z> <nop>
 " options
 "---------------------------------------------------------------
 " タブライン
-set showtabline=2   " 常にタブラインを表示
+set showtabline=2
 
 " タブ関連
 set expandtab
-set tabstop=4       " タブ幅
-set shiftwidth=4    " 自動インデント幅
-set softtabstop=4   " 連続した空白削除時
-set autoindent      " 前行インデント継続
-set smartindent     " 前行末尾によって次行判定
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smartindent
 
 " ステータスライン
 set laststatus=2
