@@ -4,7 +4,8 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.plenv/bin:$HOME/.plenv/versions/5.18.1/bin:/usr/local/bin:$HOME/bin:$PATH"
 eval "$(plenv init -)"
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-export PS1='\[\e[1;36m\][ \W ] \t \[\e[00m\]\n\[\e[1;32m\][\u]\[\e[00m\]$ '
+#export PS1='\[\e[1;36m\][ \W ] \t \[\e[00m\]\n\[\e[1;32m\][\u]\[\e[00m\]$ '
+export PS1='\[\e[1;32m\][\u]\[\e[00m\]> '
 
 ######################################################################
 # aliases
