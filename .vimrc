@@ -13,8 +13,9 @@ nnoremap vsh :VimShell
 nnoremap w3m :W3m google
 nnoremap tw :PosttoTwitter<CR>
 nnoremap tl :FriendsTwitter<CR><c-w>k
+nnoremap ts :SearchTwitter 
 nnoremap tree :NERDTreeToggle<CR>
-nnoremap ,pm :PrevimOpen
+nnoremap mark :PrevimOpen
 
 " change window
 nnoremap <c-j> <c-w>j
