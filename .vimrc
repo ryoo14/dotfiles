@@ -5,7 +5,6 @@ scriptencoding utf-8
 "---------------------------------------------------------------
 nnoremap ev :edit $MYVIMRC
 nnoremap rv :source $MYVIMRC
-nnoremap vf :VimFiler
 nnoremap install :NeoBundleInstall
 nnoremap update :NeoBundleUpdate
 nnoremap clean :NeoBundleClean
@@ -14,6 +13,8 @@ nnoremap vsh :VimShell
 nnoremap w3m :W3m google
 nnoremap tw :PosttoTwitter<CR>
 nnoremap tl :FriendsTwitter<CR><c-w>k
+nnoremap tree :NERDTreeToggle<CR>
+nnoremap ,pm :PrevimOpen
 
 " change window
 nnoremap <c-j> <c-w>j
@@ -111,7 +112,10 @@ NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'TwitVim'
-NeoBundle 'Shougo/vimfiler'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 call neobundle#end()
 
 
@@ -216,6 +220,10 @@ augroup twitvim_setting
     nnoremap tr :RefreshTwitter<CR>
   endfunction
 augroup END
+
+"--------------------------------------------------------------
+" vim-markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 "--------------------------------------------------------------
 " VimEnter
