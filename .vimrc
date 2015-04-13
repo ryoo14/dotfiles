@@ -218,10 +218,12 @@ augroup twitvim_setting
   function! s:twitvim_my_settings()
     set nowrap
     nnoremap tn :NextTwitter
+    nnoremap tp :PreviousTwitter
     nnoremap tr :RefreshTwitter<CR>
   endfunction
 augroup END
 
+let g:twitvim_count = 37
 "--------------------------------------------------------------
 " vim-markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
