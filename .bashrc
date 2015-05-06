@@ -29,13 +29,8 @@ peco-select-history() {
 bind -x '"\C-r": peco-select-history'
 
 peco-cd() {
-  if [ -f "/etc/redhat-release" ];then
-    num=10
-    local DIRS=$(ls -la | grep "^d" | awk -v n="$num" '{print $n}' | peco)
-  else
     num=9
     local DIRS=$(ls -la | grep "^d" | awk -v n="$num" '{print $n}' | peco)
-  fi
   if [ $DIRS = "." ]; then
     cd $DIRS
   else
