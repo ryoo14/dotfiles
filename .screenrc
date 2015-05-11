@@ -10,4 +10,7 @@ hardstatus alwayslastline "%{= Wr}[%m/%d %02c:%s]%016=%{= WK}%-w%50>%{= rW}%n %t
 startup_message off 
 
 # ビープを鳴らさない
-vbell off 
+vbell off
+
+# 256色
+term screen-256color

@@ -14,7 +14,8 @@ nnoremap w3m :W3m google
 nnoremap tw :PosttoTwitter<CR>
 nnoremap tl :FriendsTwitter<CR><c-w>k
 nnoremap ts :SearchTwitter 
-nnoremap tree :NERDTreeToggle<CR>
+nnoremap tlr :RepliesTwitter<CR>
+nnoremap tree :NERDTreeToggle
 nnoremap mark :PrevimOpen
 
 " change window
@@ -216,7 +217,7 @@ augroup twitvim_setting
   autocmd!
   autocmd FileType twitvim call s:twitvim_my_settings()
   function! s:twitvim_my_settings()
-    set nowrap
+    "set nowrap
     nnoremap tn :NextTwitter
     nnoremap tp :PreviousTwitter
     nnoremap tr :RefreshTwitter<CR>
@@ -226,7 +227,10 @@ augroup END
 let g:twitvim_count = 37
 "--------------------------------------------------------------
 " vim-markdown
-autocmd BufRead,BufNewFile *.md set filetype=markdown
+augroup PrevimSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 
 "--------------------------------------------------------------
 " VimEnter
