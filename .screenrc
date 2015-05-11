@@ -1,16 +1,9 @@
 startup_message off
 
-#画面下部に起動ウィンドウ名一覧を出す
 shelltitle "$ |bash"
 
-#アクティブなウィンドウを色付き反転させて時刻を表示させる
-hardstatus alwayslastline "%{= Wr}[%m/%d %02c:%s]%016=%{= WK}%-w%50>%{= rW}%n %t%{-}%+w%-0< %="
+hardstatus alwayslastline "%{= kw}[%m/%d %02c:%s]%016=%{= .r}%-w%50>%{= rW}%n %t%{-}%+w%-0< %=%{= .w}[%l]"
 
-#起動時にでるメッセージを表示させない
-startup_message off 
-
-# ビープを鳴らさない
 vbell off
 
-# 256色
 term screen-256color
