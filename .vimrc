@@ -118,7 +118,9 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'thinca/vim-quickrun'
 call neobundle#end()
+
 
 
 filetype plugin indent on
@@ -231,6 +233,10 @@ augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+
+"--------------------------------------------------------------
+" vim-markdown
+let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 
 "--------------------------------------------------------------
 " VimEnter
