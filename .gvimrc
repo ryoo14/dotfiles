@@ -7,7 +7,7 @@ if has ('mac')
 endif
 
 if has ('unix')
-  set guifont=Ricty 14
+  set guifont=Ricty\ 10
 endif
 
 " options
