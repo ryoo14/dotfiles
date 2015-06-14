@@ -6,6 +6,10 @@ if has ('mac')
   set guifont=Ricty:h16
 endif
 
+if has ('unix')
+  set guifont=Ricty:h14
+endif
+
 " options
 set guioptions-=m
 set guioptions-=T
