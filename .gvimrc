@@ -4,9 +4,7 @@ syntax on
 
 if has ('mac')
   set guifont=Ricty:h16
-endif
-
-if has ('unix')
+elseif has ('unix')
   set guifont=Ricty\ 12
 endif
 
