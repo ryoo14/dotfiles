@@ -52,6 +52,11 @@ nnoremap ,9   :e #9<CR>
 nnoremap ZZ <nop>
 nnoremap <c-z> <nop>
 
+" search
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
 "---------------------------------------------------------------
 " options
 "---------------------------------------------------------------
@@ -119,6 +124,7 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'haya14busa/incsearch.vim'
 call neobundle#end()
 
 
