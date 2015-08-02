@@ -204,7 +204,7 @@ augroup END
 " filetype setting
 augroup filetypes
   autocmd!
-  autocmd FileType vim,html,sh set ts=2 sw=2 sts=2
+  autocmd FileType vim,html,sh,rb,pl set ts=2 sw=2 sts=2
 augroup END
 
 "--------------------------------------------------------------
