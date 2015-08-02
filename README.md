@@ -1,2 +1,2 @@
 My Dotfiles.
-will delete tmux.conf
+随時更新ちう
