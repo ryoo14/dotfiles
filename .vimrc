@@ -36,6 +36,9 @@ nnoremap <expr> 0 col('.') == 1 ? '$' : '0'
 inoremap jj <Esc>
 nnoremap <Tab> % 
 vnoremap <Tab> %
+nnoremap / /\v
+
+set very magic
 
 " buff change
 nnoremap ,1   :e #1<CR>
