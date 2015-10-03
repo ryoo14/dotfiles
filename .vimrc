@@ -38,8 +38,6 @@ nnoremap <Tab> %
 vnoremap <Tab> %
 nnoremap / /\v
 
-set very magic
-
 " buff change
 nnoremap ,1   :e #1<CR>
 nnoremap ,2   :e #2<CR>
