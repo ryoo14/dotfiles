@@ -94,4 +94,3 @@ else
   export EDITOR=vim
 
 fi
-

@@ -15,7 +15,7 @@ nnoremap tw :PosttoTwitter<CR>
 nnoremap tl :FriendsTwitter<CR><c-w>k
 nnoremap ts :SearchTwitter 
 nnoremap tlr :RepliesTwitter<CR>
-nnoremap tree :NERDTreeToggle
+nnoremap tree ::VimFiler -split -simple -winwidth=30 -no-quit<CR>
 nnoremap mark :PrevimOpen
 
 " change window
@@ -115,14 +115,12 @@ NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'TwitVim'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Shougo/vimfiler.vim'
 call neobundle#end()
-
-
 
 filetype plugin indent on
 syntax on
@@ -238,6 +236,10 @@ augroup END
 "--------------------------------------------------------------
 " vim-markdown
 let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
+
+"--------------------------------------------------------------
+" vimfiler
+let g:vimfiler_as_default_explorer=1
 
 "--------------------------------------------------------------
 " VimEnter
