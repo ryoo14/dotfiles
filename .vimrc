@@ -11,10 +11,13 @@ nnoremap clean :NeoBundleClean
 nnoremap uf :Unite file
 nnoremap vsh :VimShell
 nnoremap w3m :W3m google
-nnoremap tw :PosttoTwitter<CR>
-nnoremap tl :FriendsTwitter<CR><c-w>k
-nnoremap ts :SearchTwitter 
-nnoremap tlr :RepliesTwitter<CR>
+nnoremap ,tw :PosttoTwitter<CR>
+nnoremap ,tl :FriendsTwitter<CR>
+nnoremap ,ts :SearchTwitter 
+nnoremap ,tt :RepliesTwitter<CR>
+nnoremap ,tn :NextTwitter<CR>
+nnoremap ,tp :PreviousTwitter<CR>
+nnoremap ,tr :RefreshTwitter<CR>
 nnoremap tree ::VimFiler -split -simple -winwidth=30 -no-quit<CR>
 nnoremap mark :PrevimOpen
 
@@ -215,18 +218,8 @@ let g:syntastic_ruby_checkers = ['rubocop']
 
 "--------------------------------------------------------------
 " TwitVim
-augroup twitvim_setting
-  autocmd!
-  autocmd FileType twitvim call s:twitvim_my_settings()
-  function! s:twitvim_my_settings()
-    "set nowrap
-    nnoremap tn :NextTwitter
-    nnoremap tp :PreviousTwitter
-    nnoremap tr :RefreshTwitter<CR>
-  endfunction
-augroup END
-
 let g:twitvim_count = 37
+
 "--------------------------------------------------------------
 " vim-markdown
 augroup PrevimSettings
@@ -242,17 +235,3 @@ let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 " vimfiler
 let g:vimfiler_as_default_explorer=1
 
-"--------------------------------------------------------------
-" VimEnter
-" augroup vimenter
-"   autocmd!
-"   autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 | execute ":VimShell" | endif
-"   function! s:GetBufByte()
-"     let byte = line2byte(line('$') + 1)
-"     if byte == -1
-"       return 0
-"     else
-"       return 1
-"     endif
-"   endfunction
-" augroup END
