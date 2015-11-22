@@ -21,8 +21,10 @@ else
   eval "$(plenv init -)"
   eval "$(rbenv init -)"
   #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-  #export PS1='\[\e[1;36m\][ \W ] \t \[\e[00m\]\n\[\e[1;32m\][\u]\[\e[00m\]$ '
-  export PS1='\[\e[1;32m\][\u]\[\e[00m\]> '
+  #export PS1='\[\e[1;32m\][\u]\[\e[00m\]-\[\e[1;36m\]\W\[\e[00m\] > '
+  WORKING_DIRECTORY='\[\e[$[COLUMNS-$(echo -n " ($(date +%H:%M:%S)" | wc -c)]C\e[1;31m($(date +%H:%M:%S))\e[0m\e[$[COLUMNS]D\]'
+  export PS1=${WORKING_DIRECTORY}'\[\e[1;32m\]\u\[\e[00m\] \[\e[1;36m\][\W]\[\e[00m\]-> '
+  export TERM="xterm-256color"
 
   ######################################################################
   # aliases
