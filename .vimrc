@@ -8,7 +8,6 @@ nnoremap rv :source $MYVIMRC
 nnoremap install :NeoBundleInstall
 nnoremap update :NeoBundleUpdate
 nnoremap clean :NeoBundleClean
-nnoremap uf :Unite file
 nnoremap vsh :VimShell
 nnoremap w3m :W3m google
 nnoremap ,tw :PosttoTwitter<CR>
@@ -110,6 +109,8 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'VimClojure'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Yggdroot/indentLine'
@@ -122,7 +123,6 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'vim-jp/vimdoc-ja'
 call neobundle#end()
 
@@ -157,6 +157,10 @@ let g:neosnippet#disable_runtime_snippets = {
 let g:unite_enable_start_insert = 1
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uf :<C-u>Unite file<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 
 "---------------------------------------------------------------
 " color 
