@@ -1,0 +1,4 @@
+selectp -t 0
+splitw -v
+selectp -t 1
+resize-pane -D 12

@@ -49,6 +49,7 @@ else
   alias grep='grep --color=auto'
   alias egrep='egrep --color=auto'
   alias cdp='peco-cd'
+  alias tmux='tmux new-session \; source-file ~/.tmux/session'
 
   ######################################################################
   ## settings for peco
