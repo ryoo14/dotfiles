@@ -23,11 +23,11 @@ else
   #######################################################################
   # set var
   export PATH="/usr/local/bin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-  if [ $PLENV_BOOL ]; then
+  if [ $PLENV_BOOL -eq 0 ]; then
     export PATH="$HOME/.plenv/bin:$PATH"
     eval "$(plenv init -)"
   fi
-  if [ $RBENV_BOOL ]; then
+  if [ $RBENV_BOOL -eq 0 ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
   fi
@@ -40,9 +40,9 @@ else
 
   ######################################################################
   # aliases
-  if [ -f "/etc/redhat-release" ];then
+  if [ $OS == "Linux" ]; then
     alias ls='ls --color=auto'
-  else
+  elif [ $OS == "Mac" ]; then
     alias ls='ls -G'
   fi
   alias ll='ls -la'
@@ -52,7 +52,7 @@ else
 
   ######################################################################
   ## settings for peco
-  if [ $PECO_BOOL ]; then
+  if [ $PECO_BOOL -eq 0 ]; then
     if [ $OS == "Linux" ]; then
     # For Linux?
       peco-select-history() {
