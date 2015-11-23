@@ -35,10 +35,14 @@ nnoremap <S-Down>  <C-w>+<CR>
 noremap j gj
 noremap k gk
 nnoremap <expr> 0 col('.') == 1 ? '$' : '0'
-inoremap jj <Esc>
 nnoremap <Tab> % 
 vnoremap <Tab> %
 nnoremap / /\v
+inoremap { {}<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap ' ''<Left>
+inoremap " ""<Left>
 
 " buff change
 nnoremap ,1   :e #1<CR>
@@ -50,6 +54,7 @@ nnoremap ,6   :e #6<CR>
 nnoremap ,7   :e #7<CR>
 nnoremap ,8   :e #8<CR>
 nnoremap ,9   :e #9<CR>
+
 
 " no use
 nnoremap ZZ <nop>
