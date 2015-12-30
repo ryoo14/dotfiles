@@ -63,10 +63,10 @@ nnoremap <c-z> <nop>
 "---------------------------------------------------------------
 " options
 "---------------------------------------------------------------
-" タブライン
+" show tab
 set showtabline=2
 
-" タブ関連
+" indent and space
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -74,7 +74,7 @@ set softtabstop=4
 set autoindent
 set smartindent
 
-" ステータスライン
+" show status line
 set laststatus=2
 
 " etc
@@ -88,6 +88,7 @@ set nobackup
 set noswapfile
 set noundofile
 set keywordprg=:help
+set clipboard=unnamed,autoselect
 
 "---------------------------------------------------------------
 " plugin
@@ -124,10 +125,10 @@ NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'TwitVim'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
+NeoBundleLazy 'plasticboy/vim-markdown', { 'autoload' : { 'filetype' : [ 'markdown' ] }}
+NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetype' : [ 'markdown' ] }}
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'elzr/vim-json'
 NeoBundle 'vim-jp/vimdoc-ja'
 call neobundle#end()
 
@@ -199,12 +200,12 @@ endfunction
 nnoremap <silent> <c-z> :call W3mOpen()<CR>
 
 "---------------------------------------------------------------
-" cursol line 
-augroup cursor-line
-  autocmd!
-  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline
-  autocmd CursorHold,CursorHoldI * setlocal cursorline
-augroup END
+"" cursol line 
+"augroup cursor-line
+"  autocmd!
+"  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline
+"  autocmd CursorHold,CursorHoldI * setlocal cursorline
+"augroup END
 
 "---------------------------------------------------------------
 " filetype setting
@@ -238,7 +239,7 @@ augroup PrevimSettings
 augroup END
 
 "--------------------------------------------------------------
-" vim-markdown
+" quick-run
 let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 
 "--------------------------------------------------------------
@@ -246,3 +247,15 @@ let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 let g:vimfiler_as_default_explorer=1
 let g:vimfiler_enable_auto_cd = 1
 
+"--------------------------------------------------------------
+" vim-json
+let g:vim_json_syntax_conceal = 0
+
+"--------------------------------------------------------------
+" hide tmux's status line to start or exit vim
+if !has('gui_running') && $TMUX !=# ''
+    augroup Tmux
+        autocmd!
+        autocmd VimEnter,VimLeave * silent !tmux set status
+    augroup END
+endif
