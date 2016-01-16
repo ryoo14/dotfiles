@@ -22,7 +22,7 @@ if [ $OS == 'Unknown' ]; then
 else
   #######################################################################
   # set var
-  export PATH="/usr/local/bin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+  export PATH="/usr/local/bin:$HOME/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
   export PATH="$HOME/.plenv/bin:$PATH"
   export PATH="$HOME/.rbenv/bin:$PATH"
   if [ $PLENV_BOOL -eq 0 ]; then

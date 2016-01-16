@@ -55,6 +55,8 @@ nnoremap ,7   :e #7<CR>
 nnoremap ,8   :e #8<CR>
 nnoremap ,9   :e #9<CR>
 
+" ESC
+inoremap jj <ESC>
 
 " no use
 nnoremap ZZ <nop>
