@@ -1,2 +1,4 @@
---append=yes
 --recurse=yes
+--html-kinds=af
+--ruby-kinds=cfm
+--perl-kinds

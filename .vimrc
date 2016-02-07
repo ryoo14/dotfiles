@@ -3,13 +3,13 @@ scriptencoding utf-8
 "---------------------------------------------------------------
 " key-map
 "---------------------------------------------------------------
-nnoremap ev :edit $MYVIMRC
-nnoremap rv :source $MYVIMRC
-nnoremap install :NeoBundleInstall
-nnoremap update :NeoBundleUpdate
-nnoremap clean :NeoBundleClean
-nnoremap vsh :VimShell
-nnoremap w3m :W3m google
+nnoremap ,ev :edit $MYVIMRC
+nnoremap ,rv :source $MYVIMRC
+nnoremap ,inst :NeoBundleInstall
+nnoremap ,up :NeoBundleUpdate
+nnoremap ,cl :NeoBundleClean
+nnoremap ,sh :VimShell
+nnoremap ,w3m :W3m google
 nnoremap ,tw :PosttoTwitter<CR>
 nnoremap ,tl :FriendsTwitter<CR>
 nnoremap ,ts :SearchTwitter 
@@ -17,8 +17,8 @@ nnoremap ,tt :RepliesTwitter<CR>
 nnoremap ,tn :NextTwitter<CR>
 nnoremap ,tp :PreviousTwitter<CR>
 nnoremap ,tr :RefreshTwitter<CR>
-nnoremap tree :VimFiler -split -simple -winwidth=30 -no-quit<CR>
-nnoremap mark :PrevimOpen
+nnoremap ,fi :VimFiler -split -simple -winwidth=30 -no-quit<CR>
+nnoremap ,md :PrevimOpen
 
 " change window
 nnoremap <c-j> <c-w>j
@@ -38,11 +38,6 @@ nnoremap <expr> 0 col('.') == 1 ? '$' : '0'
 nnoremap <Tab> % 
 vnoremap <Tab> %
 nnoremap / /\v
-inoremap { {}<Left>
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap ' ''<Left>
-inoremap " ""<Left>
 
 " buff change
 nnoremap ,1   :e #1<CR>
@@ -115,6 +110,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimfiler.vim'
@@ -127,11 +123,17 @@ NeoBundle 'wombat256.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'TwitVim'
-NeoBundleLazy 'plasticboy/vim-markdown', { 'autoload' : { 'filetype' : [ 'markdown' ] }}
-NeoBundleLazy 'kannokanno/previm', { 'autoload' : { 'filetype' : [ 'markdown' ] }}
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'szw/vim-tags'
+NeoBundle 'jcfaria/Vim-R-plugin'
+NeoBundle 'NigoroJr/rsense'
+NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
+    \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
 call neobundle#end()
 
 filetype plugin indent on
@@ -169,6 +171,8 @@ nnoremap <silent> ,uf :<C-u>Unite file<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> ,uo :<C-u>Unite outline -vertical -winwidth=35 -no-quit<CR>
+let g:unite_split_rule = 'botright'
 
 "---------------------------------------------------------------
 " color 
@@ -261,3 +265,24 @@ if !has('gui_running') && $TMUX !=# ''
         autocmd VimEnter,VimLeave * silent !tmux set status
     augroup END
 endif
+
+"--------------------------------------------------------------
+" vim-tags
+let g:vim_tags_project_tags_command = "$HOME/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+let g:vim_tags_gems_tags_command = "$HOME/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
+nnoremap <silent> ,tag :TagsGenerate<CR>
+
+"--------------------------------------------------------------
+" neocomplete
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+let g:rsenseUseOmniFunc = 1
+
+let g:neocomplete#sources#dictionary#dictionaries = {
+      \   'ruby': $HOME . '/dotfiles/.vim/dicts/ruby.dict',
+      \ }
+
+let vimrplugin_vsplit = 1

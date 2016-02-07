@@ -50,6 +50,7 @@ else
   alias egrep='egrep --color=auto'
   alias cdp='peco-cd'
   alias tmux='tmux new-session \; source-file ~/.tmux/session'
+  alias vim='vim --servername VIM'
 
   ######################################################################
   ## settings for peco
