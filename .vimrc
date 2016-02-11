@@ -17,7 +17,7 @@ nnoremap ,tt :RepliesTwitter<CR>
 nnoremap ,tn :NextTwitter<CR>
 nnoremap ,tp :PreviousTwitter<CR>
 nnoremap ,tr :RefreshTwitter<CR>
-nnoremap ,fi :VimFiler -split -simple -winwidth=30 -no-quit<CR>
+nnoremap ,fi :VimFiler -split -simple -create -winwidth=30 -no-quit<CR>
 nnoremap ,md :PrevimOpen
 
 " change window
@@ -61,7 +61,7 @@ nnoremap <c-z> <nop>
 " options
 "---------------------------------------------------------------
 " show tab
-set showtabline=2
+" set showtabline=2
 
 " indent and space
 set expandtab
@@ -152,7 +152,7 @@ imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neos
 smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+  set conceallevel=0 concealcursor=i
 endif
 
 let g:neosnippet#snippets_directory='~/.vim/snippets'
@@ -231,7 +231,7 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl', 'podchecker']
-let g:syntastic_ruby_checkers = ['rubocop']
+" let g:syntastic_ruby_checkers = ['rubocop']
 
 "--------------------------------------------------------------
 " TwitVim
@@ -243,7 +243,8 @@ augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-
+let g:vim_markdown_folding_disabled = 1
+set conceallevel=0
 "--------------------------------------------------------------
 " quick-run
 let g:quickrun_config = {'*': {'hook/time/enable': '1'},}

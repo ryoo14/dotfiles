@@ -1,0 +1,119 @@
+scriptencoding utf-8
+
+"---------------------------------------------------------------
+" key-map
+"---------------------------------------------------------------
+nnoremap ,ev :edit $MYVIMRC
+nnoremap ,rv :source $MYVIMRC
+nnoremap ,inst :NeoBundleInstall
+nnoremap ,up :NeoBundleUpdate
+nnoremap ,cl :NeoBundleClean
+
+" change window
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l 
+
+" change window size
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
+
+noremap j gj
+noremap k gk
+nnoremap <expr> 0 col('.') == 1 ? '$' : '0'
+nnoremap <Tab> % 
+vnoremap <Tab> %
+nnoremap / /\v
+
+" buff change
+nnoremap ,1   :e #1<CR>
+nnoremap ,2   :e #2<CR>
+nnoremap ,3   :e #3<CR>
+nnoremap ,4   :e #4<CR>
+nnoremap ,5   :e #5<CR>
+nnoremap ,6   :e #6<CR>
+nnoremap ,7   :e #7<CR>
+nnoremap ,8   :e #8<CR>
+nnoremap ,9   :e #9<CR>
+
+" ESC
+inoremap jj <ESC>
+
+" no use
+nnoremap ZZ <nop>
+nnoremap <c-z> <nop>
+
+"---------------------------------------------------------------
+" options
+"---------------------------------------------------------------
+" show tab
+" set showtabline=2
+
+" indent and space
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smartindent
+
+" show status line
+set laststatus=2
+
+" etc
+set number
+set backspace=indent,eol,start
+set wildmode=list,full
+set cmdheight=1
+set showmatch
+set hlsearch
+set nobackup
+set noswapfile
+set noundofile
+set keywordprg=:help
+set clipboard=unnamed,autoselect
+
+"---------------------------------------------------------------
+" plugin
+"---------------------------------------------------------------
+if !1 | finish | endif
+
+if has('vim_starting')
+  set nocompatible               " Be iMproved
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundle 'Shougo/vimproc.vim', {
+\   'build' : {
+\     'windows' : 'make -f make_mingw32.mak',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\   },
+\ }
+NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
+
+filetype plugin indent on
+syntax on
+
+"---------------------------------------------------------------
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+map <silent> tc :tablast <bar> tabnew<CR>
+
+"---------------------------------------------------------------
+" filetype setting
+augroup filetypes
+  autocmd!
+  autocmd FileType vim,html,sh,ruby,perl set ts=2 sw=2 sts=2
+augroup END
+

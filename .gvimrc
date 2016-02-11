@@ -12,4 +12,5 @@ endif
 set guioptions-=m
 set guioptions-=T
 set lines=90 columns=200  " window size
+set notitle
 

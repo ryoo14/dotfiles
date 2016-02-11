@@ -51,6 +51,7 @@ else
   alias cdp='peco-cd'
   alias tmux='tmux new-session \; source-file ~/.tmux/session'
   alias vim='vim --servername VIM'
+  alias be='bundle exec'
 
   ######################################################################
   ## settings for peco
