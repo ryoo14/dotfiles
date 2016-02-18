@@ -5,20 +5,6 @@ scriptencoding utf-8
 "---------------------------------------------------------------
 nnoremap ,ev :edit $MYVIMRC
 nnoremap ,rv :source $MYVIMRC
-nnoremap ,inst :NeoBundleInstall
-nnoremap ,up :NeoBundleUpdate
-nnoremap ,cl :NeoBundleClean
-nnoremap ,sh :VimShell
-nnoremap ,w3m :W3m google
-nnoremap ,tw :PosttoTwitter<CR>
-nnoremap ,tl :FriendsTwitter<CR>
-nnoremap ,ts :SearchTwitter 
-nnoremap ,tt :RepliesTwitter<CR>
-nnoremap ,tn :NextTwitter<CR>
-nnoremap ,tp :PreviousTwitter<CR>
-nnoremap ,tr :RefreshTwitter<CR>
-nnoremap ,fi :VimFiler -split -simple -create -winwidth=30 -no-quit<CR>
-nnoremap ,md :PrevimOpen
 
 " change window
 nnoremap <c-j> <c-w>j
@@ -129,15 +115,22 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'szw/vim-tags'
 NeoBundle 'jcfaria/Vim-R-plugin'
 NeoBundle 'NigoroJr/rsense'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
-    \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
+\ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
+NeoBundle 'mopp/AOJ.vim'
+NeoBundle 'mattn/webapi-vim'
 call neobundle#end()
 
 filetype plugin indent on
 syntax on
+
+"---------------------------------------------------------------
+" NeoBundle
+nnoremap ,inst :NeoBundleInstall
+nnoremap ,up :NeoBundleUpdate
+nnoremap ,cl :NeoBundleClean
 
 "---------------------------------------------------------------
 " neocomplete
@@ -145,6 +138,18 @@ let g:neocomplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 let g:neocomplete#enable_cursor_hold_i = 1
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+let g:rsenseUseOmniFunc = 1
+
+let g:neocomplete#sources#dictionary#dictionaries = {
+      \   'ruby': $HOME . '/dotfiles/.vim/dicts/ruby.dict',
+      \ }
 
 "---------------------------------------------------------------
 " neosnippet
@@ -167,6 +172,7 @@ let g:neosnippet#disable_runtime_snippets = {
 let g:unite_enable_start_insert = 1
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_mru_limit = 200
+
 nnoremap <silent> ,uf :<C-u>Unite file<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
@@ -175,7 +181,7 @@ nnoremap <silent> ,uo :<C-u>Unite outline -vertical -winwidth=35 -no-quit<CR>
 let g:unite_split_rule = 'botright'
 
 "---------------------------------------------------------------
-" color 
+" color schema
 colorscheme wombat256mod 
 
 let g:lightline = {
@@ -206,18 +212,10 @@ endfunction
 nnoremap <silent> <c-z> :call W3mOpen()<CR>
 
 "---------------------------------------------------------------
-"" cursol line 
-"augroup cursor-line
-"  autocmd!
-"  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline
-"  autocmd CursorHold,CursorHoldI * setlocal cursorline
-"augroup END
-
-"---------------------------------------------------------------
 " filetype setting
 augroup filetypes
   autocmd!
-  autocmd FileType vim,html,sh,ruby,perl set ts=2 sw=2 sts=2
+  autocmd FileType vim,html,sh,Ruby,perl set ts=2 sw=2 sts=2
 augroup END
 
 "--------------------------------------------------------------
@@ -225,17 +223,27 @@ augroup END
 let g:vimshell_prompt_expr = 'getcwd()." > "'
 let g:vimshell_prompt_pattern = '^\f\+ > '
 
+nnoremap ,sh :VimShell
+
 "--------------------------------------------------------------
 " syntastic
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl', 'podchecker']
-" let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_checkers = ['rubocop']
 
 "--------------------------------------------------------------
 " TwitVim
-let g:twitvim_count = 37
+let g:twitvim_count = 40 
+let twitvim_timestamp_format = '%H:%M'
+nnoremap ,tw :PosttoTwitter<CR>
+nnoremap ,tl :FriendsTwitter<CR>
+nnoremap ,ts :SearchTwitter 
+nnoremap ,tt :RepliesTwitter<CR>
+nnoremap ,tn :NextTwitter<CR>
+nnoremap ,tp :PreviousTwitter<CR>
+nnoremap ,tr :RefreshTwitter<CR>
 
 "--------------------------------------------------------------
 " vim-markdown
@@ -245,6 +253,8 @@ augroup PrevimSettings
 augroup END
 let g:vim_markdown_folding_disabled = 1
 set conceallevel=0
+nnoremap ,md :PrevimOpen
+
 "--------------------------------------------------------------
 " quick-run
 let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
@@ -253,6 +263,8 @@ let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 " vimfiler
 let g:vimfiler_as_default_explorer=1
 let g:vimfiler_enable_auto_cd = 1
+
+nnoremap ,fi :VimFiler -split -simple -create -winwidth=30 -no-quit<CR>
 
 "--------------------------------------------------------------
 " vim-json
@@ -268,22 +280,18 @@ if !has('gui_running') && $TMUX !=# ''
 endif
 
 "--------------------------------------------------------------
-" vim-tags
-let g:vim_tags_project_tags_command = "$HOME/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
-let g:vim_tags_gems_tags_command = "$HOME/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
-nnoremap <silent> ,tag :TagsGenerate<CR>
+" R
+let vimrplugin_vsplit = 1
 
 "--------------------------------------------------------------
-" neocomplete
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+" AOJ
+let g:aoj#user_id = 'ryoana14'
 
-let g:rsenseUseOmniFunc = 1
+nnoremap ,aov :AOJViewProblem<CR>
+nnoremap ,aos :AOJSubmit<CR>
+nnoremap ,aol :AOJViewStaticticsLogs<CR>
 
-let g:neocomplete#sources#dictionary#dictionaries = {
-      \   'ruby': $HOME . '/dotfiles/.vim/dicts/ruby.dict',
-      \ }
+"--------------------------------------------------------------
+" w3m
+nnoremap ,w3m :W3m google
 
-let vimrplugin_vsplit = 1
