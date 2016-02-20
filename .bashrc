@@ -43,4 +43,8 @@ if [ $OS != 'Unknown' ]; then
   alias egrep='egrep --color=auto'
   alias tmux='tmux new-session \; source-file ~/.tmux/session'
   alias be='bundle exec'
+  alias g='git'
+  alias rm='rm -i'
+  alias cp='cp -i'
+  alias mv='mv -i'
 fi
