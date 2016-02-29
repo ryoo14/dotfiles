@@ -136,12 +136,11 @@ for f in .??*
 do
   [ "$f" == ".git" ] && continue
   [ "$f" == ".vimrc_simple" ] && continue
-  ln -snfv "$f" "$HOME"/"$f"
-  if $?; then
+  ln -snfv "dotfiles/${f}" "${HOME}/${f}"
+  if [ $? -eq 0 ]; then
     log_suc "Successfully created symlink of ${f}"
   else
     log_err "Failed to create symlink of ${f}"
   fi
-  source "$HOME"/"f"
 done
 
