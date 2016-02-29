@@ -142,5 +142,6 @@ do
   else
     log_err "Failed to create symlink of ${f}"
   fi
+  source "$HOME"/"f"
 done
 
