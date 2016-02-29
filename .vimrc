@@ -3,6 +3,7 @@ scriptencoding utf-8
 "---------------------------------------------------------------
 " key-map
 "---------------------------------------------------------------
+" edit .vimrc
 nnoremap ,ev :edit $MYVIMRC
 nnoremap ,rv :source $MYVIMRC
 
@@ -20,7 +21,6 @@ nnoremap <S-Down>  <C-w>+<CR>
 
 noremap j gj
 noremap k gk
-nnoremap <expr> 0 col('.') == 1 ? '$' : '0'
 nnoremap <Tab> % 
 vnoremap <Tab> %
 nnoremap / /\v
@@ -43,12 +43,12 @@ inoremap jj <ESC>
 nnoremap ZZ <nop>
 nnoremap <c-z> <nop>
 
+" etc mappning
+nnoremap <C-]> :exe("tjump ".expand('<cword>'))<CR>
+
 "---------------------------------------------------------------
 " options
 "---------------------------------------------------------------
-" show tab
-" set showtabline=2
-
 " indent and space
 set expandtab
 set tabstop=4
@@ -284,5 +284,3 @@ let vimrplugin_vsplit = 1
 "--------------------------------------------------------------
 " w3m
 nnoremap ,w3m :W3m google
-
-nnoremap <C-]> :exe("tjump ".expand('<cword>'))<CR>
