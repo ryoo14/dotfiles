@@ -119,11 +119,11 @@ elif is_exists "curl" || is_exists "wget"; then
     wget -O - "$tar_file"
   fi | tar xvz
 
-  if [ ! -d dotfiles.master ]; then
+  if [ ! -d dotfiles-master ]; then
     log_err "Failed to download dotfiles..."
     exit 1
   fi
-  mv -f dotfiles.master dotfiles
+  mv -f dotfiles-master dotfiles
   log_suc "Succeed to download dotfiles"
 else
   log_err "curl or wget required"
