@@ -213,7 +213,7 @@ nnoremap <silent> <c-z> :call W3mOpen()<CR>
 " filetype setting
 augroup filetypes
   autocmd!
-  autocmd FileType vim,html,sh,ruby,perl set ts=2 sw=2 sts=2
+  autocmd FileType vim,html,sh,ruby,perl,yaml set ts=2 sw=2 sts=2
 augroup END
 
 "--------------------------------------------------------------
