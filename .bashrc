@@ -1,4 +1,23 @@
 #######################################################################
+# functions
+function get_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+}
+
+function prompt {
+  local  BLUE="\[\e[1;34m\]"
+  local  SKY="\[\e[1;36m\]"
+  local  RED="\[\e[1;31m\]"
+  local  GREEN="\[\e[1;32m\]"
+  local  WHITE="\[\e[00m\]"
+  local  GRAY="\[\e[1;37m\]"
+  local  PUPLE="\[\e[1;35m\]"
+
+  DATE_NOW='\[\e[$[COLUMNS-$(echo -n " ($(date +%H:%M:%S)" | wc -c)]C\e[1;31m($(date +%H:%M:%S))\e[0m\e[$[COLUMNS]D\]'
+  export PS1=${DATE_NOW}"${GREEN}\u ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
+}
+
+#######################################################################
 # OS
 if [ "$(uname)" == 'Darwin' ]; then
   OS='Mac'
@@ -26,13 +45,13 @@ if [ $OS != 'Unknown' ]; then
   if [ $RBENV_BOOL -eq 0 ]; then
     eval "$(rbenv init -)"
   fi
-  WORKING_DIRECTORY='\[\e[$[COLUMNS-$(echo -n " ($(date +%H:%M:%S)" | wc -c)]C\e[1;31m($(date +%H:%M:%S))\e[0m\e[$[COLUMNS]D\]'
-  export PS1=${WORKING_DIRECTORY}'\[\e[1;32m\]\u\[\e[00m\] \[\e[1;36m\][\W]\[\e[00m\]-> '
+  prompt
   export TERM="xterm-256color"
   export EDIOTR=vim
 
   ######################################################################
-  # aliases
+  ## aliases
+  # OS
   if [ $OS == "Linux" ]; then
     alias ls='ls --color=auto'
   elif [ $OS == "Mac" ]; then
@@ -41,10 +60,21 @@ if [ $OS != 'Unknown' ]; then
   alias ll='ls -la'
   alias grep='grep --color=auto'
   alias egrep='egrep --color=auto'
-  alias tmux='tmux new-session \; source-file ~/.tmux/session'
-  alias be='bundle exec'
-  alias g='git'
+  #alias tmux='tmux new-session \; source-file ~/.tmux/session'
   alias rm='rm -i'
   alias cp='cp -i'
   alias mv='mv -i'
+  # etc
+  alias ap='ansible-playbook'
+  # bundle
+  alias b='bundle'
+  alias be='bundle exec'
+  alias bi='bundle install'
+  alias bu='bundle update'
+  # git
+  alias g='git'
+  alias gs='git status'
+  alias ga='git add'
+  alias gc='git commit'
+  alias gp='git push'
 fi
