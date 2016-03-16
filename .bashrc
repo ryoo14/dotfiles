@@ -27,6 +27,8 @@ else
   OS='Unknown'
 fi
 
+export PATH="$HOME/.plenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
 which plenv > /dev/null 2>&1
 PLENV_BOOL=$?
 which rbenv > /dev/null 2>&1
@@ -37,12 +39,12 @@ if [ $OS != 'Unknown' ]; then
   #######################################################################
   # set var
   export PATH="/usr/local/bin:$HOME/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-  export PATH="$HOME/.plenv/bin:$PATH"
-  export PATH="$HOME/.rbenv/bin:$PATH"
   if [ $PLENV_BOOL -eq 0 ]; then
+    export PATH="$HOME/.plenv/bin:$PATH"
     eval "$(plenv init -)"
   fi
   if [ $RBENV_BOOL -eq 0 ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
   fi
   prompt
@@ -77,4 +79,6 @@ if [ $OS != 'Unknown' ]; then
   alias ga='git add'
   alias gc='git commit'
   alias gp='git push'
+  alias gl='git log'
+  alias gd='git diff'
 fi
