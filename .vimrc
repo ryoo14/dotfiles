@@ -9,22 +9,8 @@ nnoremap ,rv :source $MYVIMRC
 nnoremap ,egv :edit $MYGVIMRC
 nnoremap ,rgv :source $MYGVIMRC
 
-" change window
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l 
-
-" change window size
-nnoremap <S-Left>  <C-w><<CR>
-nnoremap <S-Right> <C-w>><CR>
-nnoremap <S-Up>    <C-w>-<CR>
-nnoremap <S-Down>  <C-w>+<CR>
-
 noremap j gj
 noremap k gk
-nnoremap <Tab> % 
-vnoremap <Tab> %
 nnoremap / /\v
 
 " buff change
@@ -60,22 +46,25 @@ set softtabstop=4
 set autoindent
 set smartindent
 
-" show status line
-set laststatus=2
-
 " etc
 set number
+set laststatus=2
+set showtabline=0
 set backspace=indent,eol,start
 set wildmode=list,full
 set cmdheight=1
 set showmatch
 set hlsearch
 set nobackup
-set noswapfile
-set noundofile
+set swapfile
+set directory=~/tmp
+set undofile
+set undodir=~/tmp
 set keywordprg=:help
-set clipboard=unnamed,autoselect
-
+set clipboard=unnamed
+set noerrorbells
+set novisualbell
+set t_ut=
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
@@ -111,22 +100,15 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'wombat256.vim'
+NeoBundle 'chriskempson/tomorrow-theme'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'yuratomo/w3m.vim'
-NeoBundleLazy 'TwitVim', {
-            \ 'autoload' : { 'commands' : [ 'FriendsTwitter' ] }
-            \}
+NeoBundle 'TwitVim'
 NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm', {
-            \ 'autoload' : { 'commands' : [ 'PrevimOpen' ] }
-            \}
-NeoBundleLazy 'tyru/open-browser.vim', {
-            \ 'depends' : [ 'kannokanno/previm' ]
-            \}
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'elzr/vim-json', {
-            \ 'autoload' : { 'filetype' : [ 'json' ] }
-            \}
+NeoBundle 'elzr/vim-json'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'jcfaria/Vim-R-plugin'
 NeoBundle 'NigoroJr/rsense'
@@ -292,108 +274,10 @@ nnoremap ,w3m :W3m google
 
 "---------------------------------------------------------------
 " color schema
-colorscheme wombat256mod 
+"colorscheme wombat256mod 
+colorscheme Tomorrow-Night
 
 let g:lightline = {
         \ 'colorscheme': 'wombat',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'LightLineModified',
-        \   'readonly': 'LightLineReadonly',
-        \   'fugitive': 'LightLineFugitive',
-        \   'filename': 'LightLineFilename',
-        \   'fileformat': 'LightLineFileformat',
-        \   'filetype': 'LightLineFiletype',
-        \   'fileencoding': 'LightLineFileencoding',
-        \   'mode': 'LightLineMode'
-        \ }
-        \ }
+        \}
 
-function! LightLineModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightLineReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-endfunction
-
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
-function! LightLineFugitive()
-  try
-    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-      return fugitive#head()
-    endif
-  catch
-  endtry
-  return ''
-endfunction
-
-function! LightLineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! LightLineModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightLineReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-endfunction
-
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
-function! LightLineFugitive()
-  try
-    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-      return fugitive#head()
-    endif
-  catch
-  endtry
-  return ''
-endfunction
-
-function! LightLineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
