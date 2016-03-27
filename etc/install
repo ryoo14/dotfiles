@@ -100,7 +100,7 @@ if is_exists "git"; then
   git clone https://github.com/ryoana14/dotfiles.git
   
   if [ -d dotfiles ]; then
-    cd dotfile
+    cd dotfiles
     git submodule init
     git submodule update
     cd $HOME
