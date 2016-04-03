@@ -47,6 +47,10 @@ if [ $OS != 'Unknown' ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
   fi
+  which go > /dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    export GOPATH="$HOME/.go"
+  fi
   prompt
   export TERM="xterm-256color"
   export EDIOTR=vim
@@ -81,4 +85,9 @@ if [ $OS != 'Unknown' ]; then
   alias gp='git push'
   alias gl='git log'
   alias gd='git diff'
+  # docker
+  alias d='docker'
+  alias dp='docker ps'
+  alias dv='docker volume'
+  alias di='docker images'
 fi
