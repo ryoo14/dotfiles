@@ -87,6 +87,8 @@ if [ $OS != 'Unknown' ]; then
   alias gd='git diff'
   # docker
   alias d='docker'
+  alias dr='docker rm'
+  alias ds='docker stop'
   alias dp='docker ps'
   alias dv='docker volume'
   alias di='docker images'

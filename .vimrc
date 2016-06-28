@@ -102,15 +102,12 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'wombat256.vim'
 NeoBundle 'chriskempson/tomorrow-theme'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'TwitVim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'jcfaria/Vim-R-plugin'
 NeoBundle 'NigoroJr/rsense'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
             \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
@@ -187,16 +184,6 @@ endfor
 map <silent> tc :tablast <bar> tabnew<CR>
 
 "---------------------------------------------------------------
-" w3m 
-function! W3mOpen()
-  let l:url = matchstr(getline('.'), 'https\{0,1}:\/\/[^>,;:]*')
-  execute ':vs'
-  execute ':W3m' l:url
-endfunction
-
-nnoremap <silent> <c-z> :call W3mOpen()<CR>
-
-"---------------------------------------------------------------
 " filetype setting
 augroup filetypes
   autocmd!
@@ -219,27 +206,16 @@ let g:syntastic_perl_checkers = ['perl', 'podchecker']
 let g:syntastic_ruby_checkers = ['rubocop']
 
 "--------------------------------------------------------------
-" TwitVim
-let g:twitvim_count = 40 
-let twitvim_timestamp_format = '%H:%M'
-nnoremap ,tw :PosttoTwitter<CR>
-nnoremap ,tl :FriendsTwitter<CR>
-nnoremap ,ts :SearchTwitter 
-nnoremap ,tt :RepliesTwitter<CR>
-nnoremap ,tn :NextTwitter<CR>
-nnoremap ,tp :PreviousTwitter<CR>
-nnoremap ,tr :RefreshTwitter<CR>
-
-"--------------------------------------------------------------
 " vim-markdown
 augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-let g:vim_markdown_folding_disabled = 1
-set conceallevel=0
-nnoremap ,md :PrevimOpen
 
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+
+nnoremap ,md :PrevimOpen
 "--------------------------------------------------------------
 " quick-run
 let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
@@ -264,14 +240,6 @@ if !has('gui_running') && $TMUX !=# ''
     augroup END
 endif
 
-"--------------------------------------------------------------
-" R
-let vimrplugin_vsplit = 1
-
-"--------------------------------------------------------------
-" w3m
-nnoremap ,w3m :W3m google
-
 "---------------------------------------------------------------
 " color schema
 "colorscheme wombat256mod 
@@ -280,4 +248,3 @@ colorscheme Tomorrow-Night
 let g:lightline = {
         \ 'colorscheme': 'wombat',
         \}
-
