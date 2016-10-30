@@ -109,6 +109,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'NigoroJr/rsense'
+NeoBundle 'yuratomo/w3m.vim'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
             \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
 call neobundle#end()
@@ -139,6 +140,7 @@ let g:rsenseUseOmniFunc = 1
 
 let g:neocomplete#sources#dictionary#dictionaries = {
       \   'ruby': $HOME . '/dotfiles/.vim/dicts/ruby.dict',
+      \   'lisp': $HOME . '/dotfiles/.vim/dicts/lisp.dict',
       \ }
 
 "---------------------------------------------------------------
