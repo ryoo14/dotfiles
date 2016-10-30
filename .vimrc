@@ -49,7 +49,7 @@ set smartindent
 " etc
 set number
 set laststatus=2
-set showtabline=0
+set showtabline=1
 set backspace=indent,eol,start
 set wildmode=list,full
 set cmdheight=1
