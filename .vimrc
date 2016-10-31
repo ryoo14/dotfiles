@@ -68,53 +68,6 @@ set t_ut=
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
-"if !1 | finish | endif
-"
-"if has('vim_starting')
-"  set nocompatible               " Be iMproved
-"  set runtimepath+=~/.vim/bundle/neobundle.vim/
-"endif
-"
-"
-"call neobundle#begin(expand('~/.vim/bundle/'))
-"NeoBundle 'Shougo/vimproc.vim', {
-"\   'build' : {
-"\     'windows' : 'make -f make_mingw32.mak',
-"\     'cygwin' : 'make -f make_cygwin.mak',
-"\     'mac' : 'make -f make_mac.mak',
-"\     'unix' : 'make -f make_unix.mak',
-"\   },
-"\ }
-"NeoBundleFetch 'Shougo/neobundle.vim'
-"NeoBundle 'Shougo/neosnippet'
-"NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'Shougo/unite-outline'
-"NeoBundle 'Shougo/vimshell.vim', {
-"            \ 'autoload' : { 'commands' : [ 'VimShell' ] }
-"            \}
-"NeoBundle 'Shougo/neocomplete.vim'
-"NeoBundle 'Shougo/vimfiler.vim'
-"NeoBundle 'Shougo/neomru.vim'
-"NeoBundle 'VimClojure'
-"NeoBundle 'scrooloose/syntastic'
-"NeoBundle 'Yggdroot/indentLine'
-"NeoBundle 'w0ng/vim-hybrid'
-"NeoBundle 'wombat256.vim'
-"NeoBundle 'chriskempson/tomorrow-theme'
-"NeoBundle 'itchyny/lightline.vim'
-"NeoBundle 'plasticboy/vim-markdown'
-"NeoBundle 'kannokanno/previm'
-"NeoBundle 'tyru/open-browser.vim'
-"NeoBundle 'thinca/vim-quickrun'
-"NeoBundle 'elzr/vim-json'
-"NeoBundle 'vim-jp/vimdoc-ja'
-"NeoBundle 'NigoroJr/rsense'
-"NeoBundle 'yuratomo/w3m.vim'
-"NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
-"            \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
-"call neobundle#end()
-"
-
 if !&compatible
   set nocompatible
 endif
@@ -148,12 +101,6 @@ endif
 " }}}
 filetype plugin indent on
 syntax on
-
-"---------------------------------------------------------------
-" NeoBundle
-nnoremap ,inst :NeoBundleInstall
-nnoremap ,up :NeoBundleUpdate
-nnoremap ,cl :NeoBundleClean
 
 "---------------------------------------------------------------
 " neocomplete
