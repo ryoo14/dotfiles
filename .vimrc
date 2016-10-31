@@ -68,52 +68,84 @@ set t_ut=
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
-if !1 | finish | endif
+"if !1 | finish | endif
+"
+"if has('vim_starting')
+"  set nocompatible               " Be iMproved
+"  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"endif
+"
+"
+"call neobundle#begin(expand('~/.vim/bundle/'))
+"NeoBundle 'Shougo/vimproc.vim', {
+"\   'build' : {
+"\     'windows' : 'make -f make_mingw32.mak',
+"\     'cygwin' : 'make -f make_cygwin.mak',
+"\     'mac' : 'make -f make_mac.mak',
+"\     'unix' : 'make -f make_unix.mak',
+"\   },
+"\ }
+"NeoBundleFetch 'Shougo/neobundle.vim'
+"NeoBundle 'Shougo/neosnippet'
+"NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'Shougo/unite-outline'
+"NeoBundle 'Shougo/vimshell.vim', {
+"            \ 'autoload' : { 'commands' : [ 'VimShell' ] }
+"            \}
+"NeoBundle 'Shougo/neocomplete.vim'
+"NeoBundle 'Shougo/vimfiler.vim'
+"NeoBundle 'Shougo/neomru.vim'
+"NeoBundle 'VimClojure'
+"NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'Yggdroot/indentLine'
+"NeoBundle 'w0ng/vim-hybrid'
+"NeoBundle 'wombat256.vim'
+"NeoBundle 'chriskempson/tomorrow-theme'
+"NeoBundle 'itchyny/lightline.vim'
+"NeoBundle 'plasticboy/vim-markdown'
+"NeoBundle 'kannokanno/previm'
+"NeoBundle 'tyru/open-browser.vim'
+"NeoBundle 'thinca/vim-quickrun'
+"NeoBundle 'elzr/vim-json'
+"NeoBundle 'vim-jp/vimdoc-ja'
+"NeoBundle 'NigoroJr/rsense'
+"NeoBundle 'yuratomo/w3m.vim'
+"NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
+"            \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
+"call neobundle#end()
+"
 
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if !&compatible
+  set nocompatible
 endif
 
+" reset augroup
+augroup MyAutoCmd
+  autocmd!
+augroup END
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundle 'Shougo/vimproc.vim', {
-\   'build' : {
-\     'windows' : 'make -f make_mingw32.mak',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
-\   },
-\ }
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/vimshell.vim', {
-            \ 'autoload' : { 'commands' : [ 'VimShell' ] }
-            \}
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'VimClojure'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'wombat256.vim'
-NeoBundle 'chriskempson/tomorrow-theme'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'NigoroJr/rsense'
-NeoBundle 'yuratomo/w3m.vim'
-NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
-            \ 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
-call neobundle#end()
-
+" dein settings {{{
+" dein自体の自動インストール
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
+" プラグイン読み込み＆キャッシュ作成
+let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
+  call dein#load_toml(s:toml_file)
+  call dein#end()
+  call dein#save_state()
+endif
+" 不足プラグインの自動インストール
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
+" }}}
 filetype plugin indent on
 syntax on
 
@@ -245,7 +277,7 @@ endif
 "---------------------------------------------------------------
 " color schema
 "colorscheme wombat256mod 
-colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night
 
 let g:lightline = {
         \ 'colorscheme': 'wombat',
