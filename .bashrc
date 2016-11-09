@@ -17,6 +17,18 @@ function prompt {
   export PS1=${DATE_NOW}"${GREEN}\u ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
 }
 
+function wktemp {
+  d=$(mktemp -d "${TMPDIR:-/tmp}/${1:-tmpspace}.XXXXX") && cd "$d" || exit 1
+  "$SHELL"
+  s=$?
+  if [[ $s == 0 ]]; then
+    rm -rf "$d"
+  else
+    echo "Directory '$d' still exists." >&2
+  fi
+  exit $s
+}
+
 #######################################################################
 # OS
 if [ "$(uname)" == 'Darwin' ]; then
