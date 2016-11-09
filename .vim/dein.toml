@@ -6,53 +6,65 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-  set background=dark
-  " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-  " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-  au MyAutoCmd VimEnter * nested colorscheme hybrid
-'''
-
-[[plugins]]
 repo = 'elzr/vim-json'
 on_ft = 'json'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
+
 [[plugins]]
 repo = 'Shougo/unite.vim'
+
 [[plugins]]
 repo = 'Shougo/unite-outline'
+
 [[plugins]]
 repo = 'Shougo/vimshell.vim'
+
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
+
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
+
 [[plugins]]
 repo = 'Shougo/neomru.vim'
+
 [[plugins]]
 repo = 'VimClojure'
+
 [[plugins]]
 repo = 'scrooloose/syntastic'
+
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-[[plugins]]
-repo = 'wombat256.vim'
+
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+
 [[plugins]]
 repo = 'kannokanno/previm'
+on_ft = 'markdown'
+
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+
 [[plugins]]
 repo = 'NigoroJr/rsense'
+on_ft = 'rb'
+
 [[plugins]]
 repo = 'yuratomo/w3m.vim'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'

@@ -54,7 +54,7 @@ set backspace=indent,eol,start
 set wildmode=list,full
 set cmdheight=1
 set showmatch
-set hlsearch
+set nohlsearch
 set nobackup
 set swapfile
 set directory=~/tmp
@@ -222,10 +222,9 @@ if !has('gui_running') && $TMUX !=# ''
 endif
 
 "---------------------------------------------------------------
-" color schema
-"colorscheme wombat256mod 
-"colorscheme Tomorrow-Night
-
+" lightline
+set background=dark
+colorscheme hybrid
 let g:lightline = {
         \ 'colorscheme': 'wombat',
         \}

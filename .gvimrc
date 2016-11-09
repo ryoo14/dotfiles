@@ -1,6 +1,5 @@
 " color Scheme
-colorscheme hybrid
-syntax on
+"colorscheme hybrid
 
 if has ('mac')
   set guifont=Ricty:h16
