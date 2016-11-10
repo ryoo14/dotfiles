@@ -14,7 +14,7 @@ function prompt {
   local  PUPLE="\[\e[1;35m\]"
 
   DATE_NOW='\[\e[$[COLUMNS-$(echo -n " ($(date +%H:%M:%S)" | wc -c)]C\e[1;31m($(date +%H:%M:%S))\e[0m\e[$[COLUMNS]D\]'
-  export PS1=${DATE_NOW}"${GREEN}\u ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
+  export PS1=${DATE_NOW}"${GREEN}\h ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
 }
 
 function wktemp {
