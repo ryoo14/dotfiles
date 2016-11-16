@@ -13,26 +13,14 @@ noremap j gj
 noremap k gk
 nnoremap / /\v
 
-" buff change
-nnoremap ,1   :e #1<CR>
-nnoremap ,2   :e #2<CR>
-nnoremap ,3   :e #3<CR>
-nnoremap ,4   :e #4<CR>
-nnoremap ,5   :e #5<CR>
-nnoremap ,6   :e #6<CR>
-nnoremap ,7   :e #7<CR>
-nnoremap ,8   :e #8<CR>
-nnoremap ,9   :e #9<CR>
-
 " ESC
-inoremap jj <ESC>
-noremap <expr> <C-f> max([winheight(0) - 2, 1]) . "\<C-d>" . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 
 " no use
 nnoremap ZZ <nop>
 nnoremap <c-z> <nop>
 
 " etc mappning
+noremap <expr> <C-f> max([winheight(0) - 2, 1]) . "\<C-d>" . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 nnoremap <C-]> :exe("tjump ".expand('<cword>'))<CR>
 
 "---------------------------------------------------------------
@@ -77,16 +65,18 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-" dein settings {{{
-" dein自体の自動インストール
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+" dein
+let s:cache_home = expand('~/.cache')
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" auto install if not exist dein.vim
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
+
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
-" プラグイン読み込み＆キャッシュ作成
+
+" load plugins
 let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
@@ -94,11 +84,11 @@ if dein#load_state(s:dein_dir)
   call dein#end()
   call dein#save_state()
 endif
-" 不足プラグインの自動インストール
+" auto install if not exist etc plugins
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
-" }}}
+
 filetype plugin indent on
 syntax on
 
@@ -156,21 +146,6 @@ let g:unite_split_rule = 'botright'
 let g:indentLine_char = '¦'
 let g:indentLine_color_term = 7
 
-"---------------------------------------------------------------
-" Tab jump
-for n in range(1, 9)
-  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-
-map <silent> tc :tablast <bar> tabnew<CR>
-
-"---------------------------------------------------------------
-" filetype setting
-augroup filetypes
-  autocmd!
-  autocmd FileType vim,html,sh,ruby,perl,yaml,lisp set ts=2 sw=2 sts=2
-augroup END
-
 "--------------------------------------------------------------
 " Vimshell
 let g:vimshell_prompt_expr = 'getcwd()." > "'
@@ -197,6 +172,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 
 nnoremap ,md :PrevimOpen
+
 "--------------------------------------------------------------
 " quick-run
 let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
@@ -228,3 +204,19 @@ colorscheme hybrid
 let g:lightline = {
         \ 'colorscheme': 'wombat',
         \}
+
+"---------------------------------------------------------------
+" tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+map <silent> tc :tablast <bar> tabnew<CR>
+
+"---------------------------------------------------------------
+" filetype setting
+augroup filetypes
+  autocmd!
+  autocmd FileType vim,html,sh,ruby,perl,yaml,lisp set ts=2 sw=2 sts=2
+augroup END
+
