@@ -136,7 +136,6 @@ for f in .??*
 do
   [ "$f" == ".git" ] && continue
   [ "$f" == ".gitignore" ] && continue
-  [ "$f" == ".vimrc_simple" ] && continue
   ln -snfv "dotfiles/${f}" "${HOME}/${f}"
   if [ $? -eq 0 ]; then
     log_suc "Successfully created symlink of ${f}"
