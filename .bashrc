@@ -1,10 +1,10 @@
 #######################################################################
 # functions
-function get_branch {
+get_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
 
-function prompt {
+prompt () {
   local  BLUE="\[\e[1;34m\]"
   local  SKY="\[\e[1;36m\]"
   local  RED="\[\e[1;31m\]"
@@ -17,7 +17,8 @@ function prompt {
   export PS1=${DATE_NOW}"${GREEN}\h ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
 }
 
-function wktemp {
+wktemp () {
+  (
   d=$(mktemp -d "${TMPDIR:-/tmp}/${1:-tmpspace}.XXXXX") && cd "$d" || exit 1
   "$SHELL"
   s=$?
@@ -27,6 +28,7 @@ function wktemp {
     echo "Directory '$d' still exists." >&2
   fi
   exit $s
+  )
 }
 
 #######################################################################
@@ -39,8 +41,8 @@ else
   OS='Unknown'
 fi
 
-export PATH="$HOME/.plenv/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.plenv/bin:$PATH"
 which plenv > /dev/null 2>&1
 PLENV_BOOL=$?
 which rbenv > /dev/null 2>&1
@@ -59,10 +61,7 @@ if [ $OS != 'Unknown' ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
   fi
-  which go > /dev/null 2>&1
-  if [ $? -eq 0 ]; then
-    export GOPATH="$HOME/.go"
-  fi
+
   prompt
   export TERM="xterm-256color"
   export EDIOTR=vim
