@@ -1,10 +1,7 @@
-" color Scheme
-"colorscheme hybrid
-
 if has ('mac')
   set guifont=Ricty:h16
 elseif has ('unix')
-  set guifont=Ricty\ for\ Powerline\ 11
+  set guifont=Ricty\ Regular\ 11
 endif
 
 " options
@@ -19,9 +16,4 @@ set notitle
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"\u2b64":""}',
-      \ },
-      \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-      \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" },
       \ }

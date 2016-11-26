@@ -200,7 +200,6 @@ endif
 "---------------------------------------------------------------
 " lightline
 set background=dark
-colorscheme hybrid
 let g:lightline = {
         \ 'colorscheme': 'wombat',
         \}
