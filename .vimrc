@@ -14,6 +14,7 @@ noremap k gk
 nnoremap / /\v
 
 " ESC
+inoremap jj <ESC>
 
 " no use
 nnoremap ZZ <nop>
