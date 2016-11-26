@@ -104,3 +104,6 @@ if [ $OS != 'Unknown' ]; then
   alias dv='docker volume'
   alias di='docker images'
 fi
+
+export HISTSIZE=2000
+export HISTFILESIZE=2000
