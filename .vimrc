@@ -220,3 +220,10 @@ augroup filetypes
   autocmd FileType vim,html,sh,ruby,perl,yaml,lisp set ts=2 sw=2 sts=2
 augroup END
 
+"---------------------------------------------------------------
+" vim-fugitive
+
+nnoremap ,gs :Gstatus<CR>
+nnoremap ,gc :Gcommit<CR>
+
+
