@@ -66,11 +66,17 @@ on_ft = 'rb'
 [[plugins]]
 repo = 'yuratomo/w3m.vim'
 
+#[[plugins]]
+#repo = 'w0ng/vim-hybrid'
+#hook_add = '''
+#    set background=dark
+#    au MyAutoCmd VimEnter * nested colorscheme hybrid
+#'''
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
+repo = 'AlessandroYorba/Alduin'
 hook_add = '''
     set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
+    au MyAutoCmd VimEnter * nested colorscheme alduin
 '''
 
 [[plugins]]
