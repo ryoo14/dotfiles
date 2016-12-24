@@ -7,9 +7,14 @@ bind -c resize k eval 'resize -1' 'command -c resize'
 # don't show startup message.
 startup_message off
 
-# Escape key is C-t, literal is a.
+# escape key is C-t
 escape ^Ta
+
+# scroll
+termcapinfo xterm* ti@:te@
+
 
 caption always '%?%F%{= Ky}%:%{= .y}%?%2n%f%07=%t%='
 
 hardstatus alwayslastline '%{= .c}%H%{-} %L=%-w%45L>%{=b g}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
+
