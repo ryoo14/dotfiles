@@ -226,4 +226,6 @@ augroup END
 nnoremap ,gs :Gstatus<CR>
 nnoremap ,gc :Gcommit<CR>
 
-
+"---------------------------------------------------------------
+" slime
+let g:slime_target = "screen"
