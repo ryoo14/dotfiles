@@ -58,6 +58,8 @@ if [ $OS != 'Unknown' ]; then
     eval "$(plenv init -)"
   fi
   if [ $RBENV_BOOL -eq 0 ]; then
+    # add rubygem dir
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
   fi
