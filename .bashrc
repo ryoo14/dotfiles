@@ -79,12 +79,10 @@ if [ $OS != 'Unknown' ]; then
   alias ll='ls -la'
   alias grep='grep --color=auto'
   alias egrep='egrep --color=auto'
-  #alias tmux='tmux new-session \; source-file ~/.tmux/session'
   alias rm='rm -i'
   alias cp='cp -i'
   alias mv='mv -i'
-  # etc
-  alias ap='ansible-playbook'
+  alias psa='ps auxw'
   # bundle
   alias b='bundle'
   alias be='bundle exec'
@@ -99,12 +97,16 @@ if [ $OS != 'Unknown' ]; then
   alias gl='git log'
   alias gd='git diff'
   # docker
-  alias d='docker'
-  alias dr='docker rm'
-  alias ds='docker stop'
-  alias dp='docker ps'
-  alias dv='docker volume'
-  alias di='docker images'
+  if $(which docker > /dev/null 2>&1); then
+    alias d='docker'
+    alias dr='docker rm'
+    alias ds='docker stop'
+    alias dp='docker ps'
+    alias dv='docker volume'
+    alias di='docker images'
+  fi
+  # etc
+  alias ap='ansible-playbook'
 fi
 
 export HISTSIZE=2000
