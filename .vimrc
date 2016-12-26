@@ -222,10 +222,13 @@ augroup END
 
 "---------------------------------------------------------------
 " vim-fugitive
-
 nnoremap ,gs :Gstatus<CR>
 nnoremap ,gc :Gcommit<CR>
 
 "---------------------------------------------------------------
 " slime
 let g:slime_target = "screen"
+
+"---------------------------------------------------------------
+"lexima
+inoremap <C-l> <C-g>U<Right>
