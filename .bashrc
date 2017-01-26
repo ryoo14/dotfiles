@@ -83,6 +83,9 @@ if [ $OS != 'Unknown' ]; then
   alias cp='cp -i'
   alias mv='mv -i'
   alias psa='ps auxw'
+  if $(which systemctl > /dev/null 2>&1); then
+    alias sc='systemctl'
+  fi
   # bundle
   alias b='bundle'
   alias be='bundle exec'
@@ -105,8 +108,10 @@ if [ $OS != 'Unknown' ]; then
     alias dv='docker volume'
     alias di='docker images'
   fi
-  # etc
-  alias ap='ansible-playbook'
+  # ansible
+  if $(which ansible-playbook > /dev/null 2>&1); then
+    alias ap='ansible-playbook'
+  fi
 fi
 
 export HISTSIZE=2000
