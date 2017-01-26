@@ -73,18 +73,18 @@ on_ft = 'markdown'
 # -----------------------------------------------------
 ## appearance
 # colorscheme
-[[plugins]]
-repo = 'AlessandroYorba/Alduin'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme alduin
-'''
 #[[plugins]]
-#repo = 'w0ng/vim-hybrid'
+#repo = 'AlessandroYorba/Alduin'
 #hook_add = '''
 #    set background=dark
-#    au MyAutoCmd VimEnter * nested colorscheme hybrid
+#    au MyAutoCmd VimEnter * nested colorscheme alduin
 #'''
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    set background=dark
+    au MyAutoCmd VimEnter * nested colorscheme hybrid
+'''
 
 # status line
 [[plugins]]
