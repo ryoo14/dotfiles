@@ -66,7 +66,7 @@ if [ $OS != 'Unknown' ]; then
 
   prompt
   export TERM="xterm-256color"
-  export EDIOTR=vim
+  export EDITOR=vim
 
   ######################################################################
   ## aliases
