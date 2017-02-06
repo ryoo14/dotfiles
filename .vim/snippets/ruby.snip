@@ -90,11 +90,17 @@ snippet gsmi
 snippet gi
         gets.to_i
 
+snippet gcs
+        gets.chomp.split('')
+
 snippet gem
         gem "${1}"
 
 snippet gemg
-        gem "${1}", ">=${2}"
+        gem "${1}", ">= ${2}"
 
 snippet geme
-        gem "${1}", "~>${2}"
+        gem "${1}", "~> ${2}"
+
+snippet pry
+        binding.pry
