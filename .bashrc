@@ -63,6 +63,9 @@ if [ $OS != 'Unknown' ]; then
     eval "$(rbenv init -)"
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
   fi
+  if $(which ros > /dev/null 2>&1); then
+    PATH="$HOME/.roswell/bin:$PATH"
+  fi
 
   prompt
   export TERM="xterm-256color"
