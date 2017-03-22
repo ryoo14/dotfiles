@@ -69,6 +69,10 @@ on_ft = 'json'
 repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
 
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+
 
 # -----------------------------------------------------
 ## appearance
