@@ -107,10 +107,12 @@ if [ $OS != 'Unknown' ]; then
   if $(which docker > /dev/null 2>&1); then
     alias d='docker'
     alias dr='docker rm'
+    alias dri='docker rmi'
     alias ds='docker stop'
     alias dp='docker ps'
     alias dv='docker volume'
-    alias di='docker images'
+    alias dim='docker images'
+    alias din='docker inspect'
   fi
   # ansible
   if $(which ansible-playbook > /dev/null 2>&1); then
