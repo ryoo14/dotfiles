@@ -86,6 +86,7 @@ if [ $OS != 'Unknown' ]; then
   alias cp='cp -i'
   alias mv='mv -i'
   alias psa='ps auxw'
+  alias sudo='sudo '
   if $(which systemctl > /dev/null 2>&1); then
     alias sc='systemctl'
   fi
