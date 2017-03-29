@@ -21,39 +21,63 @@ nnoremap ZZ <nop>
 nnoremap <c-z> <nop>
 
 " etc mappning
-noremap <expr> <C-f> max([winheight(0) - 2, 1]) . "\<C-d>" . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
+noremap <expr> <C-f> 
+    \ max([winheight(0) - 2, 1]) . "\<C-d>" 
+    \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 nnoremap <C-]> :exe("tjump ".expand('<cword>'))<CR>
 
 "---------------------------------------------------------------
 " options
 "---------------------------------------------------------------
-" indent and space
+" exchange space to tab
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+" enable smart indent
 set autoindent
 set smartindent
 
-" etc
+" visible 80th column
+set colorcolumn=79
+
+" display line number
 set number
+
+" always display status line
 set laststatus=2
+" display tab line when two or more tabs
 set showtabline=1
+
+" backspace can delete indent and newline
 set backspace=indent,eol,start
+
 set wildmode=list,full
+
+" command line height
 set cmdheight=1
 set showmatch
+
+" not highlight for search result
 set nohlsearch
+
+" not get backup and swapfile
 set nobackup
-set swapfile
-set directory=~/tmp
+set noswapfile
+" get undofile
 set undofile
 set undodir=~/tmp
+
 set keywordprg=:help
 set clipboard=unnamed
-set noerrorbells
+
+" disable bells
 set novisualbell
+set belloff=all
+
 set t_ut=
+
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
@@ -72,7 +96,8 @@ let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 " auto install if not exist dein.vim
 if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+  call system('git clone https://github.com/Shougo/dein.vim ' 
+      \ . shellescape(s:dein_repo_dir))
 endif
 
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
@@ -156,6 +181,7 @@ nnoremap ,sh :VimShell
 
 "--------------------------------------------------------------
 " syntastic
+" TODO: fix
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_enable_perl_checker = 1
@@ -189,15 +215,6 @@ nnoremap ,fi :VimFiler -split -simple -create -winwidth=30 -no-quit<CR>
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
-"--------------------------------------------------------------
-" hide tmux's status line to start or exit vim
-if !has('gui_running') && $TMUX !=# ''
-    augroup Tmux
-        autocmd!
-        autocmd VimEnter,VimLeave * silent !tmux set status
-    augroup END
-endif
-
 "---------------------------------------------------------------
 " lightline
 set background=dark
@@ -212,13 +229,6 @@ for n in range(1, 9)
 endfor
 
 map <silent> tc :tablast <bar> tabnew<CR>
-
-"---------------------------------------------------------------
-" filetype setting
-augroup filetypes
-  autocmd!
-  autocmd FileType vim,html,sh,ruby,perl,yaml,lisp set ts=2 sw=2 sts=2
-augroup END
 
 "---------------------------------------------------------------
 " vim-fugitive
