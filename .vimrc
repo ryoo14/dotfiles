@@ -73,6 +73,7 @@ set keywordprg=:help
 set clipboard=unnamed
 
 " disable bells
+set t_vb=
 set novisualbell
 set belloff=all
 
@@ -134,9 +135,9 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:rsenseUseOmniFunc = 1
 
 let g:neocomplete#sources#dictionary#dictionaries = {
-      \   'ruby': $HOME . '/dotfiles/.vim/dicts/ruby.dict',
-      \   'lisp': $HOME . '/dotfiles/.vim/dicts/lisp.dict',
-      \ }
+  \   'ruby': $HOME . '/dotfiles/.vim/dicts/ruby.dict',
+  \   'lisp': $HOME . '/dotfiles/.vim/dicts/lisp.dict',
+  \ }
 
 "---------------------------------------------------------------
 " neosnippet
@@ -151,8 +152,8 @@ let g:neosnippet#snippets_directory='~/.vim/snippets'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 let g:neosnippet#disable_runtime_snippets = {
-		\   'c' : 1, 'cpp' : 1,
-  	\ }
+	\   'c' : 1, 'cpp' : 1,
+ 	\ }
 
 "---------------------------------------------------------------
 " Unite
@@ -219,8 +220,8 @@ let g:vim_json_syntax_conceal = 0
 " lightline
 set background=dark
 let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \}
+  \ 'colorscheme': 'wombat',
+  \}
 
 "---------------------------------------------------------------
 " tab jump
