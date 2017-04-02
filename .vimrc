@@ -22,8 +22,8 @@ nnoremap <c-z> <nop>
 
 " etc mappning
 noremap <expr> <C-f> 
-    \ max([winheight(0) - 2, 1]) . "\<C-d>" 
-    \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
+  \ max([winheight(0) - 2, 1]) . "\<C-d>" 
+  \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 nnoremap <C-]> :exe("tjump ".expand('<cword>'))<CR>
 
 "---------------------------------------------------------------
@@ -228,7 +228,7 @@ for n in range(1, 9)
   execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
 
-map <silent> tc :tablast <bar> tabnew<CR>
+map <silent> ,tc :tablast <bar> tabnew<CR>
 
 "---------------------------------------------------------------
 " vim-fugitive

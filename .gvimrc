@@ -15,5 +15,5 @@ set lines=90 columns=200  " window size
 set notitle
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+  \ 'colorscheme': 'wombat',
+  \ }
