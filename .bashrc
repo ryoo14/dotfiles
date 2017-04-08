@@ -42,9 +42,6 @@ else
 fi
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.plenv/bin:$PATH"
-which plenv > /dev/null 2>&1
-PLENV_BOOL=$?
 which rbenv > /dev/null 2>&1
 RBENV_BOOL=$?
 
@@ -53,10 +50,6 @@ if [ $OS != 'Unknown' ]; then
   #######################################################################
   # set var
   export PATH="/usr/local/bin:$HOME/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-  if [ $PLENV_BOOL -eq 0 ]; then
-    export PATH="$HOME/.plenv/bin:$PATH"
-    eval "$(plenv init -)"
-  fi
   if [ $RBENV_BOOL -eq 0 ]; then
     # add rubygem dir
     export PATH="$HOME/.rbenv/bin:$PATH"
