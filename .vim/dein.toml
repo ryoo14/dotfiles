@@ -49,7 +49,7 @@ on_ft = 'rb'
 # -----------------------------------------------------
 # lisp
 [[plugins]]
-repo = 'VimClojure'
+repo = 'vim-scripts/VimClojure'
 
 [[plugins]]
 repo = 'jpalardy/vim-slime'

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ "$#" -eq 0 || "$#" -gt 2 ]]; then
+  echo "Usage: ./install [server|client]"
+  exit 1
+fi
+
 is_exists() {
   which "$1" > /dev/null 2>&1
   return $?
@@ -88,42 +93,6 @@ log_info() {
 log_suc() {
   logging SUCCESS "$1" 1>&2
 }
-
-cd $HOME
-
-if [ -d "$HOME/dotfiles" ]; then
-  log_suc "dotfiles is already exists."
-  exit 0
-fi
-
-if is_exists "git"; then
-  git clone https://github.com/ryoana14/dotfiles.git
-  
-  if [ -d dotfiles ]; then
-    log_suc "Succeed to download dotfiles"
-  else
-    log_err "Failed to download dotfiles..."
-    exit 1
-  fi
-elif is_exists "curl" || is_exists "wget"; then
-  tar_file="https://github.com/ryoana14/dotfiles/archive/master.tar.gz"
-
-  if is_exists "curl"; then
-    curl -L "$tar_file"
-  elif is_exists "wget"; then
-    wget -O - "$tar_file"
-  fi | tar xvz
-
-  if [ ! -d dotfiles-master ]; then
-    log_err "Failed to download dotfiles..."
-    exit 1
-  fi
-  mv -f dotfiles-master dotfiles
-  log_suc "Succeed to download dotfiles"
-else
-  log_err "curl or wget required"
-  exit 1
-fi
 
 cd dotfiles
 
