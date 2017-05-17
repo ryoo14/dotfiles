@@ -106,10 +106,6 @@ repo = 'Yggdroot/indentLine'
 repo = 'kannokanno/previm'
 on_ft = 'markdown'
 
-# text browser
-[[plugins]]
-repo = 'yuratomo/w3m.vim'
-
 # browser
 [[plugins]]
 repo = 'tyru/open-browser.vim'
