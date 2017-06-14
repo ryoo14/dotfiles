@@ -41,7 +41,8 @@ else
   OS='Unknown'
 fi
 
-export PATH="$HOME/.rbenv/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/go/bin:$HOME/.rbenv/bin:$PATH"
 which rbenv > /dev/null 2>&1
 RBENV_BOOL=$?
 
