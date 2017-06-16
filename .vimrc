@@ -181,15 +181,6 @@ let g:vimshell_prompt_pattern = '^\f\+ > '
 nnoremap ,sh :VimShell
 
 "--------------------------------------------------------------
-" syntastic
-" TODO: fix
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers = ['perl', 'podchecker']
-let g:syntastic_ruby_checkers = ['rubocop']
-
-"--------------------------------------------------------------
 " vim-markdown
 augroup PrevimSettings
   autocmd!
@@ -241,5 +232,12 @@ nnoremap ,gc :Gcommit<CR>
 let g:slime_target = "screen"
 
 "---------------------------------------------------------------
-"lexima
+" lexima
 inoremap <C-l> <C-g>U<Right>
+
+"---------------------------------------------------------------
+" syntastic
+" check syntax when save file only
+let g:syntastic_check_on_open = 0
+" ruby checker
+let g:syntastic_ruby_checkers = ['rubocop']
