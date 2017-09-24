@@ -314,8 +314,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (define-key ac-complete-mode-map "\C-p" 'ac-previous)
   ;; slime
   (setq inferior-lisp-program "ros run")
-  ;; indent?
-  (global-set-key "\C-j" 'newline)
   ;; indent for laungage
   (defun my-setup-indent (n)
     (setq lisp-indent-offset n)
