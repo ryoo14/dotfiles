@@ -102,6 +102,7 @@ if !isdirectory(s:dein_repo_dir)
 endif
 
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
+let &runtimepath = '/usr/share/vim/vim81' .",". &runtimepath
 
 " load plugins
 let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
