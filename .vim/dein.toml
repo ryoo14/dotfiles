@@ -34,6 +34,9 @@ repo = 'Yggdroot/indentLine'
 [[plugins]]
 repo = 'cohama/lexima.vim'
 
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
 # -----------------------------------------------------
 ## viewr
 # preview

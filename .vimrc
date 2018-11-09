@@ -184,9 +184,12 @@ let g:vim_json_syntax_conceal = 0
 " colorscheme
 if has('unix')
   set background=dark
+  let g:lightline = { 'colorscheme': 'snow_dark' }
 elseif has('win64')
   set termguicolors
   set background=light
+  let g:lightline = { 'colorscheme': 'snow_light' }
 endif
 
 colorscheme snow
+
