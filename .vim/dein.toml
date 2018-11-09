@@ -4,56 +4,8 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# asynchronous execution library
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
-# snippet
-[[plugins]]
-repo = 'Shougo/neosnippet'
-
-# interface
-[[plugins]]
-repo = 'Shougo/unite.vim'
-
-# most recently used
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-
-# outline
-[[plugins]]
-repo = 'Shougo/unite-outline'
-
-# shell
-[[plugins]]
-repo = 'Shougo/vimshell.vim'
-
-# complement
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-
-# filer
-[[plugins]]
-repo = 'Shougo/vimfiler.vim'
-
-
-# -----------------------------------------------------
-## lang
-# ruby
-[[plugins]]
-repo = 'NigoroJr/rsense'
-on_ft = 'rb'
-
-
-# -----------------------------------------------------
-# lisp
-[[plugins]]
-repo = 'vim-scripts/VimClojure'
-
-[[plugins]]
-repo = 'jpalardy/vim-slime'
-
+repo = 'Shougo/denite.nvim'
 
 # -----------------------------------------------------
 # filetypes
@@ -69,29 +21,18 @@ on_ft = 'json'
 repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
 
-[[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = 'slim'
-
-
 # -----------------------------------------------------
 ## appearance
 # colorscheme
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
-hook_add = '''
-    set background=dark
-    au MyAutoCmd VimEnter * nested colorscheme hybrid
-'''
-
-# status line
-[[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = 'nightsense/snow'
 
 # visualization of indent
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
+[[plugins]]
+repo = 'cohama/lexima.vim'
 
 # -----------------------------------------------------
 ## viewr
@@ -107,18 +48,6 @@ repo = 'tyru/open-browser.vim'
 
 # -----------------------------------------------------
 ## etc
-# git
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-# parentheses
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-# syntax check
-[[plugins]]
-repo = 'scrooloose/syntastic'
-
 # quick run program
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -126,5 +55,3 @@ repo = 'thinca/vim-quickrun'
 # doc
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
-
-

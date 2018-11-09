@@ -3,81 +3,110 @@ scriptencoding utf-8
 "---------------------------------------------------------------
 " key-map
 "---------------------------------------------------------------
-" edit .vimrc
+" vimrc編集
 nnoremap ,ev :edit $MYVIMRC
 nnoremap ,rv :source $MYVIMRC
 nnoremap ,egv :edit $MYGVIMRC
 nnoremap ,rgv :source $MYGVIMRC
 
+" 上下移動
 noremap j gj
 noremap k gk
+
+" 検索
 nnoremap / /\v
 
-" ESC
-inoremap jj <ESC>
-
-" no use
+" Z無効
 nnoremap ZZ <nop>
 nnoremap <c-z> <nop>
 
-" etc mappning
+" <c-f>の最下行表示をなんとかする
 noremap <expr> <C-f> 
   \ max([winheight(0) - 2, 1]) . "\<C-d>" 
   \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
+
+" タグジャンプ
 nnoremap <C-]> :exe("tjump ".expand('<cword>'))<CR>
+
+" タブジャンプ
+for n in range(1, 9)
+  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+map <silent> ,tc :tablast <bar> tabnew<CR>
+
+" <c-l>で右へ
+inoremap <C-l> <C-g>U<Right>
+
+" コマンドラインモードでbashっぽく動く
+cnoremap <C-a>          <Home>
+cnoremap <C-b>          <Left>
+cnoremap <C-d>          <Del>
+cnoremap <C-e>          <End>
+cnoremap <C-f>          <Right>
+cnoremap <C-n>          <Down>
+cnoremap <C-p>          <Up>
+cnoremap <C-y>          <C-r>*
 
 "---------------------------------------------------------------
 " options
 "---------------------------------------------------------------
-" exchange space to tab
+" タブの変換
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-" enable smart indent
+" インデントをかしこく
 set autoindent
 set smartindent
 
-" visible 80th column
+" 80文字
 set colorcolumn=79
 
-" display line number
+" 行数の表示
 set number
 
-" always display status line
+" ステータスラインを常時表示
 set laststatus=2
-" display tab line when two or more tabs
+" タブが2つ以上あるときにタブラインを表示
 set showtabline=1
+" コマンドラインの高さ
+set cmdheight=1
 
 " backspace can delete indent and newline
 set backspace=indent,eol,start
 
+" 補完
 set wildmode=list,full
 
-" command line height
-set cmdheight=1
+" 閉じ括弧の表示
 set showmatch
 
-" not highlight for search result
+" 検索結果をハイライトさせない
 set nohlsearch
 
-" not get backup and swapfile
+" バックアップとか
 set nobackup
 set noswapfile
-" get undofile
 set undofile
 set undodir=~/tmp
 
+" <s-k>に使うコマンド
 set keywordprg=:help
+
+" レジスタではなくクリップボードを使う
 set clipboard=unnamed
 
-" disable bells
-set t_vb=
-set novisualbell
+" ベル無効
 set belloff=all
 
 set t_ut=
+
+if has('win64')
+  set grepprg=grep\ -n
+  set autochdir
+endif
 
 "---------------------------------------------------------------
 " plugin
@@ -92,27 +121,32 @@ augroup MyAutoCmd
 augroup END
 
 " dein
-let s:cache_home = expand('~/.cache')
+let s:cache_home = expand('~/cache')
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-" auto install if not exist dein.vim
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' 
       \ . shellescape(s:dein_repo_dir))
 endif
 
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
-let &runtimepath = '/usr/share/vim/vim81' .",". &runtimepath
+if has('unix')
+  let &runtimepath = '/usr/share/vim/vim81' .",". &runtimepath
+endif
 
-" load plugins
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
+if has('unix')
+  let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
+elseif has('win64')
+  let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/vim/dein.toml'
+endif
+
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
   call dein#load_toml(s:toml_file)
   call dein#end()
   call dein#save_state()
 endif
-" auto install if not exist etc plugins
+
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
@@ -120,66 +154,11 @@ endif
 filetype plugin indent on
 syntax on
 
-"---------------------------------------------------------------
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-let g:neocomplete#enable_cursor_hold_i = 1
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
-let g:rsenseUseOmniFunc = 1
-
-let g:neocomplete#sources#dictionary#dictionaries = {
-  \   'ruby': $HOME . '/dotfiles/.vim/dicts/ruby.dict',
-  \   'lisp': $HOME . '/dotfiles/.vim/dicts/lisp.dict',
-  \ }
-
-"---------------------------------------------------------------
-" neosnippet
-imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-if has('conceal')
-  set conceallevel=0 concealcursor=i
-endif
-
-let g:neosnippet#snippets_directory='~/.vim/snippets'
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-let g:neosnippet#disable_runtime_snippets = {
-	\   'c' : 1, 'cpp' : 1,
- 	\ }
-
-"---------------------------------------------------------------
-" Unite
-let g:unite_enable_start_insert = 1
-let g:unite_source_history_yank_enable = 1
-let g:unite_source_file_mru_limit = 200
-
-nnoremap <silent> ,uf :<C-u>Unite file<CR>
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> ,uo :<C-u>Unite outline -vertical -winwidth=35 -no-quit<CR>
-let g:unite_split_rule = 'botright'
 
 "---------------------------------------------------------------
 " indentLine
-let g:indentLine_char = '¦'
+let g:indentLine_char = '|'
 let g:indentLine_color_term = 7
-
-"--------------------------------------------------------------
-" Vimshell
-let g:vimshell_prompt_expr = 'getcwd()." > "'
-let g:vimshell_prompt_pattern = '^\f\+ > '
-
-nnoremap ,sh :VimShell
 
 "--------------------------------------------------------------
 " vim-markdown
@@ -198,47 +177,16 @@ nnoremap ,md :PrevimOpen
 let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 
 "--------------------------------------------------------------
-" vimfiler
-let g:vimfiler_as_default_explorer=1
-let g:vimfiler_enable_auto_cd = 1
-
-nnoremap ,fi :VimFiler -split -simple -create -winwidth=30 -no-quit<CR>
-
-"--------------------------------------------------------------
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
 "---------------------------------------------------------------
-" lightline
-set background=dark
-let g:lightline = {
-  \ 'colorscheme': 'wombat',
-  \}
+" colorscheme
+set termguicolors
+if has('unix')
+  set background=dark
+elseif has('win64')
+  set background=light
+endif
 
-"---------------------------------------------------------------
-" tab jump
-for n in range(1, 9)
-  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-
-map <silent> ,tc :tablast <bar> tabnew<CR>
-
-"---------------------------------------------------------------
-" vim-fugitive
-nnoremap ,gs :Gstatus<CR>
-nnoremap ,gc :Gcommit<CR>
-
-"---------------------------------------------------------------
-" slime
-let g:slime_target = "screen"
-
-"---------------------------------------------------------------
-" lexima
-inoremap <C-l> <C-g>U<Right>
-
-"---------------------------------------------------------------
-" syntastic
-" check syntax when save file only
-let g:syntastic_check_on_open = 0
-" ruby checker
-let g:syntastic_ruby_checkers = ['rubocop']
+colorscheme snow
