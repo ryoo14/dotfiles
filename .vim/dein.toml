@@ -48,6 +48,9 @@ on_ft = 'markdown'
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 
+# filer
+[[plugins]]
+repo = 'cocopon/vaffle.vim'
 
 # -----------------------------------------------------
 ## etc

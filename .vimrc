@@ -121,7 +121,7 @@ augroup MyAutoCmd
 augroup END
 
 " dein
-let s:cache_home = expand('~/cache')
+let s:cache_home = expand('~/.cache')
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
@@ -134,11 +134,7 @@ if has('unix')
   let &runtimepath = '/usr/share/vim/vim81' .",". &runtimepath
 endif
 
-if has('unix')
-  let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
-elseif has('win64')
-  let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/vim/dein.toml'
-endif
+let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
