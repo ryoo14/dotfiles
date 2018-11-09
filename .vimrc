@@ -182,10 +182,10 @@ let g:vim_json_syntax_conceal = 0
 
 "---------------------------------------------------------------
 " colorscheme
-set termguicolors
 if has('unix')
   set background=dark
 elseif has('win64')
+  set termguicolors
   set background=light
 endif
 
