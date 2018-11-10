@@ -39,14 +39,14 @@ map <silent> ,tc :tablast <bar> tabnew<CR>
 inoremap <C-l> <C-g>U<Right>
 
 " コマンドラインモードでbashっぽく動く
-cnoremap <C-a>          <Home>
-cnoremap <C-b>          <Left>
-cnoremap <C-d>          <Del>
-cnoremap <C-e>          <End>
-cnoremap <C-f>          <Right>
-cnoremap <C-n>          <Down>
-cnoremap <C-p>          <Up>
-cnoremap <C-y>          <C-r>*
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+cnoremap <C-y> <C-r>*
 
 "---------------------------------------------------------------
 " options
@@ -206,4 +206,16 @@ colorscheme snow
 
 "---------------------------------------------------------------
 " vaffle
-nnoremap ,fi :Vaffle
+nnoremap ,fi :Vaffle<CR>
+let g:vaffle_auto_cd = 1
+let g:vaffle_show_hidden_files = 1
+let g:vaffle_open_selected_vsplit_position = 'rightbelow'
+
+function! s:customize_vaffle_mappings() abort 
+  nmap <buffer> <CR> <Plug>(vaffle-open-selected-vsplit)
+endfunction
+
+augroup vimrc_vaffle
+  autocmd!
+  autocmd FileType vaffle call s:customize_vaffle_mappings()
+augroup END
