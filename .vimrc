@@ -111,6 +111,9 @@ endif
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
+"---------------------------------------------------------------
+" dein
+
 if !&compatible
   set nocompatible
 endif
@@ -150,6 +153,16 @@ endif
 filetype plugin indent on
 syntax on
 
+"---------------------------------------------------------------
+" Denite
+nnoremap ,df :Denite file
+nnoremap ,db :Denite buffer
+
+"---------------------------------------------------------------
+" Deoplete
+
+let g:deoplete#enable_at_startup = 1
+
 
 "---------------------------------------------------------------
 " indentLine
@@ -172,6 +185,8 @@ nnoremap ,md :PrevimOpen
 " quick-run
 let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 
+nnoremap ,qr :QuickRun
+
 "--------------------------------------------------------------
 " vim-json
 let g:vim_json_syntax_conceal = 0
@@ -189,3 +204,6 @@ endif
 
 colorscheme snow
 
+"---------------------------------------------------------------
+" vaffle
+nnoremap ,fi :Vaffle
