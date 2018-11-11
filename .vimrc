@@ -155,12 +155,12 @@ syntax on
 
 "---------------------------------------------------------------
 " Denite
-nnoremap ,df :Denite file
-nnoremap ,db :Denite buffer
+nnoremap ,df :Denite file_rec -mode=normal<CR>
+nnoremap ,db :Denite buffer -mode=normal<CR>
+nnoremap ,dg :Denite grep -mode=normal<CR>
 
 "---------------------------------------------------------------
 " Deoplete
-
 let g:deoplete#enable_at_startup = 1
 
 
