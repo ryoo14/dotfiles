@@ -137,11 +137,10 @@ if has('unix')
   let &runtimepath = '/usr/share/vim/vim81' .",". &runtimepath
 endif
 
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
-
+let s:toml_file   = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
-  call dein#load_toml(s:toml_file)
+  call dein#load_toml(s:toml_file, {'lazy': 0})
   call dein#end()
   call dein#save_state()
 endif
@@ -154,68 +153,5 @@ filetype plugin indent on
 syntax on
 
 "---------------------------------------------------------------
-" Denite
-nnoremap ,df :Denite file_rec -mode=normal<CR>
-nnoremap ,db :Denite buffer -mode=normal<CR>
-nnoremap ,dg :Denite grep -mode=normal<CR>
-
-"---------------------------------------------------------------
 " Deoplete
 let g:deoplete#enable_at_startup = 1
-
-
-"---------------------------------------------------------------
-" indentLine
-let g:indentLine_char = '|'
-let g:indentLine_color_term = 7
-
-"--------------------------------------------------------------
-" vim-markdown
-augroup PrevimSettings
-  autocmd!
-  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
-
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
-
-nnoremap ,md :PrevimOpen
-
-"--------------------------------------------------------------
-" quick-run
-let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
-
-nnoremap ,qr :QuickRun
-
-"--------------------------------------------------------------
-" vim-json
-let g:vim_json_syntax_conceal = 0
-
-"---------------------------------------------------------------
-" colorscheme
-if has('unix')
-  set background=dark
-  let g:lightline = { 'colorscheme': 'snow_dark' }
-elseif has('win64')
-  set termguicolors
-  set background=light
-  let g:lightline = { 'colorscheme': 'snow_light' }
-endif
-
-colorscheme snow
-
-"---------------------------------------------------------------
-" vaffle
-nnoremap ,fi :Vaffle<CR>
-let g:vaffle_auto_cd = 1
-let g:vaffle_show_hidden_files = 1
-let g:vaffle_open_selected_vsplit_position = 'rightbelow'
-
-function! s:customize_vaffle_mappings() abort 
-  nmap <buffer> <CR> <Plug>(vaffle-open-selected-vsplit)
-endfunction
-
-augroup vimrc_vaffle
-  autocmd!
-  autocmd FileType vaffle call s:customize_vaffle_mappings()
-augroup END
