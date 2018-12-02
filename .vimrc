@@ -152,6 +152,3 @@ endif
 filetype plugin indent on
 syntax on
 
-"---------------------------------------------------------------
-" Deoplete
-let g:deoplete#enable_at_startup = 1

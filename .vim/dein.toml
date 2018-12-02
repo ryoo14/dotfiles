@@ -11,15 +11,6 @@ hook_add = '''
   nnoremap ,dg :Denite grep -mode=normal<CR>
 '''
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-
 # -----------------------------------------------------
 # filetypes
 [[plugins]]
