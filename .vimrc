@@ -4,10 +4,10 @@ scriptencoding utf-8
 " key-map
 "---------------------------------------------------------------
 " vimrc編集
-nnoremap ,ev :edit $MYVIMRC
-nnoremap ,rv :source $MYVIMRC
-nnoremap ,egv :edit $MYGVIMRC
-nnoremap ,rgv :source $MYGVIMRC
+nnoremap <Space>ev :edit $MYVIMRC
+nnoremap <Space>rv :source $MYVIMRC
+nnoremap <Space>egv :edit $MYGVIMRC
+nnoremap <Space>rgv :source $MYGVIMRC
 
 " 上下移動
 noremap j gj
@@ -33,7 +33,7 @@ for n in range(1, 9)
   execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
 
-map <silent> ,tc :tablast <bar> tabnew<CR>
+map <silent> <Space>tc :tablast <bar> tabnew<CR>
 
 " <c-l>で右へ
 inoremap <C-l> <C-g>U<Right>
@@ -79,6 +79,7 @@ set backspace=indent,eol,start
 
 " 補完
 set wildmode=list,full
+set completeopt=menuone
 
 " 閉じ括弧の表示
 set showmatch
@@ -151,4 +152,3 @@ endif
 
 filetype plugin indent on
 syntax on
-
