@@ -6,9 +6,9 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-  nnoremap ,df :Denite file_rec -mode=normal<CR>
-  nnoremap ,db :Denite buffer -mode=normal<CR>
-  nnoremap ,dg :Denite grep -mode=normal<CR>
+  nnoremap <Space>df :Denite file_rec -mode=normal<CR>
+  nnoremap <Space>db :Denite buffer -mode=normal<CR>
+  nnoremap <Space>dg :Denite grep -mode=normal<CR>
 '''
 
 [[plugins]]
@@ -92,7 +92,7 @@ hook_add = '''
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
   augroup END
 
-  nnoremap ,md :PrevimOpen
+  nnoremap <Space>md :PrevimOpen
 '''
 
 # browser
@@ -103,7 +103,7 @@ repo = 'tyru/open-browser.vim'
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
 hook_add = '''
-  nnoremap ,fi :Vaffle<CR>
+  nnoremap <Space>fi :Vaffle<CR>
   let g:vaffle_auto_cd = 1
   let g:vaffle_show_hidden_files = 1
   let g:vaffle_open_selected_vsplit_position = 'rightbelow'
@@ -125,7 +125,7 @@ hook_add = '''
 repo = 'thinca/vim-quickrun'
 hook_add = '''
   let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
-  nnoremap ,qr :QuickRun
+  nnoremap <Space>qr :QuickRun
 '''
 
 # doc
