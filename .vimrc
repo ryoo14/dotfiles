@@ -152,3 +152,16 @@ endif
 
 filetype plugin indent on
 syntax on
+
+if executable('pyls')
+    augroup LspPython
+      autocmd!
+      autocmd User lsp_setup call lsp#register_server({
+          \ 'name': 'pyls',
+          \ 'cmd': {server_info->['pyls']},
+          \ 'whitelist': ['python'],
+          \ })
+      autocmd FileType python setlocal omnifunc=lsp#complete
+    augroup END
+endif
+
