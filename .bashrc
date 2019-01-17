@@ -31,6 +31,10 @@ wktemp () {
   )
 }
 
+mkgi () {
+  curl -L -s https://www.gitignore.io/api/$@
+}
+
 #######################################################################
 # OS
 if [ "$(uname)" == 'Darwin' ]; then
