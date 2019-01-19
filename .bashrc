@@ -116,6 +116,10 @@ if [ $OS != 'Unknown' ]; then
   if $(which ansible-playbook > /dev/null 2>&1); then
     alias ap='ansible-playbook'
   fi
+  # python
+  if $(which pipenv > /dev/null 2>&1); then
+    alias pv='pipenv'
+  fi
 fi
 
 export HISTSIZE=2000
