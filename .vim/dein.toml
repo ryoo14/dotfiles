@@ -54,13 +54,10 @@ hook_add = '''
 [[plugins]]
 repo = 'nightsense/snow'
 hook_add = '''
-  if has('unix')
-    set background=dark
-    let g:lightline = { 'colorscheme': 'snow_dark' }
-  elseif has('win64')
+  set background=dark
+  let g:lightline = { 'colorscheme': 'snow_dark' }
+  if has('win64')
     set termguicolors
-    set background=light
-    let g:lightline = { 'colorscheme': 'snow_light' }
   endif
 
   colorscheme snow
