@@ -4,26 +4,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-  nnoremap <Space>df :Denite file_rec -mode=normal<CR>
-  nnoremap <Space>db :Denite buffer -mode=normal<CR>
-  nnoremap <Space>dg :Denite grep -mode=normal<CR>
-'''
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-'''
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-
-[[plugins]]
 repo = 'Shougo/neco-syntax'
 
 # -----------------------------------------------------
