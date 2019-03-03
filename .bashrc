@@ -13,8 +13,9 @@ prompt () {
   local  GRAY="\[\e[1;37m\]"
   local  PUPLE="\[\e[1;35m\]"
 
-  DATE_NOW='\[\e[$[COLUMNS-$(echo -n " ($(date +%H:%M:%S)" | wc -c)]C\e[1;31m($(date +%H:%M:%S))\e[0m\e[$[COLUMNS]D\]'
-  export PS1=${DATE_NOW}"${GREEN}\h ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
+  #DATE_NOW='\[\e[$[COLUMNS-$(echo -n " ($(date +%H:%M:%S)" | wc -c)]C\e[1;31m($(date +%H:%M:%S))\e[0m\e[$[COLUMNS]D\]'
+  #export PS1=${DATE_NOW}"${GREEN}\h ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
+  export PS1="${GREEN}\h ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
 }
 
 wktemp () {
@@ -117,16 +118,18 @@ if [ $OS != 'Unknown' ]; then
     alias ap='ansible-playbook'
   fi
   # python
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  if $(which pyenv > /dev/null 2>&1); then
-    eval "$(pyenv init -)"
-  fi
-  
-  if $(which pipenv > /dev/null 2>&1); then
-    alias pv='pipenv'
+  if [ -e "$HOME/.pyenv" ]; then
+    export VIRTUAL_ENV_DISABLE_PROMPT=1
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    if $(which pyenv > /dev/null 2>&1); then
+      eval "$(pyenv init -)"
+    fi
+    
+    if $(which pipenv > /dev/null 2>&1); then
+      alias pv='pipenv'
+    fi
   fi
 fi
-
 export HISTSIZE=2000
 export HISTFILESIZE=2000
