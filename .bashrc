@@ -46,8 +46,7 @@ else
   OS='Unknown'
 fi
 
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/go/bin:$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
 which rbenv > /dev/null 2>&1
 RBENV_BOOL=$?
 
@@ -60,10 +59,14 @@ if [ $OS != 'Unknown' ]; then
     # add rubygem dir
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+    PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
   fi
   if $(which ros > /dev/null 2>&1); then
     PATH="$HOME/.roswell/bin:$PATH"
+  fi
+  if $(which go > /dev/null 2>&1); then
+    export GOPATH="$HOME/go"
+    export PATH="$GOPATH/bin:$HOME/.rbenv/bin:$PATH"
   fi
 
   prompt
