@@ -122,3 +122,6 @@ repo = 'prabirshrestha/vim-lsp'
 
 #[[plugins]]
 #repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'

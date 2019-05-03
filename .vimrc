@@ -150,6 +150,8 @@ if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
+set rtp+=/usr/local/opt/fzf
+
 filetype plugin indent on
 syntax on
 
