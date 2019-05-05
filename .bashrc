@@ -142,13 +142,6 @@ if [ $OS != 'Unknown' ]; then
   # fzf
   if $(which fzf > /dev/null 2>&1); then
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-    if $(which ag > /dev/null 2>&1); then
-      export FZF_CTRL_T_COMMAND='ag -l -g "" --hidden'
-    else
-      export FZF_CTRL_T_COMMAND='find .'
-    fi
-    export FZF_DEFAULT_OPTS='--height 40% --reverse'
-    export FZF_CTRL_R_OPTS='--sort --exact'
   fi
 fi
 export HISTSIZE=2000
