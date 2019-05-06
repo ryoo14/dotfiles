@@ -153,6 +153,8 @@ endif
 filetype plugin indent on
 syntax on
 
+set background=dark
+
 " 外部ファイル読み込み
 " lsp
 source ~/.vim/vimrc-lsp
