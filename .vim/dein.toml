@@ -126,7 +126,12 @@ repo = 'prabirshrestha/vim-lsp'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
-  set rtp+=/usr/local/opt/fzf
+  if has ('win64')
+    set rtp+=c:\ProgramData\chocolatey\bin\fzf
+  else
+    set rtp+=/usr/local/opt/fzf
+  endif
+
   nnoremap <Space>zf :Files<CR>
   nnoremap <Space>zb :Buffer<CR>
   nnoremap <Space>zgs :GFiles?<CR>
