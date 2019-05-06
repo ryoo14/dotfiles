@@ -14,10 +14,6 @@ source "/usr/local/opt/fzf/shell/key-bindings.bash"
 
 # Options
 # ------------
-if $(which ag > /dev/null 2>&1); then
-  export FZF_CTRL_T_COMMAND='ag -l -g "" --hidden'
-else
-  export FZF_CTRL_T_COMMAND='find .'
-fi
+export FZF_CTRL_T_COMMAND='find . 2> /dev/null'
 export FZF_DEFAULT_OPTS='--height 40% --reverse'
 export FZF_CTRL_R_OPTS='--sort --exact'
