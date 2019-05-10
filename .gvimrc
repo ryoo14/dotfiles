@@ -8,6 +8,7 @@ elseif has ('win64')
   set nocompatible
   set enc=utf-8
   set fencs=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932,utf-16le,utf-16,default
+  autocmd GUIEnter * set transparency=220
 endif
 
 " options
@@ -19,7 +20,6 @@ set guioptions-=l
 set guioptions-=L
 set lines=90 columns=200  " window size
 set notitle
-autocmd GUIEnter * set transparency=220
 "let g:lightline = {
 "  \ 'colorscheme': 'wombat',
 "  \ }
