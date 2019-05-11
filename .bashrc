@@ -143,6 +143,10 @@ if [ $OS != 'Unknown' ]; then
   if $(which fzf > /dev/null 2>&1); then
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
   fi
+  # hub
+  if $(which hub > /dev/null 2>&1); then
+    eval "$(hub alias -s)"
+  fi
 fi
 export HISTSIZE=2000
 export HISTFILESIZE=2000
