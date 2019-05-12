@@ -119,6 +119,14 @@ repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+  nnoremap <silent> <C-]> :LspDefinition<CR>
+  nnoremap <silent> <Space>lh :LspHover<CR>
+  nnoremap <silent> <Space>lr :LspReferences<CR>
+  nnoremap <silent> <Space>li :LspImplementation<CR>
+  nnoremap <silent> <Space>ls :split \| :LspDefinition <CR>
+  nnoremap <silent> <Space>lv :vsplit \| :LspDefinition <CR>
+'''
 
 #[[plugins]]
 #repo = 'prabirshrestha/asyncomplete-lsp.vim'
@@ -135,10 +143,6 @@ hook_add = '''
   nnoremap <Space>zf :Files<CR>
   nnoremap <Space>zb :Buffer<CR>
   nnoremap <Space>zgs :GFiles?<CR>
-  nnoremap <silent> <C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
   let g:fzf_buffers_jump = 1
   let g:fzf_tags_command = 'ctags -R'
 '''
-
-[[plugins]]
-repo = 'fatih/vim-go'
