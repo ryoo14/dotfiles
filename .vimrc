@@ -96,9 +96,6 @@ set undodir=~/tmp
 " <s-k>に使うコマンド
 set keywordprg=:help
 
-" レジスタではなくクリップボードを使う
-set clipboard=unnamed
-
 " ベル無効
 set belloff=all
 
