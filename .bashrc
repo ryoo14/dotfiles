@@ -65,10 +65,6 @@ if [ $OS != 'Unknown' ]; then
   if $(which ros > /dev/null 2>&1); then
     PATH="$HOME/.roswell/bin:$PATH"
   fi
-  if $(which go > /dev/null 2>&1); then
-    export GOPATH="$HOME/go"
-    export PATH="$GOPATH/bin:$HOME/.rbenv/bin:$PATH"
-  fi
 
   # set vars
   prompt
@@ -137,6 +133,16 @@ if [ $OS != 'Unknown' ]; then
     
     if $(which pipenv > /dev/null 2>&1); then
       alias pv='pipenv'
+    fi
+  fi
+  # go
+  if [ -e "$HOME/.goenv" ]; then
+    export GOENV_ROOT="$HOME/.goenv"
+    export PATH="$GOENV_ROOT/bin:$PATH"
+    if $(which goenv > /dev/null 2>&1); then
+      eval "$(goenv init -)"
+      export PATH="$GOROOT/bin:$PATH"
+      export PATH="$GOPATH/bin:$PATH"
     fi
   fi
   # fzf
