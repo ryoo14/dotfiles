@@ -111,12 +111,6 @@ repo = 'vim-jp/vimdoc-ja'
 
 # -----------------------------------------------------
 ## Language Server
-#[[plugins]]
-#repo = 'prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
@@ -128,9 +122,11 @@ hook_add = '''
   nnoremap <silent> <Space>lv :vsplit \| :LspDefinition <CR>
 '''
 
-#[[plugins]]
-#repo = 'prabirshrestha/asyncomplete-lsp.vim'
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
 
+# -----------------------------------------------------
+## file
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
