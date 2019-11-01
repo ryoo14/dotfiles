@@ -135,7 +135,8 @@ hook_add = '''
   else
     set rtp+=$HOME/.fzf
   endif
-
+  command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git  -g ""'}), <bang>0)
   nnoremap <Space>zf :Files<CR>
   nnoremap <Space>zb :Buffer<CR>
   nnoremap <Space>zgs :GFiles?<CR>
