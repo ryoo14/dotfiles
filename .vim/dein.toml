@@ -109,6 +109,14 @@ hook_add = '''
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
+# git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+  nnoremap <Space>gl :Glog<CR>
+  nnoremap <Space>gd :Gdiff<CR>
+'''
+
 # -----------------------------------------------------
 ## Language Server
 [[plugins]]
