@@ -139,6 +139,7 @@ hook_add = '''
   nnoremap <Space>zf :Files<CR>
   nnoremap <Space>zb :Buffer<CR>
   nnoremap <Space>zgs :GFiles?<CR>
+  nnoremap <Space>zt :Tags<CR>
   let g:fzf_buffers_jump = 1
   let g:fzf_tags_command = 'ctags -R'
 '''
