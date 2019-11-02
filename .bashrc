@@ -107,14 +107,8 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
 
   ## docker
   if check_command docker; then
-    alias d='docker'
-    alias dr='docker rm'
-    alias dri='docker rmi'
-    alias ds='docker stop'
-    alias dp='docker ps'
-    alias dv='docker volume'
-    alias dim='docker images'
-    alias din='docker inspect'
+    alias dc='docker container'
+    alias di='docker image'
   fi
 
   ## ansible
