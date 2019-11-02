@@ -109,6 +109,8 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   if check_command docker; then
     alias dc='docker container'
     alias di='docker image'
+    alias dn='docker network'
+    alias dv='docker volume'
   fi
 
   ## ansible
