@@ -81,6 +81,28 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   alias psa='ps auxw'
   alias sudo='sudo '
 
+  ## ruby
+  if [ -e "$HOME/.rbenv" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    if check_command rbenv; then
+      eval "$(rbenv init -)"
+      PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
+      alias rv='rbenv'
+    fi
+  fi
+
+  ## go
+  if [ -e "$HOME/.goenv" ]; then
+    export GOENV_ROOT="$HOME/.goenv"
+    export PATH="$GOENV_ROOT/bin:$PATH"
+    if check_command goenv; then
+      eval "$(goenv init -)"
+      export PATH="$GOROOT/bin:$PATH"
+      export PATH="$GOPATH/bin:$PATH"
+      alias gv='goenv'
+    fi
+  fi
+
   ## systemctl
   if check_command systemctl; then
     alias sc='systemctl'
@@ -116,28 +138,6 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   ## ansible
   if check_command ansible-playbook; then
     alias ap='ansible-playbook'
-  fi
-
-  ## ruby
-  if [ -e "$HOME/.rbenv" ]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
-    if check_command rbenv; then
-      eval "$(rbenv init -)"
-      PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
-      alias rv='rbenv'
-    fi
-  fi
-
-  ## go
-  if [ -e "$HOME/.goenv" ]; then
-    export GOENV_ROOT="$HOME/.goenv"
-    export PATH="$GOENV_ROOT/bin:$PATH"
-    if check_command goenv; then
-      eval "$(goenv init -)"
-      export PATH="$GOROOT/bin:$PATH"
-      export PATH="$GOPATH/bin:$PATH"
-      alias gv='goenv'
-    fi
   fi
 
   ## fzf
