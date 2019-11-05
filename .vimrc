@@ -16,6 +16,12 @@ noremap k gk
 " 検索
 nnoremap / /\v
 
+" Terminal
+nnoremap <Space>tb :bo term<CR>
+nnoremap <Space>tt :top term<CR>
+nnoremap <Space>tv :vert term<CR>
+" set termwinkey=<C-g>
+
 " Z無効
 nnoremap ZZ <nop>
 nnoremap <c-z> <nop>
