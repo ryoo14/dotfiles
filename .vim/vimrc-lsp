@@ -1,16 +1,3 @@
-" Python
-if executable('pyls')
-  augroup LspPython
-    autocmd!
-    autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'pyls',
-      \ 'cmd': {server_info->['pyls']},
-      \ 'whitelist': ['python'],
-      \ })
-    autocmd FileType python setlocal omnifunc=lsp#complete
-  augroup END
-endif
-
 " Ruby
 if executable('solargraph')
   augroup LspRuby
@@ -25,29 +12,28 @@ if executable('solargraph')
   augroup END
 endif
 
-" Go
-" if executable('go-langserver')
-"   augroup LspGo
-"     autocmd!
-"     autocmd User lsp_setup call lsp#register_server({
-"           \ 'name': 'go-langserver',
-"           \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
-"           \ 'whitelist': ['go'],
-"           \ })
-"     autocmd BufWritePre *.go LspDocumentFormatSync
-"     autocmd FileType go setlocal omnifunc=lsp#complete
-"   augroup END
-" endif
-
+" Golang
 if executable('gopls')
   augroup LspGo
     autocmd!
     autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'gopls',
-          \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-          \ 'whitelist': ['go'],
-          \ })
+      \ 'name': 'gopls',
+      \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+      \ 'whitelist': ['go'],
+      \ })
     autocmd BufWritePre *.go LspDocumentFormatSync
     autocmd FileType go setlocal omnifunc=lsp#complete
   augroup END
 endif
+
+if executable('html-languageserver')                         
+  augroup LspHTML
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({               
+      \ 'name': 'html-languageserver',                     
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},                                   
+      \ 'whitelist': ['html'],                             
+    \ })                                                       
+    autocmd FileType html setlocal omnifunc=lsp#complete
+  augroup END
+endif  
