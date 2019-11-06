@@ -103,6 +103,11 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     fi
   fi
 
+  ## rust
+  if [ -e "$HOME/.cargo" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+  fi
+
   ## systemctl
   if check_command systemctl; then
     alias sc='systemctl'
