@@ -107,7 +107,7 @@ hook_add = '''
 [[plugins]]
 repo = 'SirVer/ultisnips'
 hook_add = '''
-  let g:UltiSnipsExpandTrigger="<Tab>"
+  let g:UltiSnipsExpandTrigger="<c-k>"
   let g:UltiSnipsJumpForwardTrigger="<Tab>"
   let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 '''
@@ -115,11 +115,24 @@ hook_add = '''
 [[plugins]]
 repo = 'honza/vim-snippets'
 
+# vim-lspでやりたいけどできないので一旦
 [[plugins]]
-repo = 'thomasfaingnaert/vim-lsp-snippets'
+repo = 'prabirshrestha/asyncomplete-ultisnips.vim'
+hook_add = '''
+  if has('python3')
+    call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
+      \ 'name': 'ultisnips',
+      \ 'whitelist': ['*'],
+      \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
+      \ }))
+  endif
+'''
 
-[[plugins]]
-repo = 'thomasfaingnaert/vim-lsp-ultisnips'
+# [[plugins]]
+# repo = 'thomasfaingnaert/vim-lsp-snippets'
+# 
+# [[plugins]]
+# repo = 'thomasfaingnaert/vim-lsp-ultisnips'
 
 # doc
 [[plugins]]
