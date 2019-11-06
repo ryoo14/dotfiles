@@ -180,10 +180,10 @@ hook_add = '''
   endif
   command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git  -g ""'}), <bang>0)
-  nnoremap <Space>zf :Files<CR>
-  nnoremap <Space>zb :Buffer<CR>
-  nnoremap <Space>zgs :GFiles?<CR>
-  nnoremap <Space>zt :Tags<CR>
+  nnoremap <Space>ff :Files<CR>
+  nnoremap <Space>fb :Buffer<CR>
+  nnoremap <Space>fgs :GFiles?<CR>
+  nnoremap <Space>ft :Tags<CR>
   let g:fzf_buffers_jump = 1
   let g:fzf_tags_command = 'ctags -R'
 '''
