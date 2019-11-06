@@ -26,6 +26,7 @@ if executable('gopls')
   augroup END
 endif
 
+" HTML
 if executable('html-languageserver')                         
   augroup LspHTML
     autocmd!
