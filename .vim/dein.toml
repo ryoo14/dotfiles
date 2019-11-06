@@ -166,8 +166,6 @@ hook_add = '''
   nnoremap <silent> <Space>li :LspImplementation<CR>
   nnoremap <silent> <Space>ls :split \| :LspDefinition <CR>
   nnoremap <silent> <Space>lv :vsplit \| :LspDefinition <CR>
-
-  set completeopt+=menuone
 '''
 
 # -----------------------------------------------------

@@ -1,3 +1,4 @@
+set encoding=utf-8
 scriptencoding utf-8
 
 "---------------------------------------------------------------
@@ -12,9 +13,6 @@ nnoremap <Space>rgv :source $MYGVIMRC
 " 上下移動
 noremap j gj
 noremap k gk
-
-" 検索
-nnoremap / /\v
 
 " Terminal
 nnoremap <Space>tb :bo term<CR>
@@ -31,14 +29,12 @@ noremap <expr> <C-f>
   \ max([winheight(0) - 2, 1]) . "\<C-d>" 
   \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 
-" タグジャンプ
-nnoremap <C-]> :exe("tjump ".expand('<cword>'))<CR>
-
 " タブジャンプ
 for n in range(1, 9)
-  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
+  execute 'nnoremap <silent> <Space>t'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
 
+" 新規タブ
 map <silent> <Space>tc :tablast <bar> tabnew<CR>
 
 " <c-l>で右へ
@@ -115,25 +111,21 @@ endif
 "---------------------------------------------------------------
 " plugin
 "---------------------------------------------------------------
-"---------------------------------------------------------------
 " dein
 
-if !&compatible
+if &compatible
   set nocompatible
 endif
 
-" reset augroup
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
-" dein
+" deinのディレクトリ指定
 let s:cache_home = expand('~/.cache')
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" deinがなければまずインストール
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' 
-      \ . shellescape(s:dein_repo_dir))
+    \ . shellescape(s:dein_repo_dir))
 endif
 
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
@@ -141,7 +133,7 @@ if has('unix')
   let &runtimepath = '/usr/share/vim/vim81' .",". &runtimepath
 endif
 
-let s:toml_file   = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
+let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
   call dein#load_toml(s:toml_file, {'lazy': 0})
@@ -156,8 +148,8 @@ endif
 filetype plugin indent on
 syntax on
 
-set background=dark
-
-" 外部ファイル読み込み
+"---------------------------------------------------------------
+" load external config
+"---------------------------------------------------------------
 " lsp
 source ~/.vim/vimrc-lsp
