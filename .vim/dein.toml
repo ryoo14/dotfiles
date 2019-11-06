@@ -107,13 +107,19 @@ hook_add = '''
 [[plugins]]
 repo = 'SirVer/ultisnips'
 hook_add = '''
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<c-b>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+  let g:UltiSnipsExpandTrigger="<Tab>"
+  let g:UltiSnipsJumpForwardTrigger="<Tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 '''
 
 [[plugins]]
 repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'thomasfaingnaert/vim-lsp-snippets'
+
+[[plugins]]
+repo = 'thomasfaingnaert/vim-lsp-ultisnips'
 
 # doc
 [[plugins]]
@@ -130,6 +136,15 @@ hook_add = '''
 # -----------------------------------------------------
 ## Language Server
 [[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
   nnoremap <silent> <C-]> :LspDefinition<CR>
@@ -138,10 +153,9 @@ hook_add = '''
   nnoremap <silent> <Space>li :LspImplementation<CR>
   nnoremap <silent> <Space>ls :split \| :LspDefinition <CR>
   nnoremap <silent> <Space>lv :vsplit \| :LspDefinition <CR>
-'''
 
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
+  set completeopt+=menuone
+'''
 
 # -----------------------------------------------------
 ## file
