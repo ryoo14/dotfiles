@@ -38,3 +38,17 @@ if executable('html-languageserver')
     autocmd FileType html setlocal omnifunc=lsp#complete
   augroup END
 endif
+
+" Rust
+if executable('rls')
+  augroup LspRust
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name'            : 'rls',
+      \ 'cmd'             : {server_info->['rustup', 'run', 'stable', 'rls']},
+      \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+      \ 'whitelist'       : ['rust'],
+    \ })
+    autocmd FileType rust setlocal omnifunc=lsp#complete
+  augroup END
+endif
