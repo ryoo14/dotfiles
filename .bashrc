@@ -45,6 +45,8 @@ mkgi () {
 # set OS
 if [ "$(uname)" == 'Darwin' ]; then
   OS='Mac'
+  # Catalinaではzshでないと警告が出るようになったのでそれを抑制
+  export BASH_SILENCE_DEPRECATION_WARNING=1
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   OS='Linux'
 else
