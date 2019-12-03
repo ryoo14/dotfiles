@@ -126,12 +126,6 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   ## git
   if check_command git; then
     alias g='git'
-    alias gs='git status'
-    alias ga='git add'
-    alias gc='git commit'
-    alias gp='git push'
-    alias gl='git log'
-    alias gd='git diff'
   fi
 
   ## docker
