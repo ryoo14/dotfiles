@@ -103,6 +103,8 @@ set belloff=all
 
 set t_ut=
 
+set shell=bash
+
 if has('win64')
   set grepprg=grep\ -n
   set autochdir
