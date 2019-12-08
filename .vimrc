@@ -103,6 +103,9 @@ set belloff=all
 
 set t_ut=
 
+" 色数
+set t_Co=256
+
 set shell=bash
 
 if has('win64')
