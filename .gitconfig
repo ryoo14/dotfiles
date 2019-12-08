@@ -5,7 +5,6 @@ name = ryoo14
 email = anana12185@gmail.com
 
 [alias]
-
   s = status
   l = log
   d = diff
