@@ -59,7 +59,7 @@ fi
 if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
 
   # set path
-  export PATH="/usr/local/bin:$HOME/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+  export PATH="/usr/local/bin:$HOME/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
   # set vars
   prompt
