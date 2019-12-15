@@ -106,7 +106,9 @@ set t_ut=
 " 色数
 set t_Co=256
 
+" terminal
 set shell=bash
+set termwinsize=10x0
 
 if has('win64')
   set grepprg=grep\ -n
