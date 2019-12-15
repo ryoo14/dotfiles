@@ -30,15 +30,15 @@ hook_add = '''
 ## appearance
 # colorscheme
 [[plugins]]
-repo = 'nightsense/snow'
+repo = 'morhetz/gruvbox'
 hook_add = '''
   set background=dark
-  let g:lightline = { 'colorscheme': 'snow_dark' }
+  let g:lightline = { 'colorscheme': 'gruvbox' }
   if has('win64')
     set termguicolors
   endif
 
-  colorscheme snow
+  colorscheme gruvbox
 '''
 
 # visualization of indent
