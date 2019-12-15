@@ -74,25 +74,6 @@ hook_add = '''
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 
-# filer
-[[plugins]]
-repo = 'cocopon/vaffle.vim'
-hook_add = '''
-  nnoremap <Space>fi :Vaffle<CR>
-  let g:vaffle_auto_cd = 1
-  let g:vaffle_show_hidden_files = 1
-  " let g:vaffle_open_selected_vsplit_position = 'rightbelow'
-
-  " function! s:customize_vaffle_mappings() abort 
-  "   nmap <buffer> <CR> <Plug>(vaffle-open-selected-vsplit)
-  " endfunction
-
-  " augroup vimrc_vaffle
-  "   autocmd!
-  "   autocmd FileType vaffle call s:customize_vaffle_mappings()
-  " augroup END
-'''
-
 # -----------------------------------------------------
 ## etc
 # quick run program
