@@ -33,7 +33,7 @@ repo = 'sainnhe/edge'
 hook_add = '''
   set termguicolors
   set background=dark
-  let g:edge_style = 'neon'
+  let g:edge_style = 'default'
   let g:edge_disable_italic_comment = 1
 
   colorscheme edge
