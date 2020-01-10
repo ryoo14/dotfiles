@@ -29,15 +29,20 @@ hook_add = '''
 ## appearance
 # colorscheme
 [[plugins]]
-repo = 'morhetz/gruvbox'
+repo = 'sainnhe/edge'
 hook_add = '''
+  set termguicolors
   set background=dark
-  let g:lightline = { 'colorscheme': 'gruvbox' }
-  if has('win64')
-    set termguicolors
-  endif
+  let g:edge_style = 'neon'
+  let g:edge_disable_italic_comment = 1
 
-  colorscheme gruvbox
+  colorscheme edge
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+  let g:lightline = {'colorscheme' : 'edge'}
 '''
 
 # visualization of indent
@@ -51,8 +56,6 @@ hook_add = '''
 [[plugins]]
 repo = 'cohama/lexima.vim'
 
-[[plugins]]
-repo = 'itchyny/lightline.vim'
 
 # -----------------------------------------------------
 ## viewr
