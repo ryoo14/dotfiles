@@ -123,11 +123,7 @@ hook_add = '''
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
-  if has ('mac')
-    set rtp+=/usr/local/opt/fzf
-  else
-    set rtp+=$HOME/.fzf
-  endif
+  set rtp+=$HOME/.fzf
   command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git  -g ""'}), <bang>0)
   nnoremap <Space>ff :Files<CR>
