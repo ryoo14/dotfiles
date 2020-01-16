@@ -6,11 +6,11 @@
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "$HOME/.fzf/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
-source "$HOME/.fzf/key-bindings.bash"
+source "$HOME/.fzf/shell/key-bindings.bash"
 
 # Options
 # ------------
