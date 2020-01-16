@@ -142,9 +142,7 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   fi
 
   ## fzf
-  if check_command fzf; then
-    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-  fi
+  [ -f ~/.fzf.bash -a -d ~/.fzf ] && source ~/.fzf.bash
 
   ## hub
   if check_command hub; then
