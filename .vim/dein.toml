@@ -29,20 +29,18 @@ hook_add = '''
 ## appearance
 # colorscheme
 [[plugins]]
-repo = 'sainnhe/edge'
+repo = 'flrnd/plastic.vim'
+repo = 'joshdick/onedark.vim'
 hook_add = '''
-  set termguicolors
   set background=dark
-  let g:edge_style = 'default'
-  let g:edge_disable_italic_comment = 1
 
-  colorscheme edge
+  colorscheme onedark
 '''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-  let g:lightline = {'colorscheme' : 'edge'}
+  let g:lightline = {'colorscheme' : 'onedark'}
 '''
 
 # visualization of indent
