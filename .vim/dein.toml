@@ -110,6 +110,8 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
+  let g:lsp_diagnostics_echo_cursor = 1
+
   nnoremap <silent> <C-]> :LspDefinition<CR>
   nnoremap <silent> <Space>lh :LspHover<CR>
   nnoremap <silent> <Space>lr :LspReferences<CR>
