@@ -96,6 +96,12 @@ hook_add = '''
   nnoremap <Space>gd :Gdiff<CR>
 '''
 
+# template
+repo = 'mattn/sonictemplate-vim'
+hook_add = '''
+  let g:sonictemplate_vim_template_dir = '~/.cache/dein/repos/github.com/mattn/sonictemplate-vim/template'
+'''
+
 # -----------------------------------------------------
 ## Language Server
 [[plugins]]
