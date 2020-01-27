@@ -89,6 +89,9 @@ set showmatch
 " 検索結果をハイライトさせない
 set nohlsearch
 
+" 大文字小文字の違いを無視
+set ignorecase
+
 " バックアップとか
 set nobackup
 set noswapfile
