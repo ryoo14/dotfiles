@@ -155,7 +155,7 @@ module.exports = {
     'hyper-tab-icons',
     "hypercwd",
     "hyperterm-material-dark",
-    "hyper-hide-title"
+    "hyperminimal"
   ],
 
   // in development, you can create a directory under
