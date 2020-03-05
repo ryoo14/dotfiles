@@ -29,7 +29,6 @@ hook_add = '''
 ## appearance
 # colorscheme
 [[plugins]]
-repo = 'flrnd/plastic.vim'
 repo = 'joshdick/onedark.vim'
 hook_add = '''
   set background=dark
