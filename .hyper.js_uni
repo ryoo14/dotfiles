@@ -9,7 +9,7 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 15,
+    fontSize: 13,
 
     // font family with optional fallbacks
     fontFamily: 'Cica, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -154,7 +154,8 @@ module.exports = {
     'hyperterm-summon',
     'hyper-tab-icons',
     "hypercwd",
-    "hyperterm-material-dark"
+    "hyperterm-material-dark",
+    "hyper-hide-title"
   ],
 
   // in development, you can create a directory under
