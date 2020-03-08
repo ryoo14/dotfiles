@@ -1,0 +1,177 @@
+; General Setting========================================
+[colors]
+fg = #c5c8c6
+bg = #1d1f21
+base = #f79831
+line = #d37208
+warn = #f9314e
+
+[bar/mybar]
+background = ${colors.bg}
+foreground = ${colors.fg}
+width = 100%
+height = 20
+fixed-center = true
+line-size = 2
+module-margin-left = 2 
+font-0 = "Cica:stype=Regular:size=12;1"
+font-1 = "FontAwesome:style=Regular:size=10;1"
+;font-2 = "FontAwesome:size=10;1"
+wm-restack = i3
+override-redirect = true
+cursor-click = pointer
+cursor-scroll = ns-resize
+; ======================================================
+
+
+
+; Module Setting========================================
+modules-left = i3 title
+modules-center = date
+modules-right = cpu memory audio wlan battery
+; ======================================================
+
+
+
+; Module Left===========================================
+[module/i3]
+type = internal/i3
+format = <label-mode> <label-state>
+index-sort = true
+
+label-focused = %index%
+label-focused-padding = 1
+label-focused-foreground = ${colors.bg}
+label-focused-background = ${colors.base}
+label-unfocused = %index%
+label-unfocused-padding = 1
+label-visible = %index%
+label-visible-underline = ${colors.line}
+label-visible-padding = 1
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+[module/title]
+type = internal/xwindow
+format-underline = ${colors.line}
+label = %title%
+label-maxlen = 50
+label-empty = Empty
+; ======================================================
+
+
+
+; Module Center=========================================
+[module/date]
+type = internal/date
+interval = 1
+
+label = %time%
+time =  %a %d %b %Y %T
+format-prefix = " "
+format-prefix-foreground = ${colors.base}
+; ======================================================
+
+
+
+; Module Right==========================================
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <label>
+label = %percentage:3%%
+format-prefix = 
+format-prefix-foreground = ${colors.base}
+format-underline = ${colors.line}
+
+[module/memory]
+type = internal/memory
+interval = 3
+
+format = <ramp-used> <label>
+label = %percentage_used:3%%
+format-underline = ${colors.line}
+ramp-used-foreground = ${colors.base}
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+
+[module/audio]
+type = internal/pulseaudio
+interval = 3
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-underline = ${colors.line}
+label-volume = %percentage:3%%
+ramp-volume-foreground = ${colors.base}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+format-muted = <label-muted>
+format-muted-prefix-foreground = ${colors.warn}
+format-muted-underline = ${colors.warn}
+format-muted-prefix = " "
+label-muted = "mute"
+
+[module/wlan]
+type = internal/network
+interface = wlp58s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-prefix-foreground = ${colors.base}
+format-connected-underline = ${colors.line}
+format-connected-prefix = " "
+label-connected = %essid%
+
+format-disconnected = <label-disconnected>
+format-disconnected-prefix-foreground = ${colors.warn}
+format-disconnected-underline = ${colors.warn}
+format-disconnected-prefix = " " 
+label-disconnected = "disconnect"
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 99
+poll-interval = 5
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+format-charging = "<animation-charging> <label-charging> "
+format-charging-underline = ${colors.line}
+;format-full = <ramp-capacity> <label-full>
+label-charging = %percentage%%
+animation-charging-foreground = ${colors.base}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+format-discharging = "<ramp-capacity> <label-discharging> "
+format-discharging-underline = ${colors.line}
+label-discharging = %percentage%%
+ramp-capacity-foreground = ${colors.base}
+ramp-capacity-0-foreground = ${colors.warn}
+ramp-capacity-1-foreground = ${colors.warn}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+; ======================================================
+
