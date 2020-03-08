@@ -28,7 +28,7 @@ cursor-scroll = ns-resize
 ; Module Setting========================================
 modules-left = i3 title
 modules-center = date
-modules-right = cpu memory audio wlan battery
+modules-right = cpu memory audio light wlan battery
 ; ======================================================
 
 
@@ -121,6 +121,20 @@ format-muted-prefix-foreground = ${colors.warn}
 format-muted-underline = ${colors.warn}
 format-muted-prefix = " "
 label-muted = "mute"
+
+[module/light]
+type = internal/backlight
+card = intel_backlight
+
+format = <ramp> <label>
+format-underline = ${colors.line}
+label = %percentage:3%%
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+ramp-foreground = ${colors.base}
 
 [module/wlan]
 type = internal/network
