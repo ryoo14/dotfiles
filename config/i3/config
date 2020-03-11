@@ -13,7 +13,7 @@ font pango:NotoSansCJKjp-Regular 14
 
 floating_modifier $mod
 
-bindsym $mod+Return exec urxvt256c
+bindsym $mod+Return exec urxvt256c -e tmux
 
 # Window kill command
 bindsym $mod+Shift+q kill
