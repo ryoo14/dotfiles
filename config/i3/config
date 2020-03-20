@@ -193,7 +193,7 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Theme colors
-client.focused #c5c8c6 #1d1f21 #c5c8c6 #81a2be #faa03a
+client.focused #c5c8c6 #1d1f21 #c5c8c6 #81a2be #fc5c12
 client.focused_inactive #c5c8c6 #1d1f21 #c5c8c6 #faa03e #faa03e
 client.unfocused #c5c8c6 #1d1f21 #c5c8c6 #faa03e #faa03e
 client.urgent #c5c8c6 #1d1f21 #c5c8c6 #faa03e #faa03e
