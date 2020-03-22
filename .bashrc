@@ -17,7 +17,7 @@ prompt () {
   # DATE_NOW='\[\e[$[COLUMNS-$(echo -n " ($(date +%H:%M:%S)" | wc -c)]C\e[1;31m($(date +%H:%M:%S))\e[0m\e[$[COLUMNS]D\]'
   # export PS1=${DATE_NOW}"${GREEN}\h ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
   # export PS1="${GREEN}\h ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
-  export PS1="${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
+  export PS1="${SKY}[\W]${GREEN}\$(get_branch)${WHITE}-> "
 }
 
 check_command () {
