@@ -12,3 +12,8 @@ email = anana12185@gmail.com
   pl = pull
   a = add
   c = commit
+[core]
+	quotepath = false
+	commitGraph = true
+[gc]
+	writeCommitGraph = true
