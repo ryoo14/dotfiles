@@ -5,19 +5,21 @@ get_branch () {
 }
 
 prompt () {
-  local  BLUE="\[\e[1;34m\]"
-  local  SKY="\[\e[1;36m\]"
-  local  RED="\[\e[1;31m\]"
-  local  GREEN="\[\e[1;32m\]"
-  local  WHITE="\[\e[00m\]"
-  local  GRAY="\[\e[1;37m\]"
-  local  PUPLE="\[\e[1;35m\]"
-
-  # 時間ありver
-  # DATE_NOW='\[\e[$[COLUMNS-$(echo -n " ($(date +%H:%M:%S)" | wc -c)]C\e[1;31m($(date +%H:%M:%S))\e[0m\e[$[COLUMNS]D\]'
-  # export PS1=${DATE_NOW}"${GREEN}\h ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
-  # export PS1="${GREEN}\h ${SKY}[\W]${PUPLE}\$(get_branch)${WHITE}-> "
-  export PS1="${SKY}[\W]${GREEN}\$(get_branch)${WHITE}-> "
+  if [[ "$TERM" =~ 256color ]]; then
+    local CD="\\033[38;5;045m \W\\033[0m"
+    local BRANCH="\\033[38;5;097m\$(get_branch)\\033[0m"
+    local ARROW="\\033[38;5;208m>\\033[0m\\033[38;5;220m>\\033[0m\\033[38;5;082m>\\033[0m"
+    export PS1="${CD}${BRANCH} ${ARROW} "
+  else
+    local BLUE="\[\e[1;34m\]"
+    local SKY="\[\e[1;36m\]"
+    local RED="\[\e[1;31m\]"
+    local GREEN="\[\e[1;32m\]"
+    local WHITE="\[\e[00m\]"
+    local GRAY="\[\e[1;37m\]"
+    local PUPLE="\[\e[1;35m\]"
+    export PS1="${SKY}[\W]${GREEN}\$(get_branch)${WHITE}-> "
+  fi
 }
 
 check_command () {
