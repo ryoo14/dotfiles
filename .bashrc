@@ -7,8 +7,7 @@ get_branch () {
 prompt () {
   if [[ "$TERM" =~ 256color ]]; then
     #local CD="\\033[38;5;045m\W\\033[0m"
-    #local BRANCH="\\033[38;5;097m\$(get_branch)\\033[0m"
-    #local ARROW="\\033[38;5;208m>\\033[0m\\033[38;5;220m>\\033[0m\\033[38;5;082m>\\033[0m"
+    #local BRANCH="\\033[38;5;097m\$(get_branch)\\033[0m" #local ARROW="\\033[38;5;208m>\\033[0m\\033[38;5;220m>\\033[0m\\033[38;5;082m>\\033[0m"
     local CD="\[\033[38;5;045m\]\W\[\033[0m\]"
     local BRANCH="\[\033[38;5;097m\]\$(get_branch)\[\033[0m\]"
     local ARROW="\[\033[38;5;208m\]>\[\033[0m\]\[\033[38;5;220m\]>\[\033[0m\]\[\033[38;5;082m\]>\[\033[0m\]"
@@ -68,8 +67,8 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   export PATH="/usr/local/bin:$HOME/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
   # set vars
-  prompt
   export TERM="xterm-256color"
+  prompt
   export EDITOR=vim
   export HISTSIZE=2000
   export HISTFILESIZE=2000
