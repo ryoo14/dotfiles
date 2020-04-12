@@ -49,9 +49,9 @@ label-visible = %index%
 label-visible-underline = ${colors.line}
 label-visible-padding = 1
 label-urgent = %index%
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-padding = 4
+label-urgent-foreground = ${colors.bg}
+label-urgent-background = ${colors.warn}
+label-urgent-padding = 1
 
 [module/title]
 type = internal/xwindow
@@ -163,18 +163,12 @@ poll-interval = 5
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 10
 
-format-charging = "<animation-charging> <label-charging> "
+format-charging = "<label-charging> "
+format-charging-prefix = " "
 format-charging-underline = ${colors.line}
-;format-full = <ramp-capacity> <label-full>
+format-charging-foreground = ${colors.base}
 label-charging = %percentage%%
-animation-charging-foreground = ${colors.base}
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-; Framerate in milliseconds
-animation-charging-framerate = 750
+label-charging-foreground = ${colors.fg}
 
 format-discharging = "<ramp-capacity> <label-discharging> "
 format-discharging-underline = ${colors.line}
