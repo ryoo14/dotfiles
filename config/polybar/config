@@ -1,14 +1,13 @@
 ; General Setting========================================
 [colors]
-fg = #c5c8c6
-bg = #1d1f21
-base = #f79831
-line = #d37208
-warn = #f9314e
+white = #c5c8c6
+black = #1d1f21
+orange = #f79831
+violet = #f9314e
 
 [bar/mybar]
-background = ${colors.bg}
-foreground = ${colors.fg}
+background = ${colors.black}
+foreground = ${colors.white}
 width = 100%
 height = 20
 fixed-center = true
@@ -42,21 +41,21 @@ index-sort = true
 
 label-focused = %index%
 label-focused-padding = 1
-label-focused-foreground = ${colors.bg}
-label-focused-background = ${colors.base}
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.orange}
 label-unfocused = %index%
 label-unfocused-padding = 1
 label-visible = %index%
-label-visible-underline = ${colors.line}
+label-visible-underline = ${colors.orange}
 label-visible-padding = 1
 label-urgent = %index%
-label-urgent-foreground = ${colors.bg}
-label-urgent-background = ${colors.warn}
+label-urgent-foreground = ${colors.black}
+label-urgent-background = ${colors.violet}
 label-urgent-padding = 1
 
 [module/title]
 type = internal/xwindow
-format-underline = ${colors.line}
+format-underline = ${colors.orange}
 label = %title%
 label-maxlen = 50
 label-empty = Empty
@@ -72,7 +71,7 @@ interval = 1
 label = %time%
 time =  %a %d %b %Y %T
 format-prefix = " "
-format-prefix-foreground = ${colors.base}
+format-prefix-foreground = ${colors.orange}
 ; ======================================================
 
 
@@ -85,8 +84,8 @@ interval = 1
 format = <label>
 label = %percentage:3%%
 format-prefix = 
-format-prefix-foreground = ${colors.base}
-format-underline = ${colors.line}
+format-prefix-foreground = ${colors.orange}
+format-underline = ${colors.orange}
 
 [module/memory]
 type = internal/memory
@@ -94,8 +93,8 @@ interval = 3
 
 format = <ramp-used> <label>
 label = %percentage_used:3%%
-format-underline = ${colors.line}
-ramp-used-foreground = ${colors.base}
+format-underline = ${colors.orange}
+ramp-used-foreground = ${colors.orange}
 ramp-used-0 = ▁
 ramp-used-1 = ▂
 ramp-used-2 = ▃
@@ -110,16 +109,16 @@ type = internal/pulseaudio
 interval = 3
 
 format-volume = <ramp-volume> <label-volume>
-format-volume-underline = ${colors.line}
+format-volume-underline = ${colors.orange}
 label-volume = %percentage:3%%
-ramp-volume-foreground = ${colors.base}
+ramp-volume-foreground = ${colors.orange}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
 format-muted = <label-muted>
-format-muted-prefix-foreground = ${colors.warn}
-format-muted-underline = ${colors.warn}
+format-muted-prefix-foreground = ${colors.violet}
+format-muted-underline = ${colors.violet}
 format-muted-prefix = " "
 label-muted = "mute"
 
@@ -128,14 +127,14 @@ type = internal/backlight
 card = intel_backlight
 
 format = <ramp> <label>
-format-underline = ${colors.line}
+format-underline = ${colors.orange}
 label = %percentage:3%%
 ramp-0 = 🌕
 ramp-1 = 🌔
 ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
-ramp-foreground = ${colors.base}
+ramp-foreground = ${colors.orange}
 
 [module/wlan]
 type = internal/network
@@ -143,14 +142,14 @@ interface = wlp58s0
 interval = 3.0
 
 format-connected = <label-connected>
-format-connected-prefix-foreground = ${colors.base}
-format-connected-underline = ${colors.line}
+format-connected-prefix-foreground = ${colors.orange}
+format-connected-underline = ${colors.orange}
 format-connected-prefix = " "
 label-connected = %essid%
 
 format-disconnected = <label-disconnected>
-format-disconnected-prefix-foreground = ${colors.warn}
-format-disconnected-underline = ${colors.warn}
+format-disconnected-prefix-foreground = ${colors.violet}
+format-disconnected-underline = ${colors.violet}
 format-disconnected-prefix = " " 
 label-disconnected = "disconnect"
 
@@ -166,17 +165,17 @@ bar-capacity-width = 10
 
 format-charging = "<label-charging> "
 format-charging-prefix = " "
-format-charging-underline = ${colors.line}
-format-charging-foreground = ${colors.base}
+format-charging-underline = ${colors.orange}
+format-charging-foreground = ${colors.orange}
 label-charging = %percentage%%
-label-charging-foreground = ${colors.fg}
+label-charging-foreground = ${colors.white}
 
 format-discharging = "<ramp-capacity> <label-discharging> "
-format-discharging-underline = ${colors.line}
+format-discharging-underline = ${colors.orange}
 label-discharging = %percentage%%
-ramp-capacity-foreground = ${colors.base}
-ramp-capacity-0-foreground = ${colors.warn}
-ramp-capacity-1-foreground = ${colors.warn}
+ramp-capacity-foreground = ${colors.orange}
+ramp-capacity-0-foreground = ${colors.violet}
+ramp-capacity-1-foreground = ${colors.violet}
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
