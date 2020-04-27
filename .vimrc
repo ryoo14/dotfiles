@@ -1,59 +1,6 @@
+" ---------------------------- General Settings -----------------------------
 set encoding=utf-8
 scriptencoding utf-8
-
-"---------------------------------------------------------------
-" key-map
-"---------------------------------------------------------------
-" vimrc編集
-nnoremap <Space>ev :edit $MYVIMRC
-nnoremap <Space>rv :source $MYVIMRC
-nnoremap <Space>egv :edit $MYGVIMRC
-nnoremap <Space>rgv :source $MYGVIMRC
-
-" 上下移動
-noremap j gj
-noremap k gk
-
-" Terminal
-nnoremap <Space>tb :bo term<CR>
-nnoremap <Space>tt :top term<CR>
-nnoremap <Space>tv :vert term<CR>
-" set termwinkey=<C-g>
-
-" Z無効
-nnoremap ZZ <nop>
-nnoremap <c-z> <nop>
-
-" <c-f>の最下行表示をなんとかする
-noremap <expr> <C-f> 
-  \ max([winheight(0) - 2, 1]) . "\<C-d>" 
-  \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
-
-" タブジャンプ
-for n in range(1, 9)
-  execute 'nnoremap <silent> <Space>t'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-
-" 新規タブ
-map <silent> <Space>tc :tablast <bar> tabnew<CR>
-
-" <c-l>で右へ
-inoremap <C-l> <C-g>U<Right>
-
-" コマンドラインモードでbashっぽく動く
-cnoremap <C-a> <Home>
-cnoremap <C-b> <Left>
-cnoremap <C-d> <Del>
-cnoremap <C-e> <End>
-cnoremap <C-f> <Right>
-cnoremap <C-n> <Down>
-cnoremap <C-p> <Up>
-cnoremap <C-y> <C-r>*
-
-"---------------------------------------------------------------
-" options
-"---------------------------------------------------------------
-" タブの変換
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -127,11 +74,39 @@ if (has("autocmd") && !has("gui_running"))
   augroup END
 endif
 
-"---------------------------------------------------------------
-" plugin
-"---------------------------------------------------------------
-" dein
+" ----------------------------- Key Remappings ------------------------------
+nnoremap <Space>ev :edit $MYVIMRC
+nnoremap <Space>rv :source $MYVIMRC
+nnoremap <Space>egv :edit $MYGVIMRC
+nnoremap <Space>rgv :source $MYGVIMRC
+noremap j gj
+noremap k gk
+nnoremap ZZ <nop> "disable Z
+nnoremap <c-z> <nop>
+inoremap <C-l> <C-g>U<Right>
 
+" like bash in cmdline mode
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+cnoremap <C-y> <C-r>*
+
+" tab
+map <silent> <Space>tc :tablast <bar> tabnew<CR> "new tab
+for n in range(1, 9)
+  execute 'nnoremap <silent> <Space>t'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+" fix display in bottom
+noremap <expr> <C-f> 
+  \ max([winheight(0) - 2, 1]) . "\<C-d>" 
+  \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
+
+" ---------------------------- Plugin Management ----------------------------
 if &compatible
   set nocompatible
 endif
@@ -167,8 +142,10 @@ endif
 filetype plugin indent on
 syntax on
 
-"---------------------------------------------------------------
-" load external config
-"---------------------------------------------------------------
-" lsp
+" ----------------------------- Color Settings ------------------------------
+" ---------------------------- Syntax Mappings ------------------------------
+
+
+
+
 source ~/.vim/vimrc-lsp
