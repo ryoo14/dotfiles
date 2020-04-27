@@ -74,6 +74,9 @@ if (has("autocmd") && !has("gui_running"))
   augroup END
 endif
 
+filetype plugin indent on
+syntax on
+
 " ----------------------------- Key Remappings ------------------------------
 nnoremap <Space>ev :edit $MYVIMRC
 nnoremap <Space>rv :source $MYVIMRC
@@ -107,45 +110,46 @@ noremap <expr> <C-f>
   \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 
 " ---------------------------- Plugin Management ----------------------------
-if &compatible
-  set nocompatible
+if !filereadable('~/.vim/autoload/plug.vim')
+  call system('curl -fLo ~/.vim/autoload/plug.vim --create-dir ' 
+    \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
 
-" deinのディレクトリ指定
-let s:cache_home = expand('~/.cache')
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+call plug#begin('~/.vim/plugged')
+" filetype
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+" vim-lsp
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
+" color and appearance
+Plug 'joshdick/onedark.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'Yggdroot/indentLine'
+" filer
+Plug 'cocopon/vaffle.vim'
+Plug 'junegunn/fzf.vim'
+" quick run
+Plug 'mattn/sonictemplate-vim'
+Plug 'thinca/vim-quickrun'
+" preview file
+Plug 'kannokanno/previm', { 'for': 'markdown' }
+Plug 'tyru/open-browser.vim'
+" etc 
+Plug 'tpope/vim-fugitive' "git client
+Plug 'cohama/lexima.vim' " auto close parentheses
+Plug 'vim-jp/vimdoc-ja' "help in japanese
 
-" deinがなければまずインストール
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' 
-    \ . shellescape(s:dein_repo_dir))
-endif
+call plug#end()
 
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
-if has('unix')
-  let &runtimepath = '/usr/share/vim/vim81' .",". &runtimepath
-endif
-
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/.vim/dein.toml'
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
-  call dein#load_toml(s:toml_file, {'lazy': 0})
-  call dein#end()
-  call dein#save_state()
-endif
-
-if has('vim_starting') && dein#check_install()
-  call dein#install()
-endif
-
-filetype plugin indent on
-syntax on
+source ~/.vim/plugconf/general.vimrc
+source ~/.vim/plugconf/lsp.vimrc
 
 " ----------------------------- Color Settings ------------------------------
+set background=dark
+colorscheme onedark
+
 " ---------------------------- Syntax Mappings ------------------------------
-
-
-
-
-source ~/.vim/vimrc-lsp

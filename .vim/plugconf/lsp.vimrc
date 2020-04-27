@@ -1,3 +1,12 @@
+" General
+let g:lsp_diagnostics_echo_cursor = 1
+nnoremap <silent> <C-]> :LspDefinition<CR>
+nnoremap <silent> <Space>lh :LspHover<CR>
+nnoremap <silent> <Space>lr :LspReferences<CR>
+nnoremap <silent> <Space>li :LspImplementation<CR>
+nnoremap <silent> <Space>ls :split \| :LspDefinition <CR>
+nnoremap <silent> <Space>lv :vsplit \| :LspDefinition <CR>
+
 " Ruby
 if executable('solargraph')
   augroup LspRuby
@@ -39,6 +48,7 @@ if executable('html-languageserver')
   augroup END
 endif
 
+" Docker
 if executable('docker-langserver')
   augroup LspDocker
     autocmd!
