@@ -1,64 +1,33 @@
 " ---------------------------- General Settings -----------------------------
 set encoding=utf-8
-scriptencoding utf-8
+"scriptencoding utf-8
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-
-" インデントをかしこく
 set autoindent
 set smartindent
-
-" 80文字
 set colorcolumn=79
-
-" 行数の表示
 set number
-
-" ステータスラインを常時表示
 set laststatus=2
-" タブが2つ以上あるときにタブラインを表示
 set showtabline=1
-" コマンドラインの高さ
 set cmdheight=1
-
-" backspace can delete indent and newline
 set backspace=indent,eol,start
-
-" 補完
-set wildmode=list,full
-set completeopt=menuone
-
-" 閉じ括弧の表示
 set showmatch
-
-" 検索結果をハイライトさせない
 set nohlsearch
-
-" 大文字小文字の違いを無視
 set ignorecase
-
-" バックアップとか
 set nobackup
 set noswapfile
 set undofile
 set undodir=~/tmp
-
-" <s-k>に使うコマンド
 set keywordprg=:help
-
-" ベル無効
 set belloff=all
-
 set t_ut=
-
-" 色数
 set t_Co=256
-
-" terminal
 set shell=bash
 set termwinsize=10x0
+filetype plugin indent on
+syntax on
 
 if has('win64')
   set grepprg=grep\ -n
@@ -74,8 +43,6 @@ if (has("autocmd") && !has("gui_running"))
   augroup END
 endif
 
-filetype plugin indent on
-syntax on
 
 " ----------------------------- Key Remappings ------------------------------
 nnoremap <Space>ev :edit $MYVIMRC
