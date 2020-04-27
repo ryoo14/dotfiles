@@ -115,7 +115,8 @@ if !filereadable('~/.vim/autoload/plug.vim')
     \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
 
-call plug#begin('~/.vim/plugged')
+let s:plugdir='~/.vim/plugged'
+call plug#begin(s:plugdir)
 " filetype
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -142,7 +143,6 @@ Plug 'tyru/open-browser.vim'
 Plug 'tpope/vim-fugitive' "git client
 Plug 'cohama/lexima.vim' " auto close parentheses
 Plug 'vim-jp/vimdoc-ja' "help in japanese
-
 call plug#end()
 
 source ~/.vim/plugconf/general.vimrc
