@@ -1,55 +1,6 @@
+" ---------------------------- General Settings -----------------------------
+set encoding=utf-8
 scriptencoding utf-8
-
-"---------------------------------------------------------------
-" key-map
-"---------------------------------------------------------------
-" vimrc編集
-nnoremap <Space>ev :edit $MYVIMRC
-nnoremap <Space>rv :source $MYVIMRC
-
-" 上下移動
-noremap j gj
-noremap k gk
-
-" 検索
-nnoremap / /\v
-
-" Z無効
-nnoremap ZZ <nop>
-nnoremap <c-z> <nop>
-
-" <c-f>の最下行表示をなんとかする
-noremap <expr> <C-f> 
-  \ max([winheight(0) - 2, 1]) . "\<C-d>" 
-  \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
-
-" タグジャンプ
-nnoremap <C-]> :exe("tjump ".expand('<cword>'))<CR>
-
-" タブジャンプ
-for n in range(1, 9)
-  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-
-map <silent> <Space>tc :tablast <bar> tabnew<CR>
-
-" <c-l>で右へ
-inoremap <C-l> <C-g>U<Right>
-
-" コマンドラインモードでbashっぽく動く
-cnoremap <C-a> <Home>
-cnoremap <C-b> <Left>
-cnoremap <C-d> <Del>
-cnoremap <C-e> <End>
-cnoremap <C-f> <Right>
-cnoremap <C-n> <Down>
-cnoremap <C-p> <Up>
-cnoremap <C-y> <C-r>*
-
-"---------------------------------------------------------------
-" options
-"---------------------------------------------------------------
-" タブの変換
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -85,6 +36,9 @@ set showmatch
 " 検索結果をハイライトさせない
 set nohlsearch
 
+" 大文字小文字の違いを無視
+set ignorecase
+
 " バックアップとか
 set nobackup
 set noswapfile
@@ -99,8 +53,58 @@ set belloff=all
 
 set t_ut=
 
+" 色数
+set t_Co=256
+
+" terminal
+set shell=bash
+set termwinsize=10x0
+
 if has('win64')
   set grepprg=grep\ -n
   set autochdir
 endif
 
+" set transparent
+if (has("autocmd") && !has("gui_running"))
+  augroup colorset
+    autocmd!
+    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
+  augroup END
+endif
+
+filetype plugin indent on
+syntax on
+
+" ----------------------------- Key Remappings ------------------------------
+nnoremap <Space>ev :edit $MYVIMRC
+nnoremap <Space>rv :source $MYVIMRC
+nnoremap <Space>egv :edit $MYGVIMRC
+nnoremap <Space>rgv :source $MYGVIMRC
+noremap j gj
+noremap k gk
+nnoremap ZZ <nop> "disable Z
+nnoremap <c-z> <nop>
+inoremap <C-l> <C-g>U<Right>
+
+" like bash in cmdline mode
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+cnoremap <C-y> <C-r>*
+
+" tab
+map <silent> <Space>tc :tablast <bar> tabnew<CR> "new tab
+for n in range(1, 9)
+  execute 'nnoremap <silent> <Space>t'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+" fix display in bottom
+noremap <expr> <C-f> 
+  \ max([winheight(0) - 2, 1]) . "\<C-d>" 
+  \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
