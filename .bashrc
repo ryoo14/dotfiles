@@ -62,7 +62,7 @@ fi
 if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
 
   # set path
-  export PATH="/usr/local/bin:$HOME/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+  export PATH="/usr/local/bin:$HOME/.local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
   # set vars
   export TERM="xterm-256color"
