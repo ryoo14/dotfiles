@@ -77,13 +77,14 @@ noremap <expr> <C-f>
   \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 
 " ---------------------------- Plugin Management ----------------------------
+
 if !filereadable('~/.vim/autoload/plug.vim')
   call system('curl -fLo ~/.vim/autoload/plug.vim --create-dir ' 
     \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
 
-let s:plugdir='~/.vim/plugged'
-call plug#begin(s:plugdir)
+let s:plugin_dir='~/.vim/plugged'
+call plug#begin(s:plugin_dir)
 " filetype
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'elzr/vim-json', { 'for': 'json' }
