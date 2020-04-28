@@ -14,4 +14,4 @@ timecolor=ffffffff
 datecolor=ffffffff
 loginbox=00000066
 font="sans-serif"
-lock_timeout=15
+lock_timeout=60
