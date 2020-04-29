@@ -98,7 +98,7 @@ log_suc() {
 log_info "Check to exist work directory"
 if [ ! -d "$HOME/work" ]; then
   log_info "Not exist."
-  log_info "Create work directory and git clone setup playbook."
+  log_info "Create work directory."
 
   mkdir -p "$HOME/work/src"
   if [ $? -eq 0 ]; then
@@ -131,7 +131,7 @@ fi
 # install ansible
 log_info "Check to ansible"
 is_exists ansible-playbook
-if [ $? -nq 0 ]; then
+if [ $? -ne 0 ]; then
   log_info "Not exist."
   log_info "Instal ansible"
 
