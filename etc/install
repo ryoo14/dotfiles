@@ -95,7 +95,7 @@ log_suc() {
 }
 
 # work dir
-loginfo "Check to exist work directory"
+log_info "Check to exist work directory"
 if [ ! -d "$HOME/work" ]; then
   log_info "Not exist."
   log_info "Create work directory and git clone setup playbook."
@@ -112,7 +112,7 @@ else
 fi
 
 # my setup fedora
-loginfo "Check to exist ansible playbooks for my setup fedora."
+log_info "Check to exist ansible playbooks for my setup fedora."
 if [ ! -d "$HOME/work/my-setup-fedora" ]; then
   log_info "Not exist."
   log_info "Clone playbooks"
@@ -129,8 +129,8 @@ else
 fi
 
 # install ansible
-loginfo "Check to ansible"
-is_exists ansible
+log_info "Check to ansible"
+is_exists ansible-playbook
 if [ $? -nq 0 ]; then
   log_info "Not exist."
   log_info "Instal ansible"
