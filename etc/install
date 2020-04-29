@@ -97,6 +97,7 @@ log_suc() {
 # create work dir
 if [ ! -d "$HOME/work" ]; then
   mkdir -p "$HOME/work/src"
+  git clone https://github.com/ryoo14/my-setup-fedora "$HOME/work/my-setup-fedora"
 fi
 
 
