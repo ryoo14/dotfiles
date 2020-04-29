@@ -94,10 +94,57 @@ log_suc() {
   logging SUCCESS "$1" 1>&2
 }
 
-# create work dir
+# work dir
+loginfo "Check to exist work directory"
 if [ ! -d "$HOME/work" ]; then
+  log_info "Not exist."
+  log_info "Create work directory and git clone setup playbook."
+
   mkdir -p "$HOME/work/src"
-  git clone https://github.com/ryoo14/my-setup-fedora "$HOME/work/my-setup-fedora"
+  if [ $? -eq 0 ]; then
+    log_suc "Success."
+  else
+    log_err "Failed to create work dir. Exit script."
+    exit 1
+  fi
+else
+  log_info "Exist."
 fi
 
+# my setup fedora
+loginfo "Check to exist ansible playbooks for my setup fedora."
+if [ ! -d "$HOME/work/my-setup-fedora" ]; then
+  log_info "Not exist."
+  log_info "Clone playbooks"
 
+  git clone https://github.com/ryoo14/my-setup-fedora "$HOME/work/my-setup-fedora"
+  if [ $? -eq 0 ]; then
+    log_suc "Success."
+  else
+    log_err "Failed to clone. Exit script."
+    exit 1
+  fi
+else
+  log_info "Exist."
+fi
+
+# install ansible
+loginfo "Check to ansible"
+is_exists ansible
+if [ $? -nq 0 ]; then
+  log_info "Not exist."
+  log_info "Instal ansible"
+
+  sudo dnf install -y ansible
+
+  if [ $? -eq 0 ]; then
+    log_suc "Success."
+  else
+    log_err "Failed to install. Exit script."
+    exit 1
+  fi
+else
+  log_info "Exist."
+fi
+
+log_info "Done."
