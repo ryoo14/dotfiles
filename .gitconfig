@@ -17,3 +17,5 @@ email = anana12185@gmail.com
 	commitGraph = true
 [gc]
 	writeCommitGraph = true
+[credential]
+	helper = cache
