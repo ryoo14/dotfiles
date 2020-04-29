@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ "$#" -eq 0 || "$#" -gt 2 ]]; then
-  echo "Usage: ./install [server|client]"
+if [ "$#" -gt 1 ]; then
+  echo "Usage: ./install"
   exit 1
 fi
 
@@ -94,17 +94,9 @@ log_suc() {
   logging SUCCESS "$1" 1>&2
 }
 
-cd dotfiles
+# create work dir
+if [ ! -d "$HOME/work" ]; then
+  mkdir -p "$HOME/work/src"
+fi
 
-for f in .??*
-do
-  [ "$f" == ".git" ] && continue
-  [ "$f" == ".gitignore" ] && continue
-  ln -snfv "dotfiles/${f}" "${HOME}/${f}"
-  if [ $? -eq 0 ]; then
-    log_suc "Successfully created symlink of ${f}"
-  else
-    log_err "Failed to create symlink of ${f}"
-  fi
-done
 
