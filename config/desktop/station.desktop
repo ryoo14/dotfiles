@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Station
+Comment=Station
+Exec=station
+Terminal=false
+Icon=user-desktop
