@@ -19,8 +19,8 @@ bindsym $mod+Return exec urxvt256c -e tmux
 bindsym $mod+Shift+q kill
 
 # start program launcher
-#bindsym $mod+d exec --no-startup-id rofi -show drun -theme slate -show-icons -icon-theme Tela-dark
 bindsym Ctrl+space exec --no-startup-id rofi -show drun -theme slate -show-icons -icon-theme Tela-dark
+bindsym Ctrl+Left exec --no-startup-id rofi -show window -theme slate -show-icons
 
 # change focus
 bindsym $mod+j focus down
