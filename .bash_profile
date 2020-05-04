@@ -6,5 +6,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
-ibus-daemon -drx
-setxkbmap -option ctrl:nocaps
+if [ "$(uname)" != 'Darwin' ]; then
+  ibus-daemon -drx
+  setxkbmap -option ctrl:nocaps
+fi
