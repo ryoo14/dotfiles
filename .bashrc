@@ -84,8 +84,8 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   export TERM="xterm-256color"
   prompt
   export EDITOR=vim
-  export HISTSIZE=2000
-  export HISTFILESIZE=2000
+  export HISTSIZE=20000
+  export HISTFILESIZE=20000
 
   # set aliases and command preparation
   if [ $OS == "Linux" ]; then
