@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Nemo
+Comment=Nemo
+Exec=nemo
+Terminal=false
+Icon=gtk-directory
