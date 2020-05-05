@@ -86,6 +86,7 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   alias psa='ps auxw'
   alias sudo='sudo '
   alias v='vim'
+  alias r='ranger-cd'
 
   ## ruby
   if [ -e "$HOME/.rbenv" ]; then
