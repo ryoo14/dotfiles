@@ -12,10 +12,19 @@ email = anana12185@gmail.com
   pl = pull
   a = add
   c = commit
+
 [core]
 	quotepath = false
 	commitGraph = true
+
 [gc]
 	writeCommitGraph = true
+
 [credential]
 	helper = cache
+
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+
+[url "https://"]
+	insteadOf = git://
