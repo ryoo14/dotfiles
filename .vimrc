@@ -25,7 +25,6 @@ set belloff=all
 set t_ut=
 set t_Co=256
 set shell=bash
-set termwinsize=10x0
 filetype plugin indent on
 syntax on
 
