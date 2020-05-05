@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: moni [left|right|same]"
+  exit 1
+fi
+
+case $1 in
+  "left" )
+    xrandr --output DP-1 --auto --primary --left-of eDP-1 --output eDP-1 --auto;;
+  "right" )
+    xrandr --output DP-1 --auto --primary --right-of eDP-1 --output eDP-1 --auto;;
+  "same" )
+    xrandr --output DP-1 --auto --primary --same-as eDP-1;;
+  *)
+    echo "Usage: moni [left|right|same]";;
+esac
