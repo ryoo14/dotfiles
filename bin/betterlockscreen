@@ -94,7 +94,7 @@ lock() {
 		--insidecolor=$insidecolor --ringcolor=$ringcolor --line-uses-inside \
 		--keyhlcolor=$keyhlcolor --bshlcolor=$bshlcolor --separatorcolor=$separatorcolor \
 		--insidevercolor=$insidevercolor --insidewrongcolor=$insidewrongcolor \
-		--ringvercolor=$ringvercolor --ringwrongcolor=$ringwrongcolor --indpos='x+290:h-53' \
+		--ringvercolor=$ringvercolor --ringwrongcolor=$ringwrongcolor --indpos='x+303:h-53' \
 		--radius=12 --ring-width=8 --veriftext='' --wrongtext='' \
 		--verifcolor="$verifcolor" --timecolor="$timecolor" --datecolor="$datecolor" \
 		--noinputtext='' --force-clock $lockargs
