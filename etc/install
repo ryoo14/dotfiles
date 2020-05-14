@@ -111,8 +111,6 @@ else
   log_info "Exist."
 fi
 
-sudo dnf install git
-
 # my setup fedora
 log_info "Check to exist ansible playbooks for my setup fedora."
 if [ ! -d "$HOME/work/my-setup-fedora" ]; then
