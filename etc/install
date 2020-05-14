@@ -175,7 +175,7 @@ ln -sf $DOTFILE_DIR/config/nitrogen         $CONFIG_DIR/nitrogen
 ln -sf $DOTFILE_DIR/config/polybar          $CONFIG_DIR/polybar
 ln -sf $DOTFILE_DIR/config/ranger           $CONFIG_DIR/ranger
 ln -sf $DOTFILE_DIR/config/rofi             $CONFIG_DIR/rofi
-ln -sf $DOTFILE_DIR/config/gtk/settings.ini $CONFIG_DIR/gtk-3.0/settings.ini
+#ln -sf $DOTFILE_DIR/config/gtk/settings.ini $CONFIG_DIR/gtk-3.0/settings.ini
 ln -sf $DOTFILE_DIR/config/betterlockscreen/betterlockscreenrc $CONFIG_DIR/betterlockscreenrc
 
 ln -s $DOTFILE_DIR/bin $HOME/.local/bin
