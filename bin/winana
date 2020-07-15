@@ -1,2 +1,2 @@
 #/bin/bash
-xfreerdp -u ryo -w 1800 -h 1000 -v 192.168.11.12
+xfreerdp -u ryo -w 1800 -h 1000 -v 192.168.11.100
