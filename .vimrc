@@ -15,6 +15,7 @@ set cmdheight=1
 set backspace=indent,eol,start
 set showmatch
 set nohlsearch
+set incsearch
 set ignorecase
 set nobackup
 set noswapfile
@@ -84,7 +85,6 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 " color and appearance
-"Plug 'joshdick/onedark.vim'
 Plug 'habamax/vim-colors-lessthan'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
@@ -101,6 +101,8 @@ Plug 'tyru/open-browser.vim'
 Plug 'tpope/vim-fugitive' "git client
 Plug 'cohama/lexima.vim' " auto close parentheses
 Plug 'vim-jp/vimdoc-ja' "help in japanese
+" lang
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 source ~/.vim/plugconf/general.vimrc

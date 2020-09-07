@@ -46,3 +46,6 @@ let g:fzf_tags_command = 'ctags -R'
 nnoremap <Space>fi :Vaffle<CR>
 let g:vaffle_auto_cd = 1
 let g:vaffle_show_hidden_files = 1
+
+" rust
+let g:rustfmt_autosave = 1
