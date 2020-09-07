@@ -33,16 +33,6 @@ if has('win64')
   set autochdir
 endif
 
-" set transparent
-if (has("autocmd") && !has("gui_running"))
-  augroup colorset
-    autocmd!
-    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
-  augroup END
-endif
-
-
 " ----------------------------- Key Remappings ------------------------------
 nnoremap <Space>ev :edit $MYVIMRC
 nnoremap <Space>rv :source $MYVIMRC
@@ -94,7 +84,8 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 " color and appearance
-Plug 'joshdick/onedark.vim'
+"Plug 'joshdick/onedark.vim'
+Plug 'habamax/vim-colors-lessthan'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 " filer
@@ -117,6 +108,6 @@ source ~/.vim/plugconf/lsp.vimrc
 
 " ----------------------------- Color Settings ------------------------------
 set background=dark
-colorscheme onedark
+colorscheme lessthan
 
 " ---------------------------- Syntax Mappings ------------------------------
