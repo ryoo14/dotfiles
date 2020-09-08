@@ -25,6 +25,7 @@ set keywordprg=:help
 set belloff=all
 set t_ut=
 set t_Co=256
+set termguicolors
 set shell=bash
 filetype plugin indent on
 syntax on
