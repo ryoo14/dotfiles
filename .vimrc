@@ -25,7 +25,6 @@ set keywordprg=:help
 set belloff=all
 set t_ut=
 set t_Co=256
-set termguicolors
 set shell=bash
 filetype plugin indent on
 syntax on
@@ -86,7 +85,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 " color and appearance
-Plug 'habamax/vim-colors-lessthan'
+Plug 'huyvohcmc/atlas.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 " filer
@@ -111,6 +110,6 @@ source ~/.vim/plugconf/lsp.vimrc
 
 " ----------------------------- Color Settings ------------------------------
 set background=dark
-colorscheme lessthan
+colorscheme atlas
 
 " ---------------------------- Syntax Mappings ------------------------------
