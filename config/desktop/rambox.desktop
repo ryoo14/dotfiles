@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Station
-Comment=Station
-Exec=station
+Name=Rambox
+Comment=Rambox
+Exec=rambox
 Terminal=false
 Icon=user-desktop
