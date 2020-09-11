@@ -138,7 +138,7 @@ ramp-foreground = ${colors.orange}
 
 [module/wlan]
 type = internal/network
-interface = wlp58s0
+interface = wlp0s20f3
 interval = 3.0
 
 format-connected = <label-connected>
