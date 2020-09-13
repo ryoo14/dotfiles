@@ -196,3 +196,5 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+eval `dircolors | sed -e 's/;34:/;32:/'`
