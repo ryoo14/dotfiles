@@ -55,6 +55,9 @@ cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
 cnoremap <C-y> <C-r>*
 
+" terminal
+nnoremap <silent> <Space>te :top terminal ++rows=15<CR>
+
 " tab
 map <silent> <Space>tc :tablast <bar> tabnew<CR> "new tab
 for n in range(1, 9)
