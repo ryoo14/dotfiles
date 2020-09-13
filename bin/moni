@@ -7,11 +7,11 @@ fi
 
 case $1 in
   "left" )
-    xrandr --output DP-1 --auto --primary --left-of eDP-1 --output eDP-1 --auto;;
+    xrandr --output DP-3 --auto --primary --left-of eDP-1 --output eDP-1 --auto;;
   "right" )
-    xrandr --output DP-1 --auto --primary --right-of eDP-1 --output eDP-1 --auto;;
+    xrandr --output DP-3 --auto --primary --right-of eDP-1 --output eDP-1 --auto;;
   "same" )
-    xrandr --output DP-1 --auto --primary --same-as eDP-1;;
+    xrandr --output DP-3 --auto --primary --same-as eDP-1;;
   *)
     echo "Usage: moni [left|right|same]";;
 esac
