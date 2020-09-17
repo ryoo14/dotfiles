@@ -168,7 +168,11 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   fi
 
   ## fzf
-  [ -f ~/.fzf.bash -a -d ~/.fzf ] && source ~/.fzf.bash
+  if [ -d ~/.fzf ]; then
+    export FZFPATH="$HOME/.fzf"
+    export PATH="$FZFPATH/bin:$PATH"
+    source "$FZFPATH/shell/key-bindings.bash"
+  fi
 
   ## hub
   if check_command hub; then
