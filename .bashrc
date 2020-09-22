@@ -173,8 +173,8 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     export PATH="$FZFPATH/bin:$PATH"
     source "$FZFPATH/shell/key-bindings.bash"
     export FZF_DEFAULT_OPTS='--reverse'
-    export FZF_ALT_C_COMMAND='find . -type d -name ".*"'
-    export FZF_CTRL_T_COMMAND='find . -type d -name ".*"'
+    export FZF_ALT_C_COMMAND='find . -type d -name ".git" -prune -o -type d -name "*" -print'
+    export FZF_CTRL_T_COMMAND='find . -type d -name ".git" -prune -o -type d -name "*" -print'
   fi
 
   ## hub
