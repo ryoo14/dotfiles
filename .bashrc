@@ -40,11 +40,11 @@ wkt () {
   )
 }
 
-mkgi () {
+mkig () {
   curl -L -s https://www.gitignore.io/api/$@
 }
 
-function ranger-cd {
+ranger-cd () {
     local IFS=$'\t\n'
     local tempfile="$(mktemp -t tmp.XXXXXX)"
     local ranger_cmd=(
@@ -172,6 +172,7 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     export FZFPATH="$HOME/.fzf"
     export PATH="$FZFPATH/bin:$PATH"
     source "$FZFPATH/shell/key-bindings.bash"
+    export FZF_DEFAULT_OPTS='--reverse'
   fi
 
   ## hub
