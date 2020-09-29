@@ -92,7 +92,7 @@ Plug 'huyvohcmc/atlas.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 " filer
-Plug 'cocopon/vaffle.vim'
+Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
 " quick run
 Plug 'mattn/sonictemplate-vim'
@@ -101,9 +101,9 @@ Plug 'thinca/vim-quickrun'
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'tyru/open-browser.vim'
 " etc 
-Plug 'tpope/vim-fugitive' "git client
-Plug 'cohama/lexima.vim' " auto close parentheses
-Plug 'vim-jp/vimdoc-ja' "help in japanese
+Plug 'tpope/vim-fugitive' " git client
+Plug 'cohama/lexima.vim'  " auto close parentheses
+Plug 'vim-jp/vimdoc-ja'   " help in japanese
 " lang
 Plug 'rust-lang/rust.vim'
 call plug#end()
