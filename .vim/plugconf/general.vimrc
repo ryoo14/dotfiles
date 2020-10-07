@@ -44,3 +44,8 @@ let g:fzf_tags_command = 'ctags -R'
 
 " rust
 let g:rustfmt_autosave = 1
+
+" snippets
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
