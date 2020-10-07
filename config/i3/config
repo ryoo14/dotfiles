@@ -75,9 +75,9 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # workspaces
-set $ws1 1
-set $ws2 2
-set $ws3 3
+set $ws1 "1:web"
+set $ws2 "2:code"
+set $ws3 "3:sns"
 set $ws4 4
 set $ws5 5
 set $ws6 6
@@ -93,6 +93,10 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+
+assign [class="Brave"]  $ws1
+assign [class="URxvt"]  $ws2
+assign [class="Rambox"] $ws3
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -202,9 +206,9 @@ client.placeholder #c5c8c6 #1d1f21 #c5c8c6 #faa03e #faa03e
 client.background #1d1f21
 
 # Gaps
-gaps top 15
-gaps bottom 1
-gaps inner 10
+gaps top 0
+gaps bottom 20
+gaps inner 5
 gaps left 1
 gaps right 1
 
@@ -247,6 +251,7 @@ mode "$mode_gaps_outer" {
 
 # set power-manager and volume control
 exec --no-startup-id mate-power-manager
+exec --no-startup-id libinput-gestures-setup start
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db- unmute

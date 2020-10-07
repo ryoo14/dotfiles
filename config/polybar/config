@@ -21,6 +21,7 @@ override-redirect = true
 cursor-click = pointer
 cursor-scroll = ns-resize
 monitor = ${env:MONITOR:}
+bottom = true
 ; ======================================================
 
 
@@ -36,19 +37,20 @@ modules-right = cpu memory audio light wlan battery
 ; Module Left===========================================
 [module/i3]
 type = internal/i3
-format = <label-mode> <label-state>
+format = <label-state> <label-mode> 
 index-sort = true
+strip-wsnumbers = true
 
-label-focused = %index%
+label-focused = %name%
 label-focused-padding = 1
 label-focused-foreground = ${colors.black}
 label-focused-background = ${colors.orange}
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = 1
-label-visible = %index%
+label-visible = %name%
 label-visible-underline = ${colors.orange}
 label-visible-padding = 1
-label-urgent = %index%
+label-urgent = %name%
 label-urgent-foreground = ${colors.black}
 label-urgent-background = ${colors.violet}
 label-urgent-padding = 1
