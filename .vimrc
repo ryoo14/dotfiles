@@ -56,7 +56,7 @@ cnoremap <C-p> <Up>
 cnoremap <C-y> <C-r>*
 
 " terminal
-nnoremap <silent> <Space>te :top terminal ++rows=15<CR>
+nnoremap <silent> <Space>te :bo terminal ++rows=15<CR>
 
 " tab
 map <silent> <Space>tc :tablast <bar> tabnew<CR> "new tab
@@ -88,8 +88,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 " color and appearance
-Plug 'huyvohcmc/atlas.vim'
-Plug 'dikiaap/minimalist'
+Plug 'ryoo14/coral.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 " filer
@@ -118,6 +117,6 @@ source ~/.vim/plugconf/lsp.vimrc
 
 " ----------------------------- Color Settings ------------------------------
 set background=dark
-colorscheme minimalist
+colorscheme coral
 
 " ---------------------------- Syntax Mappings ------------------------------
