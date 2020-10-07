@@ -89,11 +89,15 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 " color and appearance
 Plug 'huyvohcmc/atlas.vim'
+Plug 'dikiaap/minimalist'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 " filer
 Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
+" snippets
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 " quick run
 Plug 'mattn/sonictemplate-vim'
 Plug 'thinca/vim-quickrun'
@@ -111,8 +115,9 @@ call plug#end()
 source ~/.vim/plugconf/general.vimrc
 source ~/.vim/plugconf/lsp.vimrc
 
+
 " ----------------------------- Color Settings ------------------------------
 set background=dark
-colorscheme atlas
+colorscheme minimalist
 
 " ---------------------------- Syntax Mappings ------------------------------
