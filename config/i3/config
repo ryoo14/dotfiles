@@ -97,6 +97,9 @@ bindsym $mod+8 workspace $ws8
 assign [class="Brave"]  $ws1
 assign [class="URxvt"]  $ws2
 assign [class="Rambox"] $ws3
+for_window [class="Brave"] focus
+for_window [class="URxvt"] focus
+for_window [class="Rambox"] focus
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
