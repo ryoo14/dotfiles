@@ -60,6 +60,17 @@ ranger-cd () {
     command rm -f -- "$tempfile" 2>/dev/null
 }
 
+function fzf_pjc() {
+  local project_name=$(go/bin/ghq list | sort | $(__fzfcmd))
+  if [ -n "$project_name" ]; then
+    local project_full_path=$(go/bin/ghq root)/$project_name
+    local project_relative_path="~/$(realpath --relative-to=$HOME $project_full_path)"
+    READLINE_LINE="cd $project_relative_path"
+    READLINE_POINT=${#READLINE_LINE}
+  fi
+}
+bind -x '"\C-]": fzf_pjc'
+
 # ---------------------------------------------------------------------------
 # set OS
 if [ "$(uname)" == 'Darwin' ]; then
