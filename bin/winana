@@ -1,2 +1,9 @@
 #/bin/bash
-xfreerdp -u ryo -w 1800 -h 1000 -v 192.168.11.100
+
+if [ $# -ne 1 ]; then
+  echo "Usage: winana <username>"
+  exit 1
+fi
+
+REMOTE_USER=$1
+xfreerdp -u $REMOTE_USER -w 1800 -h 1000 -v 192.168.11.100
