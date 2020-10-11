@@ -49,3 +49,6 @@ let g:rustfmt_autosave = 1
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" vim-molder
+let g:molder_show_hidden = 1
