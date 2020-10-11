@@ -28,3 +28,6 @@ email = anana12185@gmail.com
 
 [url "https://"]
 	insteadOf = git://
+
+[ghq]
+  root = ~/ghq
