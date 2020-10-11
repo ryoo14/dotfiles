@@ -100,6 +100,11 @@ assign [class="Rambox"] $ws3
 for_window [class="Firefox"] focus
 for_window [class="URxvt"] focus
 for_window [class="Rambox"] focus
+set $moni_code "eDP-1"
+set $moni_sns "eDP-1"
+workspace $ws2 output $moni_code
+workspace $ws3 output $moni_sns
+
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
