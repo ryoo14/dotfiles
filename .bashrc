@@ -6,10 +6,11 @@ get_branch () {
 
 prompt () {
   if [[ "$TERM" =~ 256color ]]; then
+    local HN="\033[38;5;246m\]\H\[\033[0m\]"
     local CD="\[\033[38;5;045m\]\W\[\033[0m\]"
     local BRANCH="\[\033[38;5;097m\]\$(get_branch)\[\033[0m\]"
     local ARROW="\[\033[38;5;208m\]>\[\033[0m\]\[\033[38;5;220m\]>\[\033[0m\]\[\033[38;5;082m\]>\[\033[0m\]"
-    export PS1="${CD}${BRANCH} ${ARROW} "
+    export PS1="${HN} ${CD}${BRANCH} ${ARROW} "
   else
     local BLUE="\[\e[1;34m\]"
     local SKY="\[\e[1;36m\]"
@@ -60,9 +61,9 @@ ranger-cd () {
     command rm -f -- "$tempfile" 2>/dev/null
 }
 
-function fzf_pjc() {
+fzf_pjc() {
   local project_name=$(go/bin/ghq list | sort | $(__fzfcmd))
-  if [ -n "$project_name" ]; then
+  if [[ -n "$project_name" ]]; then
     local project_full_path=$(go/bin/ghq root)/$project_name
     local project_relative_path="~/$(realpath --relative-to=$HOME $project_full_path)"
     READLINE_LINE="cd $project_relative_path"
@@ -70,6 +71,13 @@ function fzf_pjc() {
   fi
 }
 bind -x '"\C-]": fzf_pjc'
+
+fssh() {
+  local ssh_login_host=$(cat ~/.ssh/config | grep -i ^host | awk '{print $2}' | $(__fzfcmd))
+  if [[ -n "$ssh_login_host" ]]; then
+    ssh $ssh_login_host
+  fi
+}
 
 # ---------------------------------------------------------------------------
 # set OS
