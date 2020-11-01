@@ -6,7 +6,7 @@ get_branch () {
 
 prompt () {
   if [[ "$TERM" =~ 256color ]]; then
-    local HN="\033[38;5;246m\]\H\[\033[0m\]"
+    local HN="\[\033[38;5;246m\]\H\[\033[0m\]"
     local CD="\[\033[38;5;045m\]\W\[\033[0m\]"
     local BRANCH="\[\033[38;5;097m\]\$(get_branch)\[\033[0m\]"
     local ARROW="\[\033[38;5;208m\]>\[\033[0m\]\[\033[38;5;220m\]>\[\033[0m\]\[\033[38;5;082m\]>\[\033[0m\]"
@@ -62,9 +62,9 @@ ranger-cd () {
 }
 
 fzf_pjc() {
-  local project_name=$(go/bin/ghq list | sort | $(__fzfcmd))
+  local project_name=$(ghq list | sort | $(__fzfcmd))
   if [[ -n "$project_name" ]]; then
-    local project_full_path=$(go/bin/ghq root)/$project_name
+    local project_full_path=$(ghq root)/$project_name
     local project_relative_path="~/$(realpath --relative-to=$HOME $project_full_path)"
     READLINE_LINE="cd $project_relative_path"
     READLINE_POINT=${#READLINE_LINE}
