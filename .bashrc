@@ -134,16 +134,18 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   fi
 
   ## go
-  if [ -e "$HOME/.goenv" ]; then
-    export GOENV_ROOT="$HOME/.goenv"
-    export PATH="$GOENV_ROOT/bin:$PATH"
-    if check_command goenv; then
-      export GOPATH="$HOME/.go"
-      export GOENV_DISABLE_GOPATH=1
-      eval "$(goenv init -)"
-      export PATH="$GOROOT/bin:$PATH"
-      export PATH="$GOPATH/bin:$PATH"
-      alias gv='goenv'
+  if [ -e "$HOME/.go" ]; then
+    export GOPATH="$HOME/.go"
+    export PATH="$GOROOT/bin:$PATH"
+    export PATH="$GOPATH/bin:$PATH"
+    if [ -e "$HOME/.goenv" ]; then
+      export GOENV_ROOT="$HOME/.goenv"
+      export PATH="$GOENV_ROOT/bin:$PATH"
+      if check_command goenv; then
+        export GOENV_DISABLE_GOPATH=1
+        eval "$(goenv init -)"
+        alias gv='goenv'
+      fi
     fi
   fi
 
