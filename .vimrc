@@ -56,7 +56,7 @@ cnoremap <C-p> <Up>
 cnoremap <C-y> <C-r>*
 
 " terminal
-nnoremap <silent> <Space>te :bo terminal ++rows=15<CR>
+nnoremap <silent> <Space>te :terminal ++rows=15<CR>
 
 " tab
 map <silent> <Space>tc :tablast <bar> tabnew<CR> "new tab
@@ -103,8 +103,10 @@ Plug 'thinca/vim-quickrun'
 " preview file
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'tyru/open-browser.vim'
+" git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " etc 
-Plug 'tpope/vim-fugitive' " git client
 Plug 'cohama/lexima.vim'  " auto close parentheses
 Plug 'vim-jp/vimdoc-ja'   " help in japanese
 " lang
