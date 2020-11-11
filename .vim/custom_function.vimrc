@@ -3,3 +3,5 @@ command! -nargs=0 Fq call fzf#run({
 \ 'down': 20,
 \ 'sink': 'cd'
 \ })
+
+nnoremap <Space>fq :Fq<CR>
