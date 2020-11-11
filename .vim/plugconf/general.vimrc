@@ -25,6 +25,10 @@ let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 nnoremap <Space>qr :QuickRun
 
 " fugitive
+nnoremap <Space>gs :Gstatus<CR>
+nnoremap <Space>gc :Gcommit<CR>
+nnoremap <Space>gps :Gpush<CR>
+nnoremap <Space>gpl :Gpull<CR>
 nnoremap <Space>gl :Glog<CR>
 nnoremap <Space>gd :Gdiff<CR>
 
