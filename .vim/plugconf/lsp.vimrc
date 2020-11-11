@@ -6,8 +6,6 @@ nnoremap <silent> <Space>lv :rightbelow vsplit \| :LspDefinition <CR>
 nnoremap <silent> <Space>lh :LspHover<CR>
 nnoremap <silent> <Space>lr :LspReferences<CR>
 nnoremap <silent> <Space>li :LspImplementation<CR>
-nnoremap <silent> <Space>l] :LspNextError<CR>
-nnoremap <silent> <Space>l[ :LspPreviousError<CR>
 nnoremap <silent> <Space>ln :LspRename<CR>
 
 
