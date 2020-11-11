@@ -34,7 +34,7 @@ let g:sonictemplate_vim_template_dir = '~/.vim/plugged/sonictemplate-vim/templat
 " fzf
 set rtp+=$HOME/.fzf
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git  -g ""'}), <bang>0)
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}), <bang>0)
 nnoremap <Space>ff :Files<CR>
 nnoremap <Space>fb :Buffer<CR>
 nnoremap <Space>fgs :GFiles?<CR>
