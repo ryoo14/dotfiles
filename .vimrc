@@ -115,6 +115,7 @@ call plug#end()
 
 source ~/.vim/plugconf/general.vimrc
 source ~/.vim/plugconf/lsp.vimrc
+source ~/.vim/custom_function.vimrc
 
 
 " ----------------------------- Color Settings ------------------------------
