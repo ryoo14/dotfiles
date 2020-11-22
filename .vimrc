@@ -59,7 +59,7 @@ cnoremap <C-y> <C-r>*
 nnoremap <silent> <Space>te :terminal ++rows=15<CR>
 
 " tab
-map <silent> <Space>tc :tablast <bar> tabnew<CR> "new tab
+nnoremap <silent> <Space>tc :tablast <bar> tabnew<CR>
 for n in range(1, 9)
   execute 'nnoremap <silent> <Space>t'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
