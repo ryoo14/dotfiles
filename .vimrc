@@ -17,6 +17,7 @@ set showmatch
 set nohlsearch
 set incsearch
 set ignorecase
+set autochdir
 set nobackup
 set noswapfile
 set undofile
