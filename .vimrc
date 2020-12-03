@@ -70,6 +70,8 @@ noremap <expr> <C-f>
   \ max([winheight(0) - 2, 1]) . "\<C-d>" 
   \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 
+autocmd QuickFixCmdPost vimgrep cwindow
+
 " ---------------------------- Plugin Management ----------------------------
 
 if !filereadable('~/.vim/autoload/plug.vim')
