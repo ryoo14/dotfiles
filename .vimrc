@@ -113,6 +113,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'cohama/lexima.vim'  " auto close parentheses
 Plug 'vim-jp/vimdoc-ja'   " help in japanese
 Plug 'kana/vim-tabpagecd'
+Plug 'deris/vim-duzzle'
 " lang
 Plug 'rust-lang/rust.vim'
 call plug#end()
