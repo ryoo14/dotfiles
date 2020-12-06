@@ -97,8 +97,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
 " snippets
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 " quick run
 Plug 'mattn/sonictemplate-vim'
 Plug 'thinca/vim-quickrun'

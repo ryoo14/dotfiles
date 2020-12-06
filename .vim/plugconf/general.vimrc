@@ -50,9 +50,15 @@ let g:fzf_tags_command = 'ctags -R'
 let g:rustfmt_autosave = 1
 
 " snippets
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" Expand
+imap <expr> <C-k> vsnip#expandable() ? '<Plug>(vsnip-expand)':'<C-k>'
+smap <expr> <C-k> vsnip#expandable() ? '<Plug>(vsnip-expand)':'<C-k>'
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)':'<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)':'<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)':'<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)':'<S-Tab>'
+let g:vsnip_snippet_dir = expand('~/.vim/vsnip')
 
 " vim-molder
 let g:molder_show_hidden = 1
