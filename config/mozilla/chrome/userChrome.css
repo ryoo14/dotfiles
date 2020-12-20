@@ -18,7 +18,7 @@ source: https://gist.github.com/Arty2/e6e61801531ec5ee1f9f
 /* bring the browser window to the top */
 #browser {
 	-moz-box-ordinal-group: 0 !important;
-	padding-top: 8px;
+	padding-top: 6px;
 }
 
 /* alternative: move the toolbar to the bottom; */
