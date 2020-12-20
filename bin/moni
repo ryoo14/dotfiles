@@ -1,13 +1,15 @@
 #!/bin/bash
 
 if [ "$#" -ne 1 ]; then
-  echo "Usage: moni [left|right|same]"
+  echo "Usage: moni [only|left|right|same]"
   exit 1
 fi
 
 active_moni=$(xrandr | grep -E "^DP-[0-9] connected" | cut -d " " -f 1)
 
 case $1 in
+  "only" )
+    xrandr --output eDP-1 --primary --auto;;
   "left" )
     xrandr --output $active_moni --mode 1920x1080 --primary --left-of eDP-1 --output eDP-1 --auto;;
   "right" )
