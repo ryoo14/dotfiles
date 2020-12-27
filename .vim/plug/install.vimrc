@@ -16,6 +16,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 " color and appearance
 Plug 'ryoo14/coral.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 " filer
 Plug 'mattn/vim-molder'
