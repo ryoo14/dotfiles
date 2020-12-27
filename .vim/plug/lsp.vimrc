@@ -23,20 +23,6 @@ if executable('solargraph')
   augroup END
 endif
 
-" Golang
-if executable('gopls')
-  augroup LspGo
-    autocmd!
-    autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'gopls',
-      \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-      \ 'whitelist': ['go'],
-      \ })
-    autocmd BufWritePre *.go LspDocumentFormatSync
-    autocmd FileType go setlocal omnifunc=lsp#complete
-  augroup END
-endif
-
 " HTML
 if executable('html-languageserver')
   augroup LspHTML
