@@ -3,8 +3,8 @@ if !filereadable('~/.vim/autoload/plug.vim')
     \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
 
-let g:ryoo_plugin_dir='~/.vim/plug/plugins'
-call plug#begin(g:ryoo_plugin_dir)
+let g:ryoo_plugin_dir='~/.vim/plug'
+call plug#begin(g:ryoo_plugin_dir . '/plugins')
 " filetype
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'elzr/vim-json', { 'for': 'json' }
