@@ -9,7 +9,8 @@ set autoindent
 set smartindent
 set colorcolumn=79
 set number
-set laststatus=2
+set noruler
+set laststatus=0
 set showtabline=1
 set cmdheight=1
 set backspace=indent,eol,start
