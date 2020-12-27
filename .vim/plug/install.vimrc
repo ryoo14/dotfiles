@@ -41,3 +41,6 @@ Plug 'deris/vim-duzzle'
 " lang
 Plug 'rust-lang/rust.vim'
 call plug#end()
+
+filetype plugin indent on
+syntax on

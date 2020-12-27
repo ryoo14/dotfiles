@@ -26,8 +26,6 @@ set belloff=all
 set t_ut=
 set t_Co=256
 set shell=bash
-filetype plugin indent on
-syntax on
 
 if has('win64')
   set grepprg=grep\ -n
