@@ -27,9 +27,4 @@ set t_ut=
 set t_Co=256
 set shell=bash
 
-if has('win64')
-  set grepprg=grep\ -n
-  set autochdir
-endif
-
 autocmd QuickFixCmdPost vimgrep cwindow
