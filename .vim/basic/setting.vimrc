@@ -1,9 +1,5 @@
 set encoding=utf-8
 "scriptencoding utf-8
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
 set autoindent
 set smartindent
 set colorcolumn=79
@@ -27,4 +23,14 @@ set t_ut=
 set t_Co=256
 set shell=bash
 
-autocmd QuickFixCmdPost vimgrep cwindow
+aug filetypeset
+  au!
+  au FileType vim,ruby,html,yaml,json,sh
+        \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+aug END
+
+aug grepwindow
+  au!
+  au QuickFixCmdPost vimgrep cwindow
+aug END
