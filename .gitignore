@@ -1,6 +1,6 @@
 /.vim/doc/
 /.vim/syntax/
 /.vim/autoload/
-/.vim/plugged/
+/.vim/plug/plugins/
 /.vim/view/
 tags

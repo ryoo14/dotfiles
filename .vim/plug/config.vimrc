@@ -33,7 +33,7 @@ nnoremap <Space>gl :Glog<CR>
 nnoremap <Space>gd :Gdiff<CR>
 
 " sonictemplate
-let g:sonictemplate_vim_template_dir = '~/.vim/plugged/sonictemplate-vim/template'
+let g:sonictemplate_vim_template_dir = g:ryoo_plugin_dir . '/sonictemplate-vim/template'
 
 " fzf
 set rtp+=$HOME/.fzf
@@ -58,7 +58,7 @@ imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)':'<Tab>'
 smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)':'<Tab>'
 imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)':'<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)':'<S-Tab>'
-let g:vsnip_snippet_dir = expand('~/.vim/vsnip')
+let g:vsnip_snippet_dir = expand(g:ryoo_plugin_dir . '/snippets')
 
 " vim-molder
 let g:molder_show_hidden = 1
