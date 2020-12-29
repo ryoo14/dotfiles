@@ -33,7 +33,7 @@ nnoremap <Space>gl :Glog<CR>
 nnoremap <Space>gd :Gdiff<CR>
 
 " sonictemplate
-let g:sonictemplate_vim_template_dir = g:ryoo_plugin_dir . '/sonictemplate-vim/template'
+let g:sonictemplate_vim_template_dir = g:ryoo_plugin_dir . '/plugins/sonictemplate-vim/template'
 
 " fzf
 set rtp+=$HOME/.fzf
