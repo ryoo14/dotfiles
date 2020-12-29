@@ -9,4 +9,5 @@ fi
 if [ "$(uname)" != 'Darwin' ]; then
   ibus-daemon -drx
   setxkbmap -option ctrl:nocaps
+  xbindkeys
 fi
