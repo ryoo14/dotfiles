@@ -18,6 +18,7 @@ set noswapfile
 set undofile
 set undodir=~/tmp
 set keywordprg=:help
+set helplang=ja,en
 set belloff=all
 set t_ut=
 set t_Co=256
