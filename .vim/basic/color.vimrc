@@ -1,2 +1,2 @@
 set background=dark
-colorscheme coral
+colorscheme tokyonight
