@@ -173,6 +173,7 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   ## git
   if check_command git; then
     alias g='git'
+    source "$HOME/dotfiles/bash/git-completion.bash"
   fi
 
   ## docker
