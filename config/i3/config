@@ -76,7 +76,7 @@ bindsym $mod+Ctrl+Left workspace prev
 
 # workspaces
 set $ws1 "1:web"
-set $ws2 "2:code"
+set $ws2 "2:term"
 set $ws3 "3:sns"
 set $ws4 4
 set $ws5 5
