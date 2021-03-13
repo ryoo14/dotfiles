@@ -23,6 +23,7 @@ set belloff=all
 set t_ut=
 set t_Co=256
 set shell=bash
+set splitright
 
 aug filetypeset
   au!
