@@ -47,7 +47,7 @@ let g:fzf_buffers_jump = 1
 let g:fzf_tags_command = 'ctags -R'
 
 " rust
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 
 " snippets
 " Expand
