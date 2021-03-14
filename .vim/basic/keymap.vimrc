@@ -20,7 +20,9 @@ cnoremap <C-p> <Up>
 cnoremap <C-y> <C-r>*
 
 " terminal
-nnoremap <silent> <Space>te :terminal ++rows=15<CR>
+nnoremap <silent> <Space>ts :terminal ++rows=15<CR>
+nnoremap <silent> <Space>tv :vert terminal<CR>
+nnoremap <silent> <Space>tt :tab terminal<CR>
 
 " tab
 nnoremap <silent> <Space>tc :tablast <bar> tabnew<CR>
