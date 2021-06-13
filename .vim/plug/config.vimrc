@@ -25,12 +25,12 @@ let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 nnoremap <Space>qr :QuickRun
 
 " fugitive
-nnoremap <Space>gs :Gstatus<CR>
-nnoremap <Space>gc :Gcommit<CR>
-nnoremap <Space>gps :Gpush<CR>
-nnoremap <Space>gpl :Gpull<CR>
-nnoremap <Space>gl :Glog<CR>
-nnoremap <Space>gd :Gdiff<CR>
+nnoremap <Space>gs :Git<CR>
+nnoremap <Space>gc :Git commit<CR>
+nnoremap <Space>gps :Git push<CR>
+nnoremap <Space>gpl :Git pull<CR>
+nnoremap <Space>gl :Git log<CR>
+nnoremap <Space>gd :Git diff<CR>
 
 " sonictemplate
 let g:sonictemplate_vim_template_dir = g:ryoo_plugin_dir . '/plugins/sonictemplate-vim/template'
