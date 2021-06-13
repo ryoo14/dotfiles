@@ -1,4 +1,4 @@
-URxvt.font:        xft:Cica:size=15:antialias=true
+URxvt.font:        xft:Cica:size=16:antialias=true
 URxvt.depth:       32
 URxvt.color0:      [100]#5C6370
 URxvt.color1:      [100]#E06C75
