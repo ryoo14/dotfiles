@@ -27,38 +27,8 @@ check_command () {
   eval which $1 > /dev/null 2>&1
 }
 
-wkt () {
-  (
-  d=$(mktemp -d "${TMPDIR:-/tmp}/${1:-tmpspace}.XXXXX") && cd "$d" || exit 1
-  "$SHELL"
-  s=$?
-  if [[ $s == 0 ]]; then
-    rm -rf "$d"
-  else
-    echo "Directory '$d' still exists." >&2
-  fi
-  exit $s
-  )
-}
-
 mkig () {
   curl -L -s https://www.gitignore.io/api/$@
-}
-
-ranger-cd () {
-    local IFS=$'\t\n'
-    local tempfile="$(mktemp -t tmp.XXXXXX)"
-    local ranger_cmd=(
-        command
-        ranger
-        --cmd="map q chain shell echo %d > "$tempfile"; quitall"
-    )
-
-    ${ranger_cmd[@]} "$@"
-    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
-        cd -- "$(cat "$tempfile")" || return
-    fi
-    command rm -f -- "$tempfile" 2>/dev/null
 }
 
 fzf_pjc() {
@@ -121,7 +91,6 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   alias psa='ps auxw'
   alias sudo='sudo '
   alias v='vim'
-  alias r='ranger-cd'
 
   ## ruby
   if [ -e "$HOME/.rbenv" ]; then
