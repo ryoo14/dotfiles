@@ -24,7 +24,7 @@ prompt () {
 }
 
 check_command () {
-  eval which $1 > /dev/null 2>&1
+  which $1 > /dev/null 2>&1
 }
 
 mkig () {
@@ -173,26 +173,5 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     eval "$(hub alias -s)"
   fi
 fi
-
-
-## hyper
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
-    show_command_in_title_bar()
-    {
-        case "$BASH_COMMAND" in
-            *\033]0*)
-                ;;
-            *)
-                echo -ne "\033]0;${BASH_COMMAND} - ${PWD##*/}\007"
-                ;;
-        esac
-    }
-    trap show_command_in_title_bar DEBUG
-    ;;
-*)
-    ;;
-esac
 
 eval `dircolors | sed -e 's/;34:/;32:/'`
