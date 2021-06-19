@@ -23,7 +23,7 @@ email = anana12185@gmail.com
 	writeCommitGraph = true
 
 [credential]
-	helper = cache
+	helper = store
 
 [url "https://github.com/"]
 	insteadOf = git@github.com:
