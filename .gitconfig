@@ -33,5 +33,6 @@ email = anana12185@gmail.com
 
 [ghq]
   root = ~/ghq
+
 [init]
 	defaultBranch = main
