@@ -3,4 +3,6 @@
 /.vim/autoload/
 /.vim/plug/plugins/
 /.vim/view/
+/bin/oj*
+/bin/jsonschema
 tags
