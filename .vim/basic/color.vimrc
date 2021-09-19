@@ -1,2 +1,2 @@
 set background=dark
-colorscheme coral
+colorscheme base16-gruvbox-dark-pale

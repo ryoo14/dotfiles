@@ -24,6 +24,7 @@ set t_ut=
 set t_Co=256
 set shell=bash
 set splitright
+set termguicolors
 
 aug filetypeset
   au!

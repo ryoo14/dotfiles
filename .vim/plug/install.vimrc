@@ -18,6 +18,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'ryoo14/coral.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'chriskempson/base16-vim'
 " filer
 Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
