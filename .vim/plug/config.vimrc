@@ -7,7 +7,7 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 
 " lightline
-let g:lightline = {'colorscheme' : 'jellybeans'}
+let g:lightline = {'colorscheme' : 'wombat'}
 
 " indentline
 let g:indentLine_char = '|'
