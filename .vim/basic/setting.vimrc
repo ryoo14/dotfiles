@@ -5,7 +5,7 @@ set smartindent
 set colorcolumn=79
 set number
 set noruler
-set laststatus=1
+set laststatus=2
 set showtabline=1
 set cmdheight=1
 set backspace=indent,eol,start
@@ -20,8 +20,6 @@ set undodir=~/tmp
 set keywordprg=:help
 set helplang=ja,en
 set belloff=all
-set t_ut=
-set t_Co=256
 set shell=bash
 set splitright
 set termguicolors
@@ -30,7 +28,8 @@ aug filetypeset
   au!
   au FileType vim,ruby,html,yaml,json,sh
         \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  au FileType rust 
+        \ setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 aug END
 
 aug grepwindow
