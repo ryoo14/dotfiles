@@ -86,18 +86,18 @@ lock() {
 
 	i3lock \
 		-t -i "$1" \
-		--timepos='x+140:h-80' \
-		--datepos='x+43:h-45' \
-		--time-font="Iosevka Nerd Font" --timesize=80 \
-		--date-font="Fantasque Sans Mono" --datesize=25 \
-		--clock --date-align 1 --timestr="%H:%M" --datestr="%a, %d %b %Y" \
-		--insidecolor=$insidecolor --ringcolor=$ringcolor --line-uses-inside \
-		--keyhlcolor=$keyhlcolor --bshlcolor=$bshlcolor --separatorcolor=$separatorcolor \
-		--insidevercolor=$insidevercolor --insidewrongcolor=$insidewrongcolor \
-		--ringvercolor=$ringvercolor --ringwrongcolor=$ringwrongcolor --indpos='x+303:h-53' \
-		--radius=12 --ring-width=8 --veriftext='' --wrongtext='' \
-		--verifcolor="$verifcolor" --timecolor="$timecolor" --datecolor="$datecolor" \
-		--noinputtext='' --force-clock $lockargs
+		--time-pos='x+140:h-80' \
+		--date-pos='x+43:h-45' \
+		--time-font="Iosevka Nerd Font" --time-size=80 \
+		--date-font="Fantasque Sans Mono" --date-size=25 \
+		--clock --date-align 1 --time-str="%H:%M" --date-str="%a, %d %b %Y" \
+		--inside-color=$insidecolor --ring-color=$ringcolor --line-uses-inside \
+		--keyhl-color=$keyhlcolor --bshl-color=$bshlcolor --separator-color=$separatorcolor \
+		--insidever-color=$insidevercolor --insidewrong-color=$insidewrongcolor \
+		--ringver-color=$ringvercolor --ringwrong-color=$ringwrongcolor --ind-pos='x+303:h-53' \
+		--radius=12 --ring-width=8 --verif-text='' --wrong-text='' \
+		--verif-color="$verifcolor" --time-color="$timecolor" --date-color="$datecolor" \
+		--noinput-text='' --force-clock $lockargs
 }
 #lock() {
 #	#$1 image path
