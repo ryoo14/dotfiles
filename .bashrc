@@ -31,7 +31,7 @@ mkig () {
   curl -L -s https://www.gitignore.io/api/$@
 }
 
-fzf_pjc() {
+fzf_ghq() {
   local project_name=$(ghq list | sort | $(__fzfcmd))
   if [[ -n "$project_name" ]]; then
     local project_full_path=$(ghq root)/$project_name
@@ -40,7 +40,14 @@ fzf_pjc() {
     READLINE_POINT=${#READLINE_LINE}
   fi
 }
-bind -x '"\C-]": fzf_pjc'
+bind -x '"\C-]": fzf_ghq'
+
+fwh() {
+  local project_name=$(wh list | sort | $(__fzfcmd))
+  if [[ -n "$project_name" ]]; then
+    cd $project_name
+  fi
+}
 
 fssh() {
   local ssh_login_host=$(cat ~/.ssh/config | grep -i ^host | awk '{print $2}' | $(__fzfcmd))
