@@ -2,7 +2,6 @@ set encoding=utf-8
 scriptencoding utf-8
 set autoindent
 set smartindent
-set colorcolumn=79
 set number
 set noruler
 set laststatus=2
@@ -26,7 +25,7 @@ set termguicolors
 
 aug filetypeset
   au!
-  au FileType vim,ruby,html,yaml,json,sh
+  au FileType vim,ruby,html,yaml,json,sh,markdown
         \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType rust 
         \ setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
