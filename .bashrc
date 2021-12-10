@@ -158,6 +158,8 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     alias di='docker image'
     alias dn='docker network'
     alias dv='docker volume'
+    alias dcu='docker-compose up -d'
+    alias dcd='docker-compose down'
   fi
 
   ## ansible
