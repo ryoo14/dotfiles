@@ -3,6 +3,7 @@
 /.vim/autoload/
 /.vim/plug/plugins/
 /.vim/view/
+/.vim/.netrwhist
 /bin/oj*
 /bin/jsonschema
 tags
