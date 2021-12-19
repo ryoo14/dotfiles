@@ -32,9 +32,9 @@ mkig () {
 }
 
 fzf_ghq() {
-  local project_name=$(ghq list | sort | $(__fzfcmd))
+  local project_name=$(wh list | sort | $(__fzfcmd))
   if [[ -n "$project_name" ]]; then
-    local project_full_path=$(ghq root)/$project_name
+    local project_full_path=$(wh root)/$project_name
     local project_relative_path="~/$(realpath --relative-to=$HOME $project_full_path)"
     READLINE_LINE="cd $project_relative_path"
     READLINE_POINT=${#READLINE_LINE}
