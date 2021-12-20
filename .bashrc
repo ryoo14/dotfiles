@@ -130,6 +130,10 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
     if check_command cargo; then
       alias c='cargo'
+      alias cr='cargo run'
+      alias ci='cargo install'
+      alias cu='cargo update'
+      alias cb='cargo build'
     fi
   fi
 
