@@ -136,8 +136,17 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
 
   ## git
   if check_command git; then
-    alias g='git'
     source "$HOME/dotfiles/bash/git-completion.bash"
+    alias g='git'
+    alias ga='git add'
+    alias gb='git branch'
+    alias gc='git commit'
+    alias gch='git checkout'
+    alias gl='git log'
+    alias gpl='git pull'
+    alias gps='git push'
+    alias gs='git status'
+    alias gt='git tag'
   fi
 
   ## docker
@@ -170,5 +179,3 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     eval "$(hub alias -s)"
   fi
 fi
-
-eval `dircolors | sed -e 's/;34:/;32:/'`
