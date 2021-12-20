@@ -109,31 +109,15 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     fi
   fi
 
-  ## go
-  if [ -e "$HOME/.go" ]; then
-    export GOPATH="$HOME/.go"
-    export PATH="$GOROOT/bin:$PATH"
-    export PATH="$GOPATH/bin:$PATH"
-    if [ -e "$HOME/.goenv" ]; then
-      export GOENV_ROOT="$HOME/.goenv"
-      export PATH="$GOENV_ROOT/bin:$PATH"
-      if check_command goenv; then
-        export GOENV_DISABLE_GOPATH=1
-        eval "$(goenv init -)"
-        alias gv='goenv'
-      fi
-    fi
-  fi
-
   ## rust
   if [ -e "$HOME/.cargo" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
     if check_command cargo; then
       alias c='cargo'
-      alias cr='cargo run'
-      alias ci='cargo install'
-      alias cu='cargo update'
       alias cb='cargo build'
+      alias ci='cargo install'
+      alias cr='cargo run'
+      alias cu='cargo update'
     fi
   fi
 
