@@ -36,3 +36,5 @@ email = anana12185@gmail.com
 
 [init]
 	defaultBranch = main
+[commit]
+	template = .gitmessage
