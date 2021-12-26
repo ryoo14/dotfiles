@@ -1,0 +1,77 @@
+{
+    // "layer": "top", // Waybar at top layer
+    "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 20, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "pulseaudio", "backlight", "network", "battery"],
+
+    // Modules configuration
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+    "clock": {
+        "timezone": "Asia/Tokyo",
+        "format": "<span color=\"#f79831\"></span> {:%Y-%m-%d %a %H:%M:%S}"
+    },
+    "cpu": {
+        "format": "<span color=\"#f79831\"></span> {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "<span color=\"#f79831\"></span> {}%"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "<span color=\"#f79831\">{icon}</span> {percent}%",
+        "format-icons": ["", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "<span color=\"#f79831\">{icon}</span> {capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "<span color=\"#f79831\">{icon}</span> {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "<span color=\"#f79831\"></span> {essid}",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "<span color=\"#f79831\">{icon}</span> {volume}% {format_source}",
+        "format-bluetooth": "<span color=\"#f79831\">{icon}</span> {volume}% {format_source}",
+        "format-bluetooth-muted": "<span color=\"#f9314e\">{icon}</span> {format_source}",
+        "format-muted": "<span color=\"#f9314e\">{icon}</span> {format_source}",
+        "format-source": "<span color=\"#f79831\"></span> {volume}%",
+        "format-source-muted": "<span color=\"#f9314e\"></span>",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
