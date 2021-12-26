@@ -94,10 +94,10 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 
-assign [class="Firefox"]  $ws1
+assign [app_id="firefox"]  $ws1
 assign [class="URxvt"]  $ws2
 assign [class="Rambox"] $ws3
-for_window [class="Firefox"] focus
+for_window [app_id="firefox"] focus
 for_window [class="URxvt"] focus
 for_window [class="Rambox"] focus
 set $moni_code "eDP-1"

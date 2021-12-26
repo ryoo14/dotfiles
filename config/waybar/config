@@ -6,7 +6,7 @@
     "spacing": 4, // Gaps between modules (4px)
 
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
+    "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
     "modules-right": ["cpu", "memory", "pulseaudio", "backlight", "network", "battery"],
 
@@ -15,6 +15,10 @@
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{name}"
+    },
+    "sway/window": {
+	"format": "<span style=\"normal\">{}</span>",
+	"max-length": 20
     },
     "clock": {
         "timezone": "Asia/Tokyo",

@@ -82,6 +82,7 @@ window#waybar.chromium {
 
 #window,
 #workspaces {
+    color: #c5c8c6;
     margin: 0 6px;
 }
 
