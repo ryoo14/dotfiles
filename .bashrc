@@ -178,4 +178,8 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   if check_command hub; then
     eval "$(hub alias -s)"
   fi
+
+  if check_command firefox; then
+    export MOZ_ENABLE_WAYLAND=1 
+  fi
 fi

@@ -281,3 +281,11 @@ exec swayidle -w \
   timeout 600 'env LANG=en.US_UTF-8 swaylock -f' \
   timeout 1200 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
   before-sleep 'env LANG=en.US_UTF-8 swaylock -f' \
+
+output "*" background /home/ryoo/Pictures/aurum.jpg fill
+
+input type:touchpad {
+	tap enabled
+	natural_scroll enabled
+	dwt disabled
+}
