@@ -22,7 +22,7 @@
     },
     "clock": {
         "timezone": "Asia/Tokyo",
-        "format": "<span color=\"#f79831\"></span> {:%Y-%m-%d %a %H:%M:%S}"
+        "format": "<span color=\"#f79831\"></span> {:%Y-%m-%d %a %H:%M}"
     },
     "cpu": {
         "format": "<span color=\"#f79831\"></span> {usage}%",
