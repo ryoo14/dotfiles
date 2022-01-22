@@ -43,8 +43,8 @@
             "critical": 15
         },
         "format": "<span color=\"#f79831\">{icon}</span> {capacity}%",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": "<span color=\"#f79831\"></span> {capacity}%",
+        "format-plugged": "<span color=\"#f79831\">{icon}</span> {capacity}%",
         "format-alt": "<span color=\"#f79831\">{icon}</span> {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",

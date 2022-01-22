@@ -7,3 +7,11 @@
 /bin/oj*
 /bin/jsonschema
 tags
+
+# qmk
+bin/hjson
+bin/hjson.cmd
+bin/milc-color
+bin/pygmentize
+bin/qmk
+
