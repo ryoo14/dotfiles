@@ -6,10 +6,14 @@ get_branch () {
 
 prompt () {
   if [[ "$TERM" =~ 256color ]]; then
-    local HN="\[\033[38;5;246m\]\H\[\033[0m\]"
-    local CD="\[\033[38;5;045m\]\W\[\033[0m\]"
-    local BRANCH="\[\033[38;5;097m\]\$(get_branch)\[\033[0m\]"
-    local ARROW="\[\033[38;5;208m\]>\[\033[0m\]\[\033[38;5;220m\]>\[\033[0m\]\[\033[38;5;082m\]>\[\033[0m\]"
+    #local HN="\[\033[38;5;246m\]\H\[\033[0m\]" # Gway58
+    #local CD="\[\033[38;5;045m\]\W\[\033[0m\]" # Turquoise2
+    #local BRANCH="\[\033[38;5;097m\]\$(get_branch)\[\033[0m\]"   # MediumPurple3
+    #local ARROW="\[\033[38;5;208m\]>\[\033[0m\]\[\033[38;5;220m\]>\[\033[0m\]\[\033[38;5;082m\]>\[\033[0m\]" # DarkOrange, Gold1, Charteuse2
+    local HN="\[\033[38;5;251m\]\H\[\033[0m\]" 
+    local CD="\[\033[38;5;248m\]\W\[\033[0m\]" 
+    local BRANCH="\[\033[38;5;208m\]\$(get_branch)\[\033[0m\]"
+    local ARROW="\[\033[38;5;245m\]>\[\033[0m\]\[\033[38;5;242m\]>\[\033[0m\]\[\033[38;5;239m\]>\[\033[0m\]"
     export PS1="${HN} ${CD}${BRANCH} ${ARROW} "
   else
     local BLUE="\[\e[1;34m\]"
