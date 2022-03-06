@@ -2,7 +2,7 @@ set encoding=utf-8
 scriptencoding utf-8
 set autoindent
 set smartindent
-set number
+set relativenumber
 set noruler
 set laststatus=2
 set showtabline=1
