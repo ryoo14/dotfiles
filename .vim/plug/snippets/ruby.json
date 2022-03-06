@@ -635,5 +635,11 @@
         "body": "zip(${1:enums}) { |${2:row}| $0 }",
         "description": "zip(enums) { |row| .. }",
         "scope": "source.ruby"
+    },
+    "frozen": {
+        "prefix": "frozen",
+        "body": "#frozen_string_literal: true",
+        "description": "frozen string literal",
+        "scope": "scope.ruby"
     }
 }
