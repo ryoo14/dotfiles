@@ -100,7 +100,7 @@ assign [class="Rambox"] $ws3
 for_window [app_id="firefox"] focus
 for_window [class="URxvt"] focus
 for_window [class="Rambox"] focus
-set $moni_code "eDP-1"
+set $moni_code "DP-3"
 set $moni_sns "eDP-1"
 workspace $ws2 output $moni_code
 workspace $ws3 output $moni_sns
@@ -265,7 +265,7 @@ exec swayidle -w \
   timeout 1200 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
   before-sleep 'env LANG=en.US_UTF-8 swaylock -f' \
 
-output "*" background /home/ryoo/Pictures/oldday.png fill
+output "*" background /home/ryoo/Pictures/meid.png fill
 
 input type:touchpad {
 	tap enabled
