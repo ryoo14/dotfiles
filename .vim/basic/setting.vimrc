@@ -3,6 +3,7 @@ scriptencoding utf-8
 set autoindent
 set smartindent
 set relativenumber
+set number
 set noruler
 set laststatus=2
 set showtabline=1
