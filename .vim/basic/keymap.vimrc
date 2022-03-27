@@ -35,3 +35,6 @@ endfor
 noremap <expr> <C-f> 
   \ max([winheight(0) - 2, 1]) . "\<C-d>" 
   \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
+
+" paste dir path of current buffer
+cnoremap <C-x> <C-r>=expand('%:p:h')<CR>
