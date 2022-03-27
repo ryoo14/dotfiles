@@ -18,7 +18,6 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'ryoo14/coral.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'chriskempson/base16-vim'
 Plug 'sainnhe/everforest'
 Plug 'tribela/vim-transparent'
 " filer
@@ -34,13 +33,11 @@ Plug 'thinca/vim-quickrun'
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'tyru/open-browser.vim'
 " git
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter' " display diff
+Plug 'tpope/vim-fugitive'     " git commands
 " etc 
 Plug 'cohama/lexima.vim'  " auto close parentheses
 Plug 'vim-jp/vimdoc-ja'   " help in japanese
-Plug 'kana/vim-tabpagecd'
-Plug 'deris/vim-duzzle'
 " lang
 Plug 'rust-lang/rust.vim'
 call plug#end()
