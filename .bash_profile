@@ -12,9 +12,6 @@ if type fcitx > /dev/null 2>&1; then
   export QT_IM_MODULE=fcitx
   export XMODIFIERS=@im=fcitx
 fi
-if type setxkbmap > /dev/null 2>&1; then
-  setxkbmap -option ctrl:nocaps
-fi
 if type xbindkeys > /dev/null 2>&1; then
   xbindkeys
 fi
