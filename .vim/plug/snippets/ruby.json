@@ -638,7 +638,7 @@
     },
     "frozen": {
         "prefix": "frozen",
-        "body": "#frozen_string_literal: true",
+        "body": "# frozen_string_literal: true",
         "description": "frozen string literal",
         "scope": "scope.ruby"
     }
