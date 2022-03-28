@@ -63,3 +63,30 @@ if executable('rls')
     autocmd FileType rust setlocal omnifunc=lsp#complete
   augroup END
 endif
+
+" Vim
+if executable('vim-language-server')
+  augroup LspVim
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'vim-language-server',
+        \ 'cmd': {server_info->['vim-language-server', '--stdio']},
+        \ 'whitelist': ['vim'],
+        \ 'initialization_options': {
+        \   'vimruntime': $VIMRUNTIME,
+        \   'runtimepath': &rtp,
+        \ }})
+  augroup END
+endif
+
+" Bash
+if executable('bash-language-server')
+  augroup LspBash
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+          \ 'name': 'bash-language-server',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+          \ 'allowlist': ['sh'],
+          \ })
+  augroup END
+endif
