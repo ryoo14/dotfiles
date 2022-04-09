@@ -103,6 +103,7 @@ for_window [class="URxvt"] focus
 for_window [class="Rambox"] focus
 set $moni_code "DP-3"
 set $moni_sns "eDP-1"
+workspace $ws1 output $moni_code
 workspace $ws2 output $moni_code
 workspace $ws3 output $moni_sns
 
