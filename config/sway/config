@@ -97,10 +97,10 @@ bindsym $mod+8 workspace $ws8
 
 assign [app_id="firefox"]  $ws1
 assign [class="URxvt"]  $ws2
-assign [class="Rambox"] $ws3
+assign [class="rambox"] $ws3
 for_window [app_id="firefox"] focus
 for_window [class="URxvt"] focus
-for_window [class="Rambox"] focus
+for_window [class="rambox"] focus
 set $moni_code "DP-3"
 set $moni_sns "eDP-1"
 workspace $ws1 output $moni_code
@@ -192,7 +192,7 @@ exec_always ~/.config/sway/import-gsettings.sh \
               icon-theme:gtk-icon-theme-name
 
 # Theme colors
-client.focused #c5c8c6 #1d1f21 #c5c8c6 #f79821 #f79821
+client.focused #c5c8c6 #1d1f21 #c5c8c6 #ff8552 #ff8552
 client.focused_inactive #c5c8c6 #1d1f21 #c5c8c6 #faa03e #edbb7b
 client.unfocused #c5c8c6 #1d1f21 #c5c8c6 #faa03e #fcdfbb
 client.urgent #c5c8c6 #1d1f21 #c5c8c6 #faa03e #faa03e
