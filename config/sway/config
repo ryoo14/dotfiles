@@ -14,7 +14,7 @@ font pango:NotoSansCJKjp-Regular 14
 floating_modifier $mod
 
 #bindsym $mod+Return exec urxvt256c -e tmux
-bindsym $mod+Return exec urxvt256c
+bindsym $mod+Return exec alacritty
 
 # Window kill command
 bindsym $mod+Shift+q kill
@@ -97,10 +97,14 @@ bindsym $mod+8 workspace $ws8
 
 assign [app_id="firefox"]  $ws1
 assign [class="URxvt"]  $ws2
+assign [app_id="Alacritty"]  $ws2
 assign [class="rambox"] $ws3
+assign [class="Brave-browser"] $ws4
 for_window [app_id="firefox"] focus
 for_window [class="URxvt"] focus
+for_window [app_id="Alacritty"] focus
 for_window [class="rambox"] focus
+for_window [class="Brave-browser"] focus
 set $moni_code "DP-3"
 set $moni_sns "eDP-1"
 workspace $ws1 output $moni_code
