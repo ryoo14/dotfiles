@@ -30,3 +30,16 @@ augroup select-commit-message
   autocmd!
   autocmd Filetype gitcommit nnoremap <buffer> <CR><CR> :call Select_commit_type()<CR>
 augroup END
+
+function LunchSTerminal()
+  highlight Terminal guibg=NONE
+  execute 'bo terminal ++rows=15'
+endfunction
+function LunchVTerminal()
+  highlight Terminal guibg=NONE
+  execute 'vert terminal ++cols=60'
+endfunction
+function LunchTTerminal()
+  highlight Terminal guibg=NONE
+  execute 'tab terminal'
+endfunction
