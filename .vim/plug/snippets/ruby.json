@@ -640,6 +640,18 @@
         "prefix": "frozen",
         "body": "# frozen_string_literal: true",
         "description": "frozen string literal",
-        "scope": "scope.ruby"
+        "scope": "source.ruby"
+    },
+    "gi": {
+        "prefix": "gi",
+        "body": "gets.to_i",
+        "description": "kyopro",
+        "scope": "source.ruby"
+    },
+    "gsi": {
+        "prefix": "gsi",
+        "body": "gets.split(' ').map(&:to_i)",
+        "description": "kyopro",
+        "scope": "source.ruby"
     }
 }
