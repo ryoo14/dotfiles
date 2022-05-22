@@ -14,6 +14,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 " color and appearance
 Plug 'ryoo14/coral.vim'
 Plug 'itchyny/lightline.vim'
