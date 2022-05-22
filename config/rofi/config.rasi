@@ -143,3 +143,9 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+
+@theme "slate"
+listview {
+	lines: 5;
+	columns: 1;
+}
