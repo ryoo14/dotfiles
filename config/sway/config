@@ -20,7 +20,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym Ctrl+space exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi -show-icons -icon-theme Tela-dark"
+bindsym Ctrl+space exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi -show-icons -icon-theme Papirus-Dark"
 
 # change focus
 bindsym $mod+j focus down
