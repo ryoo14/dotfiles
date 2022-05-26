@@ -38,3 +38,5 @@ email = anana12185@gmail.com
 	defaultBranch = main
 [commit]
 	template = ~/.gitmessage
+[pull]
+	rebase = false
