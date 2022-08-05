@@ -35,7 +35,7 @@ mkig () {
   curl -L -s https://www.gitignore.io/api/$@
 }
 
-fzf_ghq() {
+fzf_wh_lin() {
   local project_name=$(wh list | sort | $(__fzfcmd))
   if [[ -n "$project_name" ]]; then
     local project_full_path=$(wh root)/$project_name
@@ -44,7 +44,15 @@ fzf_ghq() {
     READLINE_POINT=${#READLINE_LINE}
   fi
 }
-bind -x '"\C-]": fzf_ghq'
+
+fzf_wh_mac() {
+  local selected_file=$(wh list | sort | $(__fzfcmd))
+  if [[ -n "$selected_file" ]]; then
+    if [[ -t 1 ]]; then
+      cd $(wh root)/${selected_file}
+    fi
+  fi
+}
 
 fwh() {
   local project_name=$(wh list | sort | $(__fzfcmd))
@@ -180,10 +188,16 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   if [ -d ~/.fzf ]; then
     export FZFPATH="$HOME/.fzf"
     export PATH="$FZFPATH/bin:$PATH"
-    source "$FZFPATH/shell/key-bindings.bash"
     export FZF_DEFAULT_OPTS='--reverse'
     export FZF_ALT_C_COMMAND='find . -type d -name ".git" -prune -o -type d -name "*" -print'
     export FZF_CTRL_T_COMMAND='find . -type d -name ".git" -prune -o -type d -name "*" -print'
+    source "$FZFPATH/shell/key-bindings.bash"
+
+    if [ $OS == "Linux" ]; then
+      bind -x '"\C-]": fzf_wh_lin'
+    elif [ $OS == "Mac" ]; then
+      bind -x '"\C-]": fzf_wh_mac'
+    fi
   fi
 
   ## hub
