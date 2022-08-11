@@ -41,3 +41,7 @@ noremap <expr> <C-f>
 
 " paste dir path of current buffer
 cnoremap <C-x> <C-r>=expand('%:p:h')<CR>
+
+" tab control
+nnoremap <C-\> gt
+tnoremap <C-\> <C-w>gt
