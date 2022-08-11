@@ -8,6 +8,7 @@ nnoremap ZZ <nop> "disable Z
 nnoremap <c-z> <nop>
 nnoremap * *N
 nnoremap <Space>fi :edit .<CR>
+nnoremap x "_x
 inoremap <C-l> <C-g>U<Right>
 
 " like bash in cmdline mode
