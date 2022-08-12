@@ -32,14 +32,14 @@ augroup select-commit-message
 augroup END
 
 function LunchSTerminal()
-  highlight Terminal guibg=NONE
+  highlight Terminal ctermbg=NONE guibg=NONE
   execute 'bo terminal ++rows=15'
 endfunction
 function LunchVTerminal()
-  highlight Terminal guibg=NONE
+  highlight Terminal ctermbg=NONE guibg=NONE
   execute 'vert terminal ++cols=60'
 endfunction
 function LunchTTerminal()
-  highlight Terminal guibg=NONE
+  highlight Terminal ctermbg=NONE guibg=NONE
   execute 'tab terminal'
 endfunction
