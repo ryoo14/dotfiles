@@ -21,13 +21,14 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
-  use "hrsh7th/vim-vsnip"
   use 'hrsh7th/nvim-cmp'
   use 'jose-elias-alvarez/null-ls.nvim'
+  use 'L3MON4D3/LuaSnip'
 
   -- Etc
   use 'nvim-lua/plenary.nvim'     -- Common utilities
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
   use 'tamago324/lir.nvim'        -- Filer
+  use 'ibhagwan/fzf-lua'
 end)
 

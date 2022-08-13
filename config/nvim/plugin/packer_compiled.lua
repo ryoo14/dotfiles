@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/Users/ryoo/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/ryoo/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -83,6 +88,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ryoo/.local/share/nvim/site/pack/packer/start/everforest",
     url = "https://github.com/sainnhe/everforest"
+  },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/Users/ryoo/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -143,11 +153,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ryoo/.local/share/nvim/site/pack/packer/start/prettier.nvim",
     url = "https://github.com/MunifTanjim/prettier.nvim"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/Users/ryoo/.local/share/nvim/site/pack/packer/start/vim-vsnip",
-    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 

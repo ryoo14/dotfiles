@@ -28,7 +28,7 @@ vim.opt.termguicolors = true
 
 local fileTypeSet = vim.api.nvim_create_augroup('FileTypeSet', {})
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'vim', 'ruby', 'html', 'yaml', 'json', 'sh', 'markdown' },
+  pattern = { 'vim', 'ruby', 'html', 'yaml', 'json', 'sh', 'markdown', 'lua' },
   command = 'setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab',
   group = fileTypeSet
 })
