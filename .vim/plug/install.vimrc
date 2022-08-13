@@ -1,7 +1,7 @@
-if !filereadable('~/.vim/autoload/plug.vim')
-  call system('curl -fLo ~/.vim/autoload/plug.vim --create-dir ' 
-    \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
-endif
+"if !filereadable('~/.vim/autoload/plug.vim')
+"  call system('curl -fLo ~/.vim/autoload/plug.vim --create-dir ' 
+"    \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+"endif
 
 let g:ryoo_plugin_dir='~/.vim/plug'
 call plug#begin(g:ryoo_plugin_dir . '/plugins')
