@@ -16,7 +16,6 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 " color and appearance
-Plug 'ryoo14/coral.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'sainnhe/everforest'
@@ -40,7 +39,7 @@ Plug 'tpope/vim-fugitive'     " git commands
 Plug 'cohama/lexima.vim'  " auto close parentheses
 Plug 'vim-jp/vimdoc-ja'   " help in japanese
 " lang
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 call plug#end()
 
 filetype plugin indent on

@@ -18,7 +18,7 @@ vim.opt.ignorecase = true
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.undofile = true
-vim.opt.undodir = '~/tmp'
+vim.opt.undodir = '/tmp'
 vim.opt.keywordprg = ':help'
 vim.opt.helplang = { 'ja', 'en' }
 vim.opt.belloff = 'all'
@@ -39,3 +39,18 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.cmd [[colorscheme everforest]]
+
+local function on_cursor_hold()
+  if vim.lsp.buf.server_ready() then
+    vim.diagnostic.open_float()
+  end
+end
+
+local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
+vim.api.nvim_set_option('updatetime', 500)
+vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
+
+vim.diagnostic.config({
+  virtual_text = false,
+})
