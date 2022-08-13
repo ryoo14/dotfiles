@@ -28,7 +28,6 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 " quick run
 Plug 'mattn/sonictemplate-vim'
-Plug 'thinca/vim-quickrun'
 " preview file
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'tyru/open-browser.vim'
