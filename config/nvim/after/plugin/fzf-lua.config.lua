@@ -11,7 +11,7 @@ vim.api.nvim_create_user_command(
   function(opts)
     local fzf_lua = require('fzf-lua')
     opts = opts or {}
-    opts.prompt = "WH LIST> "
+    opts.prompt = "Wh Lists> "
     opts.fn_transform = function(x)
       return fzf_lua.utils.ansi_codes.magenta(x)
     end
