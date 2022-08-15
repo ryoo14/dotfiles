@@ -156,7 +156,9 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
 
   ## git
   if check_command git; then
-    source "$HOME/dotfiles/bash/git-completion.bash"
+    if check_command wh; then
+      source "$(wh list --full-path | grep dotfiles)/bash/git-completion.bash"
+    fi
     alias g='git'
     alias ga='git add'
     alias gb='git branch'
