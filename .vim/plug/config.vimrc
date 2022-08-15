@@ -58,3 +58,6 @@ let g:vsnip_snippet_dir = expand(g:ryoo_plugin_dir . '/snippets')
 
 " vim-molder
 let g:molder_show_hidden = 1
+
+" vim-transparent
+nnoremap <Space>tg :TransparentToggle<CR>
