@@ -26,7 +26,7 @@ set termguicolors
 
 aug filetypeset
   au!
-  au FileType vim,ruby,html,yaml,json,sh,markdown
+  au FileType vim,ruby,html,yaml,json,sh,markdown,javascript,typescript,typescriptreact
         \ setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType rust 
         \ setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
