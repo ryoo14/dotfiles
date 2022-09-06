@@ -210,4 +210,11 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   if check_command firefox; then
     export MOZ_ENABLE_WAYLAND=1 
   fi
+
+  ## deno
+  if check_command deno; then
+    if check_command wh; then
+      source "$(wh list --full-path | grep dotfiles)/bash/deno-completion.bash"
+    fi
+  fi
 fi
