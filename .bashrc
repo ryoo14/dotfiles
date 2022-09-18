@@ -216,5 +216,7 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     if check_command wh; then
       source "$(wh list --full-path | grep dotfiles)/bash/deno-completion.bash"
     fi
+    alias de='deno'
+    alias der='deno run'
   fi
 fi
