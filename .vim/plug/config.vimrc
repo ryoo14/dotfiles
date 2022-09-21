@@ -20,10 +20,6 @@ augroup PrevimSettings
 augroup END
 nnoremap <Space>md :PrevimOpen
 
-" quickrun
-let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
-nnoremap <Space>qr :QuickRun
-
 " fugitive
 nnoremap <Space>gs :Git<CR>
 nnoremap <Space>gc :Git commit<CR>
@@ -62,3 +58,6 @@ let g:vsnip_snippet_dir = expand(g:ryoo_plugin_dir . '/snippets')
 
 " vim-molder
 let g:molder_show_hidden = 1
+
+" vim-transparent
+nnoremap <Space>tg :TransparentToggle<CR>

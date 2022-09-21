@@ -4,6 +4,7 @@
 /.vim/plug/plugins/
 /.vim/view/
 /.vim/.netrwhist
+/config/nvim/.netrwhist
 /bin/oj*
 /bin/jsonschema
 tags

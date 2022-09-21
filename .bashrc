@@ -94,7 +94,7 @@ fi
 if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
 
   # set path
-  export PATH="/usr/local/bin:$HOME/.local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+  export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
   # set vars
   export TERM="xterm-256color"
@@ -156,7 +156,9 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
 
   ## git
   if check_command git; then
-    source "$HOME/dotfiles/bash/git-completion.bash"
+    if check_command wh; then
+      source "$(wh list --full-path | grep dotfiles)/bash/git-completion.bash"
+    fi
     alias g='git'
     alias ga='git add'
     alias gb='git branch'
@@ -207,5 +209,14 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
 
   if check_command firefox; then
     export MOZ_ENABLE_WAYLAND=1 
+  fi
+
+  ## deno
+  if check_command deno; then
+    if check_command wh; then
+      source "$(wh list --full-path | grep dotfiles)/bash/deno-completion.bash"
+    fi
+    alias de='deno'
+    alias der='deno run'
   fi
 fi
