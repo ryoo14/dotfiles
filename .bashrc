@@ -78,11 +78,11 @@ fgc() {
 
 # ---------------------------------------------------------------------------
 # set OS
-if [ "$(uname)" == 'Darwin' ]; then
+if [[ "$(uname)" == 'Darwin' ]]; then
   OS='Mac'
   # Catalinaではzshでないと警告が出るようになったのでそれを抑制
   export BASH_SILENCE_DEPRECATION_WARNING=1
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+elif [[ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]]; then
   OS='Linux'
 else
   OS='Unknown'
@@ -91,7 +91,7 @@ fi
 
 # ---------------------------------------------------------------------------
 # settings
-if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
+if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
 
   # set path
   export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
@@ -104,9 +104,9 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   export HISTFILESIZE=20000
 
   # set aliases and command preparation
-  if [ $OS == "Linux" ]; then
+  if [[ $OS == "Linux" ]]; then
     alias ls='ls --color=auto'
-  elif [ $OS == "Mac" ]; then
+  elif [[ $OS == "Mac" ]]; then
     alias ls='ls -G'
   fi
   alias ll='ls -la'
@@ -120,7 +120,7 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   alias v='vim'
 
   ## ruby
-  if [ -e "$HOME/.rbenv" ]; then
+  if [[ -e "$HOME/.rbenv" ]]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     if check_command rbenv; then
       eval "$(rbenv init -)"
@@ -130,7 +130,7 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   fi
 
   ## rust
-  if [ -e "$HOME/.cargo" ]; then
+  if [[ -e "$HOME/.cargo" ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
     if check_command cargo; then
       alias c='cargo'
@@ -187,7 +187,7 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   fi
 
   ## fzf
-  if [ -d ~/.fzf ]; then
+  if [[ -d ~/.fzf ]]; then
     export FZFPATH="$HOME/.fzf"
     export PATH="$FZFPATH/bin:$PATH"
     export FZF_DEFAULT_OPTS='--reverse'
@@ -195,9 +195,9 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
     export FZF_CTRL_T_COMMAND='find . -type d -name ".git" -prune -o -type d -name "*" -print'
     source "$FZFPATH/shell/key-bindings.bash"
 
-    if [ $OS == "Linux" ]; then
+    if [[ $OS == "Linux" ]]; then
       bind -x '"\C-]": fzf_wh_lin'
-    elif [ $OS == "Mac" ]; then
+    elif [[ $OS == "Mac" ]]; then
       bind -x '"\C-]": fzf_wh_mac'
     fi
   fi
