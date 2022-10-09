@@ -212,7 +212,7 @@ if [ $OS = 'Mac' -o $OS = 'Linux' ]; then
   fi
 
   ## deno
-  if check_command deno; then
+  if [[ -e "$HOME/.deno" ]]; then
     export PATH="$HOME/.deno/bin:$PATH"
     if check_command wh; then
       source "$(wh list --full-path | grep dotfiles)/bash/deno-completion.bash"
