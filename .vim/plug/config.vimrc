@@ -27,6 +27,7 @@ nnoremap <Space>gps :Git push<CR>
 nnoremap <Space>gpl :Git pull<CR>
 nnoremap <Space>gl :Git log<CR>
 nnoremap <Space>gd :Git diff<CR>
+nnoremap <Space>gg :Git 
 
 " sonictemplate
 let g:sonictemplate_vim_template_dir = g:ryoo_plugin_dir . '/plugins/sonictemplate-vim/template'
