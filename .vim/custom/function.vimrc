@@ -1,6 +1,6 @@
 " ---------------------------- fzf + wh -------------------------------
 command! -nargs=0 Fq call fzf#run({
-\ 'source': 'wh list --full-path',
+\ 'source': 'patty list --full-path',
 \ 'down': 20,
 \ 'sink': 'cd'
 \ })
