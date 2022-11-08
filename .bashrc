@@ -35,27 +35,27 @@ mkig () {
   curl -L -s https://www.gitignore.io/api/$@
 }
 
-fzf_wh_lin() {
-  local project_name=$(wh list | sort | $(__fzfcmd))
+fzf_patty_lin() {
+  local project_name=$(patty list | sort | $(__fzfcmd))
   if [[ -n "$project_name" ]]; then
-    local project_full_path=$(wh root)/$project_name
+    local project_full_path=$(patty root)/$project_name
     local project_relative_path="~/$(realpath --relative-to=$HOME $project_full_path)"
     READLINE_LINE="cd $project_relative_path"
     READLINE_POINT=${#READLINE_LINE}
   fi
 }
 
-fzf_wh_mac() {
-  local selected_file=$(wh list | sort | $(__fzfcmd))
+fzf_patty_mac() {
+  local selected_file=$(patty list | sort | $(__fzfcmd))
   if [[ -n "$selected_file" ]]; then
     if [[ -t 1 ]]; then
-      cd $(wh root)/${selected_file}
+      cd $(patty root)/${selected_file}
     fi
   fi
 }
 
-fwh() {
-  local project_name=$(wh list | sort | $(__fzfcmd))
+fpatty() {
+  local project_name=$(patty list | sort | $(__fzfcmd))
   if [[ -n "$project_name" ]]; then
     cd $project_name
   fi
@@ -156,8 +156,8 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
 
   ## git
   if check_command git; then
-    if check_command wh; then
-      source "$(wh list --full-path | grep dotfiles)/bash/git-completion.bash"
+    if check_command patty; then
+      source "$(patty list --full-path | grep dotfiles)/bash/git-completion.bash"
     fi
     alias g='git'
     alias ga='git add'
@@ -196,9 +196,9 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     source "$FZFPATH/shell/key-bindings.bash"
 
     if [[ $OS == "Linux" ]]; then
-      bind -x '"\C-]": fzf_wh_lin'
+      bind -x '"\C-]": fzf_patty_lin'
     elif [[ $OS == "Mac" ]]; then
-      bind -x '"\C-]": fzf_wh_mac'
+      bind -x '"\C-]": fzf_patty_mac'
     fi
   fi
 
@@ -214,8 +214,8 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
   ## deno
   if [[ -e "$HOME/.deno" ]]; then
     export PATH="$HOME/.deno/bin:$PATH"
-    if check_command wh; then
-      source "$(wh list --full-path | grep dotfiles)/bash/deno-completion.bash"
+    if check_command patty; then
+      source "$(patty list --full-path | grep dotfiles)/bash/deno-completion.bash"
     fi
     alias de='deno'
     alias der='deno run'
