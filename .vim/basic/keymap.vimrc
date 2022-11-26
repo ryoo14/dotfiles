@@ -12,6 +12,7 @@ nnoremap x "_x
 inoremap <C-l> <C-g>U<Right>
 nnoremap q: :q
 nnoremap <Space>w :w<CR>
+nnoremap <Space>q :q<CR>
 
 " like bash in cmdline mode
 cnoremap <C-a> <Home>
