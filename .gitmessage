@@ -1,12 +1,14 @@
+# build     dependencies
+# chore     maintain
+# ci        ci
+# docs      documentation
 # feat      feature
 # fix       bug fix
-# deps      dependencies
-# breaking  breaking changes
-# docs      documentation
-# style     formatting, missing semi colons, etc
+# perf      perf
 # refactor  refactoring
+# revert    revert
+# style     formatting, missing semi colons, etc
 # test      when adding missing tests
-# chore     maintain
 
 # [optional body]
 
