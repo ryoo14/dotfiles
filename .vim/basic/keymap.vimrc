@@ -32,6 +32,12 @@ nnoremap <silent> <Space>ts :call LunchSTerminal()<CR>
 nnoremap <silent> <Space>tv :call LunchVTerminal()<CR>
 nnoremap <silent> <Space>tt :call LunchTTerminal()<CR>
 
+" custom function
+nnoremap <Space>fq :Fq<CR>
+nnoremap <Space>fc :Fc<CR>
+nnoremap <Space>tj :TransJa 
+nnoremap <Space>te :TransEn 
+
 " tab
 nnoremap <silent> <Space>tc :tablast <bar> tabnew<CR>
 for n in range(1, 9)

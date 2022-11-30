@@ -5,7 +5,6 @@ command! -nargs=0 Fq call fzf#run({
 \ 'sink': 'cd'
 \ })
 
-nnoremap <Space>fq :Fq<CR>
 
 " ---------------------------- fzf + vimrcs ----------------------------
 command! -nargs=0 Fc call fzf#run({
@@ -14,7 +13,6 @@ command! -nargs=0 Fc call fzf#run({
 \ 'sink': 'edit'
 \ })
 
-nnoremap <Space>fc :Fc<CR>
 
 " ---------------------------- select commit message -------------------
 function! Select_commit_type() abort
@@ -42,4 +40,16 @@ endfunction
 function LunchTTerminal()
   highlight Terminal ctermbg=NONE guibg=NONE
   execute 'tab terminal'
+endfunction
+
+
+" ---------------------------- translate ---------------------------
+command! -nargs=1 TransJa call TransJa(<f-args>)
+function! TransJa(word)
+  echo system('echo ' . a:word . ' | trans ja:en -b')
+endfunction
+
+command! -nargs=1 TransEn call TransEn(<f-args>)
+function! TransEn(word)
+  echo system('echo ' . a:word . ' | trans en:ja -b')
 endfunction
