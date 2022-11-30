@@ -44,12 +44,12 @@ endfunction
 
 
 " ---------------------------- translate ---------------------------
-command! -nargs=1 TransJa call TransJa(<f-args>)
+command! -nargs=1 TransJa call TransJa(<q-args>)
 function! TransJa(word)
   echo system('echo ' . a:word . ' | trans ja:en -b')
 endfunction
 
-command! -nargs=1 TransEn call TransEn(<f-args>)
+command! -nargs=1 TransEn call TransEn(<q-args>)
 function! TransEn(word)
   echo system('echo ' . a:word . ' | trans en:ja -b')
 endfunction
