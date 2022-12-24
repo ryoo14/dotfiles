@@ -8,5 +8,12 @@
 		],
 		"description": "atcoder snipet",
     "scope": "source.typescript"
+	},
+	"cl": {
+		"prefix": "cl",
+		"body": [
+			"console.log($1);$0"
+		],
+		"description": "console log"
 	}
 }
