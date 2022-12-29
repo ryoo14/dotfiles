@@ -13,7 +13,6 @@ command! -nargs=0 Fc call fzf#run({
 \ 'sink': 'edit'
 \ })
 
-
 " ---------------------------- select commit message -------------------
 function! Select_commit_type() abort
   let line = substitute(getline('.'), '^#\s*', '', 'g')
@@ -42,14 +41,15 @@ function LunchTTerminal()
   execute 'tab terminal'
 endfunction
 
-
 " ---------------------------- translate ---------------------------
 command! -nargs=1 TransJa call TransJa(<q-args>)
 function! TransJa(word)
-  echo system('echo ' . a:word . ' | trans ja:en -b')
+  let l:transWord = system('echo ' . a:word . ' | trans ja:en -b')
+  let @" = substitute(l:transWord, '\n\+$', '', '')
 endfunction
 
 command! -nargs=1 TransEn call TransEn(<q-args>)
 function! TransEn(word)
-  echo system('echo ' . a:word . ' | trans en:ja -b')
+  let l:transWord = system('echo ' . a:word . ' | trans en:ja -b')
+  let @" = substitute(l:transWord, '\n\+$', '', '')
 endfunction
