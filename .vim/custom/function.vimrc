@@ -46,10 +46,12 @@ command! -nargs=1 TransJa call TransJa(<q-args>)
 function! TransJa(word)
   let l:transWord = system('echo ' . a:word . ' | trans ja:en -b')
   let @" = substitute(l:transWord, '\n\+$', '', '')
+  echo l:transWord
 endfunction
 
 command! -nargs=1 TransEn call TransEn(<q-args>)
 function! TransEn(word)
   let l:transWord = system('echo ' . a:word . ' | trans en:ja -b')
   let @" = substitute(l:transWord, '\n\+$', '', '')
+  echo l:transWord
 endfunction
