@@ -2,7 +2,8 @@
 command! -nargs=0 Fq call fzf#run({
 \ 'source': 'patty list --full-path',
 \ 'down': 20,
-\ 'sink': 'cd'
+\ 'sink': 'cd',
+\ 'window': {'width': 0.9, 'height': 0.6}
 \ })
 
 
@@ -10,7 +11,8 @@ command! -nargs=0 Fq call fzf#run({
 command! -nargs=0 Fc call fzf#run({
 \ 'source': "cat " . $MYVIMRC . " | grep source | awk '{print $2}'",
 \ 'down': 20,
-\ 'sink': 'edit'
+\ 'sink': 'edit',
+\ 'window': {'width': 0.9, 'height': 0.6}
 \ })
 
 " ---------------------------- select commit message -------------------
