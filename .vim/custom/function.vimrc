@@ -1,6 +1,6 @@
 " ---------------------------- fzf + patty -------------------------------
 command! -nargs=0 Fq call fzf#run({
-\ 'source': 'patty list --full-path',
+\ 'source': 'patty list --full-path | sort',
 \ 'down': 20,
 \ 'sink': 'cd',
 \ 'window': {'width': 0.9, 'height': 0.6}
