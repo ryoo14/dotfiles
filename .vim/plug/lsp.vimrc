@@ -9,3 +9,4 @@ nnoremap <silent> <Space>lh :LspHover<CR>
 nnoremap <silent> <Space>lr :LspReferences<CR>
 nnoremap <silent> <Space>li :LspImplementation<CR>
 nnoremap <silent> <Space>ln :LspRename<CR>
+let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-language-server', 'deno']
