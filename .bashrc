@@ -220,4 +220,9 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     alias de='deno'
     alias der='deno run'
   fi
+
+  ## ranger
+  if check_command ranger; then
+    alias r='ranger'
+  fi
 fi
