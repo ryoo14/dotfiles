@@ -1,33 +1,12 @@
 {
-	"itigyo_string": {
-		"prefix": "itigyo_string",
+	"atcoder": {
+		"prefix": "atcoder",
 		"body": [
 			"import * as fs from \"fs\";",
 			"",
-			"const input: string = fs.readFileSync(\"/dev/stdin\", \"utf8\").trim();"
+			"const input: string[] = fs.readFileSync(\"/dev/stdin\", \"utf8\").split(\"\n\");"
 		],
-		"description": "atcoder snipet",
-    "scope": "source.typescript"
-	},
-	"itigyo_number": {
-		"prefix": "itigyo_number",
-		"body": [
-			"import * as fs from \"fs\";",
-			"",
-			"const input: number = Number(fs.readFileSync(\"/dev/stdin\", \"utf8\").trim());"
-		],
-		"description": "atcoder snipet",
-    "scope": "source.typescript"
-	},
-	"numarray": {
-		"prefix": "numarray",
-		"body": [
-			"import * as fs from \"fs\";",
-			"",
-			"const N: number = Number(fs.readFileSync(\"/dev/stdin\", \"utf8\").trim());",
-			"const A: number[] = fs.readFileSync(\"/dev/stdin\", \"utf8\").trim().split(\" \").map(n => Number(n));"
-		],
-		"description": "atcoder snipet",
+		"description": "atcoder input snipet",
     "scope": "source.typescript"
 	},
 	"cl": {
