@@ -4,7 +4,7 @@
 		"body": [
 			"import * as fs from \"fs\";",
 			"",
-			"const input: string[] = fs.readFileSync(\"/dev/stdin\", \"utf8\").split(\"\n\");"
+			"const input: string[] = fs.readFileSync(\"/dev/stdin\", \"utf8\").split(\"\\n\");"
 		],
 		"description": "atcoder input snipet",
     "scope": "source.typescript"
