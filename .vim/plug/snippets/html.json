@@ -17,5 +17,18 @@
     ],
     "description": "html base",
     "scope": "source.html"
+  },
+  "div": {
+    "prefix": "div",
+    "body": "<div class=\"${1:class}\">${2:content}</div>",
+    "description": "div class",
+    "scope": "source.html"
+  },
+  "script": {
+    "prefix": "script",
+    "body": "<script src=\"${1:src}\"></script>${2:eol}",
+    "description": "script",
+    "scope": "source.html"
   }
+
 }
