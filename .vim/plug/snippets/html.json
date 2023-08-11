@@ -18,10 +18,16 @@
     "description": "html base",
     "scope": "source.html"
   },
-  "div": {
-    "prefix": "div",
+  "divc": {
+    "prefix": "divc",
     "body": "<div class=\"${1:class}\">${2:content}</div>",
     "description": "div class",
+    "scope": "source.html"
+  },
+  "divi": {
+    "prefix": "divi",
+    "body": "<div id=\"${1:id}\">${2:content}</div>",
+    "description": "div id",
     "scope": "source.html"
   },
   "script": {
@@ -29,6 +35,11 @@
     "body": "<script src=\"${1:src}\"></script>${2:eol}",
     "description": "script",
     "scope": "source.html"
+  },
+  "comicfont": {
+    "prefix": "comic font",
+    "body": "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css\">",
+    "description": "comic font",
+    "scope": "source.html"
   }
-
 }
