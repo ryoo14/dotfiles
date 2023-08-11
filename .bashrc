@@ -4,6 +4,15 @@ get_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
 
+clack_code () {
+  local HN="\[\033[38;5;251m\]clack_code\[\033[0m\]" 
+  local CD="\[\033[38;5;248m\]\W\[\033[0m\]" 
+  local BRANCH="\[\033[38;5;209m\]\$(get_branch)\[\033[0m\]"
+  local ARROW="\[\033[38;5;245m\]>\[\033[0m\]\[\033[38;5;242m\]>\[\033[0m\]\[\033[38;5;239m\]>\[\033[0m\]"
+  export PS1="${HN} ${CD}${BRANCH} ${ARROW} "
+  export PATTY_ROOT="/Volumes/data/patty"
+}
+
 prompt () {
   if [[ "$TERM" =~ 256color ]]; then
     #local HN="\[\033[38;5;246m\]\H\[\033[0m\]" # Gway58
