@@ -20,6 +20,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'sainnhe/everforest'
 Plug 'tribela/vim-transparent'
+Plug 'ghifarit53/tokyonight-vim'
 " filer
 Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
