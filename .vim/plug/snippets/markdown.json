@@ -1,0 +1,20 @@
+{
+	"h3": {
+		"prefix": "h3",
+		"body": [
+      "### [$0]()",
+      "",
+      "<br />"
+		],
+		"description": "h3 for blog entry",
+    "scope": "source.markdown"
+	},
+	"br": {
+		"prefix": "br",
+		"body": [
+      "<br />$0"
+		],
+		"description": "br",
+    "scope": "source.markdown"
+	}
+}
