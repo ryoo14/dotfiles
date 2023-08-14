@@ -23,6 +23,7 @@ set belloff=all
 set shell=bash
 set splitright
 set termguicolors
+set nowrap
 
 aug filetypeset
   au!
