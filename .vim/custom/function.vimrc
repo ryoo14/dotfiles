@@ -57,3 +57,10 @@ function! TransEn(word)
   let @" = substitute(l:transWord, '\n\+$', '', '')
   echo l:transWord
 endfunction
+
+" ---------------------------- show highlight group ---------------------------
+function! ShowHighlightGroup()
+  echo synIDattr(synID(line("."), col("."), 1), "name")
+endfunction
+
+nnoremap <Space>hi :call ShowHighlightGroup()<CR>

@@ -8,7 +8,7 @@ let g:vim_markdown_conceal_code_blocks = 0
 let g:markdown_recommended_style = 0
 
 " lightline
-let g:lightline = {'colorscheme' : 'tokyonight'}
+let g:lightline = {'colorscheme' : 'navaltwilight'}
 
 " indentline
 let g:indentLine_char = '|'
