@@ -60,7 +60,9 @@ endfunction
 
 " ---------------------------- show highlight group ---------------------------
 function! ShowHighlightGroup()
-  echo synIDattr(synID(line("."), col("."), 1), "name")
+  let l:higname = synIDattr(synID(line("."), col("."), 1), "name")
+  let @" = l:higname
+  echo l:l:higname
 endfunction
 
 nnoremap <Space>hi :call ShowHighlightGroup()<CR>
