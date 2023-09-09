@@ -27,7 +27,7 @@ set nowrap
 
 aug filetypeset
   au!
-  au FileType vim,ruby,html,yaml,json,sh,markdown,javascript,typescript,typescriptreact,css
+  au FileType vim,ruby,html,yaml,json,jsonc,sh,markdown,javascript,typescript,typescriptreact,css
         \ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType rust 
         \ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
