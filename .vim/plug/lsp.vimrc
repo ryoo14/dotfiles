@@ -3,7 +3,7 @@ let g:lsp_diagnostics_echo_cursor = 0
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_document_code_action_signs_enabled = 0
-nnoremap <expr> <C-]> execute('LspPeekDefinition') =~ "not supported" ? "\<C-]>" : ":LspDefinition<cr>"
+nnoremap <expr> <C-]> execute('LspDefinition') =~ "not supported" ? "\<C-]>" : ":LspDefinition<cr>"
 nnoremap <silent> <Space>ls :rightbelow split \| :LspDefinition <CR>
 nnoremap <silent> <Space>lv :rightbelow vsplit \| :LspDefinition <CR>
 nnoremap <silent> <Space>lh :LspHover<CR>
