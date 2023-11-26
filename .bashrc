@@ -118,6 +118,7 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
   elif [[ $OS == "Mac" ]]; then
     alias ls='ls -G'
   fi
+  alias l='ls'
   alias ll='ls -la'
   alias grep='grep --color=auto'
   alias egrep='egrep --color=auto'
