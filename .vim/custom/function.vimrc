@@ -30,18 +30,20 @@ augroup select-commit-message
   autocmd Filetype gitcommit nnoremap <buffer> <CR><CR> :call Select_commit_type()<CR>
 augroup END
 
-function LunchSTerminal()
+" -------------------------- launch terminal -----------------------
+function LaunchSTerminal()
   highlight Terminal ctermbg=NONE guibg=NONE
   execute 'bo terminal ++rows=15'
 endfunction
-function LunchVTerminal()
+function LaunchVTerminal()
   highlight Terminal ctermbg=NONE guibg=NONE
   execute 'vert terminal ++cols=60'
 endfunction
-function LunchTTerminal()
+function LaunchTTerminal()
   highlight Terminal ctermbg=NONE guibg=NONE
   execute 'tab terminal'
 endfunction
+
 
 " ---------------------------- translate ---------------------------
 command! -nargs=1 TransJa call TransJa(<q-args>)
@@ -64,5 +66,3 @@ function! ShowHighlightGroup()
   let @" = l:higname
   echo l:higname
 endfunction
-
-nnoremap <Space>hi :call ShowHighlightGroup()<CR>

@@ -28,15 +28,16 @@ cnoremap <C-y> <C-r>*
 " nnoremap <silent> <Space>ts :bo terminal ++rows=15<CR>
 " nnoremap <silent> <Space>tv :vert terminal<CR>
 " nnoremap <silent> <Space>tt :tab terminal<CR>
-nnoremap <silent> <Space>ts :call LunchSTerminal()<CR>
-nnoremap <silent> <Space>tv :call LunchVTerminal()<CR>
-nnoremap <silent> <Space>tt :call LunchTTerminal()<CR>
 
 " custom function
+nnoremap <silent> <Space>ts :call LaunchSTerminal()<CR>
+nnoremap <silent> <Space>tv :call LaunchVTerminal()<CR>
+nnoremap <silent> <Space>tt :call LaunchTTerminal()<CR>
 nnoremap <Space>fq :Fq<CR>
 nnoremap <Space>fc :Fc<CR>
 nnoremap <Space>tj :TransJa 
 nnoremap <Space>te :TransEn 
+nnoremap <Space>hi :call ShowHighlightGroup()<CR>
 
 " tab
 nnoremap <silent> <Space>tc :tablast <bar> tabnew<CR>
