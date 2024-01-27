@@ -227,8 +227,10 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     if check_command patty; then
       source "$(patty list --full-path | grep dotfiles)/bash/deno-completion.bash"
     fi
-    alias de='deno'
-    alias der='deno run'
+    alias d='deno'
+    alias dr='deno run'
+    alias dt='deno task'
+    alias di='deno install'
   fi
 
   ## ranger
