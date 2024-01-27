@@ -12,7 +12,7 @@
 	"cl": {
 		"prefix": "cl",
 		"body": [
-			"console.log($1);$0"
+			"console.log($1)$0"
 		],
 		"description": "console log"
 	}
