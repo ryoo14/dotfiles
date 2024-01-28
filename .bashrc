@@ -139,18 +139,6 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     fi
   fi
 
-  ## rust
-  if [[ -e "$HOME/.cargo" ]]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
-    if check_command cargo; then
-      alias c='cargo'
-      alias cb='cargo build'
-      alias ci='cargo install'
-      alias cr='cargo run'
-      alias cu='cargo update'
-    fi
-  fi
-
   ## systemctl
   if check_command systemctl; then
     alias sc='systemctl'
@@ -183,10 +171,10 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
 
   ## docker
   if check_command docker; then
-    alias dc='docker container'
-    alias di='docker image'
-    alias dn='docker network'
-    alias dv='docker volume'
+    alias dcc='docker container'
+    alias dci='docker image'
+    alias dcn='docker network'
+    alias dcv='docker volume'
     alias dcu='docker-compose up -d'
     alias dcd='docker-compose down'
   fi
@@ -231,6 +219,14 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     alias dr='deno run'
     alias dt='deno task'
     alias di='deno install'
+  fi
+
+  ## node & npm
+  if check_command npm; then
+    alias n='npm'
+    alias ni='npm install'
+    alias nr='npm run'
+    alias np='npx'
   fi
 
   ## ranger
