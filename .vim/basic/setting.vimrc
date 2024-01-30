@@ -38,8 +38,6 @@ aug grepwindow
   au QuickFixCmdPost vimgrep cwindow
 aug END
 
-
-
 " Disable unnecessary default plugins
 let g:loaded_spellfile_plugin   = 1
 let g:loaded_tutor_mode_plugin  = 1
