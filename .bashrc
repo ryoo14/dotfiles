@@ -233,4 +233,10 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
   if check_command ranger; then
     alias r='ranger'
   fi
+
+  ## gcloud
+  if [ -d "$HOME/.local/google-cloud-sdk" ]; then
+    export PATH="$HOME/.local/google-cloud-sdk/bin:$PATH"
+    if [ -f '/Users/ryoo/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ryoo/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+  fi
 fi
