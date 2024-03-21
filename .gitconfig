@@ -1,42 +1,43 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-name = ryoo14
-email = anana12185@gmail.com
+    name = ryoo14
+    email = anana12185@gmail.com
 
 [alias]
-  s  = status
-  l  = log
-  d  = diff
-  ps = push
-  pl = pull
-  a  = add
-  c  = commit
-  b  = branch
-  ch = checkout
+    s  = status
+    l  = log
+    d  = diff
+    ps = push
+    pl = pull
+    a  = add
+    c  = commit
+    b  = branch
+    ch = checkout
 
 [core]
-	quotepath = false
-	commitGraph = true
+    quotepath = false
+    commitGraph = true
+    excludefile = ~/.gitignore
 
 [gc]
-	writeCommitGraph = true
+    writeCommitGraph = true
 
 [credential]
-	helper = store
+    helper = store
 
 [url "https://github.com/"]
-	insteadOf = git@github.com:
+    insteadOf = git@github.com:
 
 [url "https://"]
-	insteadOf = git://
+    insteadOf = git://
 
 [ghq]
-  root = ~/ghq
+    root = ~/ghq
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [commit]
-	template = ~/.gitmessage
+    template = ~/.gitmessage
 [pull]
-	rebase = false
+    rebase = false
