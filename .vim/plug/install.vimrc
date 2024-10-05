@@ -25,14 +25,16 @@ Plug 'ryoo14/nautitwilight.vim'
 Plug 'lifepillar/vim-colortemplate'
 Plug 'cocopon/iceberg.vim'
 Plug 'lilydjwg/colorizer'
+Plug 'prisma/vim-prisma'
 " filer
 Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
 " snippets
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
-" quick run
+" utility
 Plug 'mattn/sonictemplate-vim'
+Plug 'mattn/vim-maketable'
 " preview file
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'tyru/open-browser.vim'
