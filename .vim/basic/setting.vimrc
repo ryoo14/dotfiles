@@ -33,6 +33,8 @@ aug filetypeset
         \ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 aug END
 
+autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
+
 aug grepwindow
   au!
   au QuickFixCmdPost vimgrep cwindow
