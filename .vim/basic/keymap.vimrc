@@ -33,6 +33,7 @@ cnoremap <C-y> <C-r>*
 nnoremap <silent> <Space>ts :call LaunchSTerminal()<CR>
 nnoremap <silent> <Space>tv :call LaunchVTerminal()<CR>
 nnoremap <silent> <Space>tt :call LaunchTTerminal()<CR>
+nnoremap <silent> <Space>tn :tabnew<CR>
 nnoremap <Space>fq :Fq<CR>
 nnoremap <Space>fc :Fc<CR>
 nnoremap <Space>tj :TransJa 
