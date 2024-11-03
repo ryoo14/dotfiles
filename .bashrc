@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ---------------------------------------------------------------------------
 # functions
 get_branch () {
@@ -25,19 +27,19 @@ prompt () {
     local ARROW="\[\033[38;5;245m\]>\[\033[0m\]\[\033[38;5;242m\]>\[\033[0m\]\[\033[38;5;239m\]>\[\033[0m\]"
     export PS1="${HN} ${CD}${BRANCH} ${ARROW} "
   else
-    local BLUE="\[\e[1;34m\]"
+    #local BLUE="\[\e[1;34m\]"
     local SKY="\[\e[1;36m\]"
-    local RED="\[\e[1;31m\]"
+    #local RED="\[\e[1;31m\]"
     local GREEN="\[\e[1;32m\]"
     local WHITE="\[\e[00m\]"
-    local GRAY="\[\e[1;37m\]"
-    local PUPLE="\[\e[1;35m\]"
+    #local GRAY="\[\e[1;37m\]"
+    #local PUPLE="\[\e[1;35m\]"
     export PS1="${SKY}[\W]${GREEN}\$(get_branch)${WHITE}-> "
   fi
 }
 
 check_command () {
-  which $1 > /dev/null 2>&1
+  which "$1" > /dev/null 2>&1
 }
 
 mkig () {
@@ -240,3 +242,5 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     if [ -f '/Users/ryoo/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ryoo/Downloads/google-cloud-sdk/completion.bash.inc'; fi
   fi
 fi
+
+export LC_CTYPE="en_US.UTF-8"
