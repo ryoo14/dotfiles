@@ -2,9 +2,9 @@
 	"atcoder": {
 		"prefix": "atcoder",
 		"body": [
-			"import * as fs from \"fs\";",
+			"import * as fs from \"fs\"",
 			"",
-			"const input: string[] = fs.readFileSync(\"/dev/stdin\", \"utf8\").split(\"\\n\");"
+			"const input: string[] = fs.readFileSync(\"/dev/stdin\", \"utf8\").split(\"\\n\")"
 		],
 		"description": "atcoder input snipet",
     "scope": "source.typescript"
@@ -23,7 +23,7 @@
           " *",
           " */",
           "constructor() {",
-          "\tsuper();",
+          "\tsuper()",
           "\t$0",
           "}"
       ],
@@ -64,7 +64,7 @@
   },
   "Import external module.": {
       "prefix": "import statement",
-      "body": ["import { $0 } from \"${1:module}\";"],
+      "body": ["import { $0 } from \"${1:module}\""],
       "description": "Import external module."
   },
   "Property getter": {
@@ -80,29 +80,29 @@
   },
   "Log to the console": {
       "prefix": "log",
-      "body": ["console.log($1);", "$0"],
+      "body": ["console.log($1)", "$0"],
       "description": "Log to the console"
   },
   "Log warning to console": {
       "prefix": "warn",
-      "body": ["console.warn($1);", "$0"],
+      "body": ["console.warn($1)", "$0"],
       "description": "Log warning to the console"
   },
   "Log error to console": {
       "prefix": "error",
-      "body": ["console.error($1);", "$0"],
+      "body": ["console.error($1)", "$0"],
       "description": "Log error to the console"
   },
   "Define a full property": {
       "prefix": "prop",
       "body": [
           "",
-          "private _${1:value} : ${2:string};",
+          "private _${1:value} : ${2:string}",
           "public get ${1:value}() : ${2:string} {",
-          "\treturn this._${1:value};",
+          "\treturn this._${1:value}",
           "}",
           "public set ${1:value}(v : ${2:string}) {",
-          "\tthis._${1:value} = v;",
+          "\tthis._${1:value} = v",
           "}",
           ""
       ],
@@ -118,7 +118,7 @@
       "body": [
           "",
           "public set ${1:value}(v : ${2:string}) {",
-          "\tthis.$3 = v;",
+          "\tthis.$3 = v",
           "}",
           ""
       ],
@@ -126,14 +126,14 @@
   },
   "Throw Exception": {
       "prefix": "throw",
-      "body": ["throw \"$1\";", "$0"],
+      "body": ["throw \"$1\"", "$0"],
       "description": "Throw Exception"
   },
   "For Loop": {
       "prefix": "for",
       "body": [
-          "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-          "\tconst ${3:element} = ${2:array}[${1:index}];",
+          "for (let ${1:index} = 0 ${1:index} < ${2:array}.length ${1:index}++) {",
+          "\tconst ${3:element} = ${2:array}[${1:index}]",
           "\t$0",
           "}"
       ],
@@ -141,7 +141,7 @@
   },
   "For-Each Loop using =>": {
       "prefix": "foreach =>",
-      "body": ["${1:array}.forEach(${2:element} => {", "\t$0", "});"],
+      "body": ["${1:array}.forEach(${2:element} => {", "\t$0", "})"],
       "description": "For-Each Loop using =>"
   },
   "For-In Loop": {
@@ -149,7 +149,7 @@
       "body": [
           "for (const ${1:key} in ${2:object}) {",
           "\tif (${2:object}.hasOwnProperty(${1:key})) {",
-          "\t\tconst ${3:element} = ${2:object}[${1:key}];",
+          "\t\tconst ${3:element} = ${2:object}[${1:key}]",
           "\t\t$0",
           "\t}",
           "}"
@@ -187,7 +187,7 @@
   },
   "New Statement": {
       "prefix": "new",
-      "body": ["const ${1:name} = new ${2:type}(${3:arguments});$0"],
+      "body": ["const ${1:name} = new ${2:type}(${3:arguments})$0"],
       "description": "New Statement"
   },
   "Switch Statement": {
@@ -196,10 +196,10 @@
           "switch (${1:key}) {",
           "\tcase ${2:value}:",
           "\t\t$0",
-          "\t\tbreak;",
+          "\t\tbreak",
           "",
           "\tdefault:",
-          "\t\tbreak;",
+          "\t\tbreak",
           "}"
       ],
       "description": "Switch Statement"
@@ -211,7 +211,7 @@
   },
   "Do-While Statement": {
       "prefix": "dowhile",
-      "body": ["do {", "\t$0", "} while (${1:condition});"],
+      "body": ["do {", "\t$0", "} while (${1:condition})"],
       "description": "Do-While Statement"
   },
   "Try-Catch Statement": {
@@ -221,7 +221,7 @@
   },
   "Set Timeout Function": {
       "prefix": "settimeout",
-      "body": ["setTimeout(() => {", "\t$0", "}, ${1:timeout});"],
+      "body": ["setTimeout(() => {", "\t$0", "}, ${1:timeout})"],
       "description": "Set Timeout Function"
   },
   "Region Start": {
