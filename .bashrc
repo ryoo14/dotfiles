@@ -244,3 +244,6 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
 fi
 
 export LC_CTYPE="en_US.UTF-8"
+
+export DVM_DIR="$HOME/.dvm"
+export PATH="$DVM_DIR/bin:$PATH"
