@@ -2,9 +2,7 @@
 	"h3": {
 		"prefix": "h3",
 		"body": [
-      "### [$0]()",
-      "",
-      "<br />"
+      "### [$0]()"
 		],
 		"description": "h3 for blog entry",
     "scope": "source.markdown"
