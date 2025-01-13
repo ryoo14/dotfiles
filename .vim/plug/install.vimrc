@@ -18,14 +18,9 @@ Plug 'mattn/vim-lsp-settings'
 " color and appearance
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'sainnhe/everforest'
 Plug 'tribela/vim-transparent'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'ryoo14/nautitwilight.vim'
-Plug 'lifepillar/vim-colortemplate'
-Plug 'cocopon/iceberg.vim'
-Plug 'lilydjwg/colorizer'
-Plug 'prisma/vim-prisma'
 " filer
 Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
@@ -44,8 +39,6 @@ Plug 'tpope/vim-fugitive'     " git commands
 " etc 
 Plug 'cohama/lexima.vim'  " auto close parentheses
 Plug 'vim-jp/vimdoc-ja'   " help in japanese
-" lang
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 call plug#end()
 
 filetype plugin indent on
