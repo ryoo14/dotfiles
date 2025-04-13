@@ -1,7 +1,7 @@
-"if !filereadable('~/.vim/autoload/plug.vim')
-"  call system('curl -fLo ~/.vim/autoload/plug.vim --create-dir ' 
-"    \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
-"endif
+if !filereadable('~/.vim/autoload/plug.vim')
+  call system('curl -fLo ~/.vim/autoload/plug.vim --create-dir ' 
+    \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+endif
 
 let g:ryoo_plugin_dir='~/.vim/plug'
 call plug#begin(g:ryoo_plugin_dir . '/plugins')
@@ -19,7 +19,6 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'tribela/vim-transparent'
-Plug 'ghifarit53/tokyonight-vim'
 Plug 'ryoo14/nautitwilight.vim'
 " filer
 Plug 'mattn/vim-molder'
@@ -39,6 +38,7 @@ Plug 'tpope/vim-fugitive'     " git commands
 " etc 
 Plug 'cohama/lexima.vim'  " auto close parentheses
 Plug 'vim-jp/vimdoc-ja'   " help in japanese
+Plug 'github/copilot.vim' " github copilot
 call plug#end()
 
 filetype plugin indent on
