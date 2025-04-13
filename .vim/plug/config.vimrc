@@ -9,6 +9,7 @@ let g:markdown_recommended_style = 0
 
 " lightline
 let g:lightline = {'colorscheme' : 'nautitwilight'}
+"let g:everforest_background = 'hard'
 
 " indentline
 let g:indentLine_char = '|'
@@ -44,18 +45,13 @@ nnoremap <Space>ft :Tags<CR>
 let g:fzf_buffers_jump = 1
 let g:fzf_tags_command = 'ctags -R'
 
-" rust
-let g:rustfmt_autosave = 1
-
 " snippets
-" Expand
-imap <expr> <C-k> vsnip#expandable() ? '<Plug>(vsnip-expand)':'<C-k>'
-smap <expr> <C-k> vsnip#expandable() ? '<Plug>(vsnip-expand)':'<C-k>'
-" Jump forward or backward
-imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)':'<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)':'<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)':'<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)':'<S-Tab>'
+for mode in ['i', 's']
+  execute mode . 'map <expr> <C-k> vsnip#expandable() ? "<Plug>(vsnip-expand)" : "<C-k>"'
+  execute mode . 'map <expr> <Tab> vsnip#jumpable(1) ? "<Plug>(vsnip-jump-next)" : "<Tab>"'
+  execute mode . 'map <expr> <S-Tab> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"'
+endfor
+
 let g:vsnip_snippet_dir = expand(g:ryoo_plugin_dir . '/snippets')
 
 " vim-molder
