@@ -9,7 +9,6 @@ let g:markdown_recommended_style = 0
 
 " lightline
 let g:lightline = {'colorscheme' : 'nautitwilight'}
-"let g:everforest_background = 'hard'
 
 " indentline
 let g:indentLine_char = '|'
