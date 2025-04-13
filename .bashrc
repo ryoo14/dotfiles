@@ -241,6 +241,11 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     export PATH="$HOME/.local/google-cloud-sdk/bin:$PATH"
     if [ -f '/Users/ryoo/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ryoo/Downloads/google-cloud-sdk/completion.bash.inc'; fi
   fi
+
+  ## kubectl
+  if check_command kubectl; then
+    alias k='kubectl'
+  fi
 fi
 
 export LC_CTYPE="en_US.UTF-8"
