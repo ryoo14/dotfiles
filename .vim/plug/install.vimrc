@@ -7,7 +7,8 @@ let g:ryoo_plugin_dir='~/.vim/plug'
 call plug#begin(g:ryoo_plugin_dir . '/plugins')
 " filetype
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'elzr/vim-json', { 'for': ['json', 'jsonc'] }
+Plug 'neoclide/jsonc.vim', { 'for': 'jsonc' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " vim-lsp
 Plug 'prabirshrestha/async.vim'
