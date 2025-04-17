@@ -24,14 +24,10 @@ set shell=bash
 set splitright
 set termguicolors
 set nowrap
-
-aug filetypeset
-  au!
-  au FileType vim,ruby,html,yaml,json,jsonc,sh,markdown,javascript,typescript,typescriptreact,css,xml
-        \ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType rust,gitconfig
-        \ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-aug END
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
 
 autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
 
