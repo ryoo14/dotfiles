@@ -1,18 +1,20 @@
-nnoremap <Space>ev :edit $MYVIMRC
-nnoremap <Space>rv :source $MYVIMRC
-nnoremap <Space>egv :edit $MYGVIMRC
-nnoremap <Space>rgv :source $MYGVIMRC
+let mapleader = "\<Space>"
+
+nnoremap <Leader>ev :edit $MYVIMRC
+nnoremap <Leader>rv :source $MYVIMRC
+nnoremap <Leader>egv :edit $MYGVIMRC
+nnoremap <Leader>rgv :source $MYGVIMRC
 noremap j gj
 noremap k gk
 nnoremap ZZ <nop> "disable Z
 nnoremap <c-z> <nop>
 nnoremap * *N
-nnoremap <Space>fi :edit .<CR>
+nnoremap <Leader>fi :edit .<CR>
 nnoremap x "_x
 inoremap <C-l> <C-g>U<Right>
 nnoremap q: :q
-nnoremap <Space>w :w<CR>
-nnoremap <Space>q :q<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
 
 " like bash in cmdline mode
 cnoremap <C-a> <Home>
@@ -25,25 +27,25 @@ cnoremap <C-p> <Up>
 cnoremap <C-y> <C-r>*
 
 " terminal
-" nnoremap <silent> <Space>ts :bo terminal ++rows=15<CR>
-" nnoremap <silent> <Space>tv :vert terminal<CR>
-" nnoremap <silent> <Space>tt :tab terminal<CR>
+" nnoremap <silent> <Leader>ts :bo terminal ++rows=15<CR>
+" nnoremap <silent> <Leader>tv :vert terminal<CR>
+" nnoremap <silent> <Leader>tt :tab terminal<CR>
 
 " custom function
-nnoremap <silent> <Space>ts :call LaunchSTerminal()<CR>
-nnoremap <silent> <Space>tv :call LaunchVTerminal()<CR>
-nnoremap <silent> <Space>tt :call LaunchTTerminal()<CR>
-nnoremap <silent> <Space>tn :tabnew<CR>
-nnoremap <Space>fq :Fq<CR>
-nnoremap <Space>fc :Fc<CR>
-nnoremap <Space>tj :TransJa 
-nnoremap <Space>te :TransEn 
-nnoremap <Space>hi :call ShowHighlightGroup()<CR>
+nnoremap <silent> <Leader>ts :call LaunchSTerminal()<CR>
+nnoremap <silent> <Leader>tv :call LaunchVTerminal()<CR>
+nnoremap <silent> <Leader>tt :call LaunchTTerminal()<CR>
+nnoremap <silent> <Leader>tn :tabnew<CR>
+nnoremap <Leader>fq :Fq<CR>
+nnoremap <Leader>fc :Fc<CR>
+nnoremap <Leader>tj :TransJa 
+nnoremap <Leader>te :TransEn 
+nnoremap <Leader>hi :call ShowHighlightGroup()<CR>
 
 " tab
-nnoremap <silent> <Space>tc :tablast <bar> tabnew<CR>
+nnoremap <silent> <Leader>tc :tablast <bar> tabnew<CR>
 for n in range(1, 9)
-  execute 'nnoremap <silent> <Space>t'.n  ':<C-u>tabnext'.n.'<CR>'
+  execute 'nnoremap <silent> <Leader>t'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
 
 " fix display in bottom

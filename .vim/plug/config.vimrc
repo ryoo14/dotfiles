@@ -19,16 +19,16 @@ augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-nnoremap <Space>md :PrevimOpen
+nnoremap <Leader>md :PrevimOpen
 
 " fugitive
-nnoremap <Space>gs :Git<CR>
-nnoremap <Space>gc :Git commit<CR>
-nnoremap <Space>gps :Git push<CR>
-nnoremap <Space>gpl :Git pull<CR>
-nnoremap <Space>gl :Git log<CR>
-nnoremap <Space>gd :Git diff<CR>
-nnoremap <Space>gg :Git 
+nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>gc :Git commit<CR>
+nnoremap <Leader>gps :Git push<CR>
+nnoremap <Leader>gpl :Git pull<CR>
+nnoremap <Leader>gl :Git log<CR>
+nnoremap <Leader>gd :Git diff<CR>
+nnoremap <Leader>gg :Git 
 
 " sonictemplate
 let g:sonictemplate_vim_template_dir = g:ryoo_plugin_dir . '/plugins/sonictemplate-vim/template'
@@ -37,10 +37,10 @@ let g:sonictemplate_vim_template_dir = g:ryoo_plugin_dir . '/plugins/sonictempla
 set rtp+=$HOME/.fzf
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -U -g ""'}), <bang>0)
-nnoremap <Space>ff :Files<CR>
-nnoremap <Space>fb :Buffer<CR>
-nnoremap <Space>fgs :GFiles?<CR>
-nnoremap <Space>ft :Tags<CR>
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fb :Buffer<CR>
+nnoremap <Leader>fgs :GFiles?<CR>
+nnoremap <Leader>ft :Tags<CR>
 let g:fzf_buffers_jump = 1
 let g:fzf_tags_command = 'ctags -R'
 
@@ -57,4 +57,4 @@ let g:vsnip_snippet_dir = expand(g:ryoo_plugin_dir . '/snippets')
 let g:molder_show_hidden = 1
 
 " vim-transparent
-nnoremap <Space>tg :TransparentToggle<CR>
+nnoremap <Leader>tg :TransparentToggle<CR>
