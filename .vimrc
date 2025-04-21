@@ -94,14 +94,15 @@ cnoremap <C-x> <C-r>=expand('%:p:h')<CR>
 " plugin settings
 ""
 
+let s:vim_dir='~/.vim'
+
 " install plug.vim
-if !filereadable('~/.vim/autoload/plug.vim')
-  call system('curl -fLo ~/.vim/autoload/plug.vim --create-dir ' 
+if !filereadable(s:vim_dir . '/autoload/plug.vim')
+  call system('curl -fLo ' . s:vim_dir . '/autoload/plug.vim --create-dir ' 
     \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
 
 " install plugins
-let s:vim_dir='~/.vim'
 call plug#begin(s:vim_dir . '/plugins')
 " filetype
 Plug 'cespare/vim-toml', { 'for': 'toml' }
