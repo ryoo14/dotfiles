@@ -17,10 +17,11 @@ set showmatch
 set nohlsearch
 set incsearch
 set ignorecase
-set nobackup
+set backup
+set backupdir=~/.vim/backup
 set noswapfile
 set undofile
-set undodir=~/tmp
+set undodir=~/.vim/undo
 set keywordprg=:help
 set helplang=ja,en
 set belloff=all

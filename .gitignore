@@ -1,3 +1,5 @@
+/.vim/backup
+/.vim/undo
 /.vim/doc/
 /.vim/syntax/
 /.vim/autoload/
