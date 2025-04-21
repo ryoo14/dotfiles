@@ -68,7 +68,6 @@ nnoremap <silent> <Leader>ts :call LaunchSTerminal()<CR>
 nnoremap <silent> <Leader>tv :call LaunchVTerminal()<CR>
 nnoremap <silent> <Leader>tt :call LaunchTTerminal()<CR>
 nnoremap <Leader>fq :Fq<CR>
-nnoremap <Leader>fc :Fc<CR>
 nnoremap <Leader>tj :TransJa 
 nnoremap <Leader>te :TransEn 
 nnoremap <Leader>hi :call ShowHighlightGroup()<CR>
@@ -238,15 +237,6 @@ command! -nargs=0 Fq call fzf#run({
 \ 'source': 'patty list --full-path | sort',
 \ 'down': 20,
 \ 'sink': 'cd',
-\ 'window': {'width': 0.9, 'height': 0.6}
-\ })
-
-
-" ---------------------------- fzf + vimrcs ----------------------------
-command! -nargs=0 Fc call fzf#run({
-\ 'source': "cat " . $MYVIMRC . " | grep source | awk '{print $2}'",
-\ 'down': 20,
-\ 'sink': 'edit',
 \ 'window': {'width': 0.9, 'height': 0.6}
 \ })
 
