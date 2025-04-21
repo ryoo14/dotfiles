@@ -86,6 +86,12 @@ noremap <expr> <C-f>
   \ max([winheight(0) - 2, 1]) . "\<C-d>"
   \ . (line('.') > line('$') - winheight(0) ? 'L' : 'H')
 
+" quickfix
+nnoremap <silent> <Leader>co :copen<CR>
+nnoremap <silent> <Leader>cc :cclose<CR>
+nnoremap <silent> <Leader>cn :cnext<CR>
+nnoremap <silent> <Leader>cp :cprev<CR>
+
 " paste dir path of current buffer
 cnoremap <C-x> <C-r>=expand('%:p:h')<CR>
 
