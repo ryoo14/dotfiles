@@ -101,8 +101,8 @@ if !filereadable('~/.vim/autoload/plug.vim')
 endif
 
 " install plugins
-let g:ryoo_plugin_dir='~/.vim/plug'
-call plug#begin(g:ryoo_plugin_dir . '/plugins')
+let s:vim_dir='~/.vim'
+call plug#begin(s:vim_dir . '/plugins')
 " filetype
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'elzr/vim-json', { 'for': ['json', 'jsonc'] }
@@ -176,7 +176,7 @@ nnoremap <Leader>gd :Git diff<CR>
 nnoremap <Leader>gg :Git 
 
 " sonictemplate
-let g:sonictemplate_vim_template_dir = g:ryoo_plugin_dir . '/plugins/sonictemplate-vim/template'
+let g:sonictemplate_vim_template_dir = s:vim_dir . '/templates'
 
 " fzf
 set rtp+=$HOME/.fzf
@@ -196,7 +196,7 @@ for mode in ['i', 's']
   execute mode . 'map <expr> <S-Tab> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"'
 endfor
 
-let g:vsnip_snippet_dir = expand(g:ryoo_plugin_dir . '/snippets')
+let g:vsnip_snippet_dir = expand(s:vim_dir . '/snippets')
 
 " vim-molder
 let g:molder_show_hidden = 1

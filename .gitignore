@@ -3,10 +3,11 @@
 /.vim/doc/
 /.vim/syntax/
 /.vim/autoload/
-/.vim/plug/plugins/
+/.vim/plugins/
 /.vim/view/
 /.vim/.netrwhist
 /.vim/colors/
+/.vim/templates
 /config/nvim/.netrwhist
 /bin/oj*
 /bin/jsonschema
