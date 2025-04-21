@@ -41,8 +41,6 @@ let mapleader = "\<Space>"
 
 nnoremap <Leader>ev :edit $MYVIMRC
 nnoremap <Leader>rv :source $MYVIMRC
-nnoremap <Leader>egv :edit $MYGVIMRC
-nnoremap <Leader>rgv :source $MYGVIMRC
 noremap j gj
 noremap k gk
 nnoremap ZZ <nop> "disable Z
