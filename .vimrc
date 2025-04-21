@@ -1,3 +1,7 @@
+""
+" basic settings
+""
+
 set encoding=utf-8
 scriptencoding utf-8
 set autoindent
@@ -28,41 +32,11 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-
-"autocmd BufNewFile,BufRead tsconfig.json set filetype=jsonc
-
-aug grepwindow
-  au!
-  au QuickFixCmdPost vimgrep cwindow
-aug END
-
-" Disable unnecessary default plugins
-let g:loaded_spellfile_plugin   = 1
-let g:loaded_tutor_mode_plugin  = 1
-let g:loaded_gzip               = 1
-let g:loaded_tar                = 1
-let g:loaded_tarPlugin          = 1
-let g:loaded_zip                = 1
-let g:loaded_zipPlugin          = 1
-let g:loaded_rrhelper           = 1
-let g:loaded_2html_plugin       = 1
-let g:loaded_vimball            = 1
-let g:loaded_vimballPlugin      = 1
-let g:loaded_getscript          = 1
-let g:loaded_getscriptPlugin    = 1
-let g:loaded_logipat            = 1
-let g:loaded_matchparen         = 1
-let g:loaded_man                = 1
-let g:loaded_netrw              = 1
-let g:loaded_netrwPlugin        = 1
-let g:loaded_netrwSettings      = 1
-let g:loaded_netrwFileHandlers  = 1
-let g:loaded_logiPat            = 1
-let g:did_install_default_menus = 1
-let g:skip_loading_mswin        = 1
-let g:did_install_syntax_menu   = 1
-let g:plug_shallow = 0
 let mapleader = "\<Space>"
+
+""
+" keymaps
+""
 
 nnoremap <Leader>ev :edit $MYVIMRC
 nnoremap <Leader>rv :source $MYVIMRC
@@ -90,16 +64,10 @@ cnoremap <C-n> <Down>
 cnoremap <C-p> <Up>
 cnoremap <C-y> <C-r>*
 
-" terminal
-" nnoremap <silent> <Leader>ts :bo terminal ++rows=15<CR>
-" nnoremap <silent> <Leader>tv :vert terminal<CR>
-" nnoremap <silent> <Leader>tt :tab terminal<CR>
-
-" custom function
+" call custom function
 nnoremap <silent> <Leader>ts :call LaunchSTerminal()<CR>
 nnoremap <silent> <Leader>tv :call LaunchVTerminal()<CR>
 nnoremap <silent> <Leader>tt :call LaunchTTerminal()<CR>
-nnoremap <silent> <Leader>tn :tabnew<CR>
 nnoremap <Leader>fq :Fq<CR>
 nnoremap <Leader>fc :Fc<CR>
 nnoremap <Leader>tj :TransJa 
@@ -107,10 +75,13 @@ nnoremap <Leader>te :TransEn
 nnoremap <Leader>hi :call ShowHighlightGroup()<CR>
 
 " tab
+nnoremap <silent> <Leader>tn :tabnew<CR>
 nnoremap <silent> <Leader>tc :tablast <bar> tabnew<CR>
 for n in range(1, 9)
   execute 'nnoremap <silent> <Leader>t'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
+nnoremap <C-\> gt
+tnoremap <C-\> <C-w>gt
 
 " fix display in bottom
 noremap <expr> <C-f> 
@@ -120,14 +91,17 @@ noremap <expr> <C-f>
 " paste dir path of current buffer
 cnoremap <C-x> <C-r>=expand('%:p:h')<CR>
 
-" tab control
-nnoremap <C-\> gt
-tnoremap <C-\> <C-w>gt
+""
+" plugin settings
+""
+
+" install plug.vim
 if !filereadable('~/.vim/autoload/plug.vim')
   call system('curl -fLo ~/.vim/autoload/plug.vim --create-dir ' 
     \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
 endif
 
+" install plugins
 let g:ryoo_plugin_dir='~/.vim/plug'
 call plug#begin(g:ryoo_plugin_dir . '/plugins')
 " filetype
@@ -169,6 +143,7 @@ call plug#end()
 
 filetype plugin indent on
 syntax on
+
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
@@ -229,7 +204,8 @@ let g:molder_show_hidden = 1
 
 " vim-transparent
 nnoremap <Leader>tg :TransparentToggle<CR>
-" General
+
+" lsp settings
 let g:lsp_diagnostics_echo_cursor = 0
 let g:lsp_diagnostics_float_cursor = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
@@ -248,8 +224,15 @@ let g:lsp_settings_filetype_typescriptreact = ['typescript-language-server', 'de
 let g:lsp_settings = {
 \  'typeprof': {'disabled': 1},
 \}
+
+" color
 set background=dark
 colorscheme nautitwilight
+
+""
+" custom functions
+""
+
 " ---------------------------- fzf + patty -------------------------------
 command! -nargs=0 Fq call fzf#run({
 \ 'source': 'patty list --full-path | sort',
