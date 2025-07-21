@@ -123,8 +123,8 @@ Plug 'mattn/vim-lsp-settings'
 " color and appearance
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'tribela/vim-transparent'
 Plug 'ryoo14/nautitwilight.vim'
+Plug 'sainnhe/everforest'
 " filer
 Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
