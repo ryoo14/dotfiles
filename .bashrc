@@ -93,6 +93,7 @@ if [[ "$(uname)" == 'Darwin' ]]; then
   OS='Mac'
   # Catalinaではzshでないと警告が出るようになったのでそれを抑制
   export BASH_SILENCE_DEPRECATION_WARNING=1
+  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 elif [[ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]]; then
   OS='Linux'
 else
@@ -253,6 +254,15 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     if check_command cargo; then
       alias c='cargo'
     fi
+  fi
+
+
+  COMPLETION_DIR="$HOME/dotfiles/bash"
+
+  if [ -d "$COMPLETION_DIR" ]; then
+    for file in "$COMPLETION_DIR"/*; do
+      [ -r "$file" ] && [ -f "$file" ] && source "$file"
+    done
   fi
 fi
 
