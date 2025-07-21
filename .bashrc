@@ -246,6 +246,14 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
   if check_command kubectl; then
     alias k='kubectl'
   fi
+
+  ## cargo
+  if [[ -d "$HOME/.cargo/bin" ]]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+    if check_command cargo; then
+      alias c='cargo'
+    fi
+  fi
 fi
 
 export LC_CTYPE="en_US.UTF-8"
