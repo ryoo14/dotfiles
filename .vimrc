@@ -124,7 +124,9 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ryoo14/nautitwilight.vim'
+Plug 'ghifarit53/tokyonight-vim'
 Plug 'sainnhe/everforest'
+Plug 'fxn/vim-monochrome'
 " filer
 Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
@@ -143,7 +145,7 @@ Plug 'tpope/vim-fugitive'     " git commands
 " etc 
 Plug 'cohama/lexima.vim'  " auto close parentheses
 Plug 'vim-jp/vimdoc-ja'   " help in japanese
-Plug 'github/copilot.vim' " github copilot
+"Plug 'github/copilot.vim' " github copilot
 call plug#end()
 
 filetype plugin indent on
@@ -159,7 +161,7 @@ let g:vim_markdown_conceal_code_blocks = 0
 let g:markdown_recommended_style = 0
 
 " lightline
-let g:lightline = {'colorscheme' : 'nautitwilight'}
+let g:lightline = {'colorscheme' : 'nord'}
 
 " indentline
 let g:indentLine_char = '|'
@@ -232,7 +234,7 @@ let g:lsp_settings = {
 
 " color
 set background=dark
-colorscheme nautitwilight
+colorscheme monochrome
 
 ""
 " custom functions
@@ -297,3 +299,5 @@ function! ShowHighlightGroup()
   let @" = l:higname
   echo l:higname
 endfunction
+
+highlight! SignColumn guibg=NONE guifg=LightGray
