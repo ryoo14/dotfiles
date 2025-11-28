@@ -124,9 +124,7 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'itchyny/lightline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ryoo14/nautitwilight.vim'
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'sainnhe/everforest'
-Plug 'fxn/vim-monochrome'
+Plug 'sainnhe/sonokai'
 " filer
 Plug 'mattn/vim-molder'
 Plug 'junegunn/fzf.vim'
@@ -142,6 +140,8 @@ Plug 'tyru/open-browser.vim'
 " git
 Plug 'airblade/vim-gitgutter' " display diff
 Plug 'tpope/vim-fugitive'     " git commands
+" html
+Plug 'mattn/emmet-vim'
 " etc 
 Plug 'cohama/lexima.vim'  " auto close parentheses
 Plug 'vim-jp/vimdoc-ja'   " help in japanese
@@ -161,7 +161,7 @@ let g:vim_markdown_conceal_code_blocks = 0
 let g:markdown_recommended_style = 0
 
 " lightline
-let g:lightline = {'colorscheme' : 'nord'}
+let g:lightline = {'colorscheme' : 'sonokai'}
 
 " indentline
 let g:indentLine_char = '|'
@@ -233,8 +233,10 @@ let g:lsp_settings = {
 \}
 
 " color
+let g:sonokai_style = 'default'
+let g:sonokai_better_performance = 1
 set background=dark
-colorscheme monochrome
+colorscheme sonokai
 
 ""
 " custom functions
@@ -299,5 +301,3 @@ function! ShowHighlightGroup()
   let @" = l:higname
   echo l:higname
 endfunction
-
-highlight! SignColumn guibg=NONE guifg=LightGray
