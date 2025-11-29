@@ -32,6 +32,12 @@
   },
   "script": {
     "prefix": "script",
+    "body": "<script>${1:src}</script>",
+    "description": "script",
+    "scope": "source.html"
+  },
+  "scripts": {
+    "prefix": "script",
     "body": "<script src=\"${1:src}\"></script>${2:eol}",
     "description": "script",
     "scope": "source.html"
