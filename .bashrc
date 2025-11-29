@@ -1,25 +1,14 @@
 #!/bin/bash
 
 # ---------------------------------------------------------------------------
-# functions
+## functions
+# for prompt
 get_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
 
-clack_code () {
-  local HN="\[\033[38;5;251m\]clack_code\[\033[0m\]" 
-  local CD="\[\033[38;5;248m\]\W\[\033[0m\]" 
-  local BRANCH="\[\033[38;5;209m\]\$(get_branch)\[\033[0m\]"
-  local ARROW="\[\033[38;5;245m\]>\[\033[0m\]\[\033[38;5;242m\]>\[\033[0m\]\[\033[38;5;239m\]>\[\033[0m\]"
-  export PS1="${HN} ${CD}${BRANCH} ${ARROW} "
-  export PATTY_ROOT="/Volumes/data/patty"
-}
-
 prompt () {
   if [[ "$TERM" =~ 256color ]]; then
-    #local HN="\[\033[38;5;251m\]\h\[\033[0m\]" 
-    #local CD="\[\033[38;5;248m\]\W\[\033[0m\]" 
-    #local BRANCH="\[\033[38;5;209m\]\$(get_branch)\[\033[0m\]"
     local HN="\[\033[38;5;245m\]\h\[\033[0m\]" 
     local CD="\[\033[38;5;216m\]\W\[\033[0m\]" 
     local BRANCH="\[\033[38;5;116m\]\$(get_branch)\[\033[0m\]"
@@ -37,44 +26,57 @@ prompt () {
   fi
 }
 
+# for bashrc
 check_command () {
   which "$1" > /dev/null 2>&1
 }
 
-mkig () {
-  curl -L -s https://www.gitignore.io/api/$@
-}
-
 fzf_patty_lin() {
-  local project_name=$(patty list | sort | $(__fzfcmd))
+  local fzf_cmd
+  fzf_cmd=$(__fzfcmd)
+  local project_name
+  project_name=$(patty list | sort | $fzf_cmd)
   if [[ -n "$project_name" ]]; then
-    local project_full_path=$(patty root)/$project_name
-    local project_relative_path="~/$(realpath --relative-to=$HOME $project_full_path)"
+    local project_full_path
+    project_full_path=$(patty root)/$project_name
+    local project_relative_path
+    project_relative_path="~/$(realpath --relative-to=$HOME $project_full_path)"
     READLINE_LINE="cd $project_relative_path"
     READLINE_POINT=${#READLINE_LINE}
   fi
 }
 
 fzf_patty_mac() {
-  local selected_file=$(patty list | sort | $(__fzfcmd))
-  if [[ -n "$selected_file" ]]; then
+  local fzf_cmd
+  fzf_cmd=$(__fzfcmd)
+  local project_name
+  project_name=$(patty list | sort | $fzf_cmd)
+  if [[ -n "$project_name" ]]; then
     if [[ -t 1 ]]; then
-      cd $(patty root)/${selected_file}
+      cd "$(patty root)/${project_name}" || return 1
     fi
   fi
 }
 
-fpatty() {
-  local project_name=$(patty list | sort | $(__fzfcmd))
-  if [[ -n "$project_name" ]]; then
-    cd $project_name
-  fi
+#fpatty() {
+#  local project_name=$(patty list | sort | $(__fzfcmd))
+#  if [[ -n "$project_name" ]]; then
+#    cd "$project_name"
+#  fi
+#}
+
+# custom
+mkig () {
+  curl -L -s "https://www.gitignore.io/api/$*"
 }
 
 fssh() {
-  local ssh_login_host=$(cat ~/.ssh/config | grep -i ^host | awk '{print $2}' | $(__fzfcmd))
+  local fzf_cmd
+  fzf_cmd=$(__fzfcmd)
+  local ssh_login_host
+  ssh_login_host=$(cat ~/.ssh/config | grep -i ^host | awk '{print $2}' | $fzf_cmd)
   if [[ -n "$ssh_login_host" ]]; then
-    ssh $ssh_login_host
+    ssh "$ssh_login_host"
   fi
 }
 
@@ -132,18 +134,13 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
   alias v='vim'
 
   ## ruby
-  if [[ -e "$HOME/.rbenv" ]]; then
+  if [[ -d "$HOME/.rbenv" ]]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     if check_command rbenv; then
       eval "$(rbenv init -)"
       PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
       alias rv='rbenv'
     fi
-  fi
-
-  ## systemctl
-  if check_command systemctl; then
-    alias sc='systemctl'
   fi
 
   ## bundle
@@ -154,11 +151,13 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     alias bu='bundle update'
   fi
 
+  ## systemctl
+  if check_command systemctl; then
+    alias sc='systemctl'
+  fi
+
   ## git
   if check_command git; then
-    if check_command patty; then
-      source "$(patty list --full-path | grep dotfiles)/bash/git-completion.bash"
-    fi
     alias g='git'
     alias ga='git add'
     alias gb='git branch'
@@ -173,12 +172,14 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
 
   ## docker
   if check_command docker; then
+    alias dc="docker"
     alias dcc='docker container'
     alias dci='docker image'
     alias dcn='docker network'
     alias dcv='docker volume'
     alias dcu='docker-compose up -d'
     alias dcd='docker-compose down'
+    alias r='docker run -it --rm -v $(pwd):/root/work ryoo/devcon'
   fi
 
   ## ansible
@@ -212,11 +213,12 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
   fi
 
   ## deno
-  if [[ -e "$HOME/.deno" ]]; then
+  if [[ -d "$HOME/.dvm" ]]; then
+    export DVM_DIR="$HOME/.dvm"
+    export PATH="$DVM_DIR/bin:$PATH"
+  fi
+  if [[ -d "$HOME/.deno" ]]; then
     export PATH="$HOME/.deno/bin:$PATH"
-    if check_command patty; then
-      source "$(patty list --full-path | grep dotfiles)/bash/deno-completion.bash"
-    fi
     alias d='deno'
     alias dr='deno run'
     alias dt='deno task'
@@ -228,16 +230,11 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     alias n='npm'
     alias ni='npm install'
     alias nr='npm run'
-    alias np='npx'
-  fi
-
-  ## ranger
-  if check_command ranger; then
-    alias r='ranger'
+    alias nx='npx'
   fi
 
   ## gcloud
-  if [ -d "$HOME/.local/google-cloud-sdk" ]; then
+  if [[ -d "$HOME/.local/google-cloud-sdk" ]]; then
     export PATH="$HOME/.local/google-cloud-sdk/bin:$PATH"
     if [ -f '/Users/ryoo/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ryoo/Downloads/google-cloud-sdk/completion.bash.inc'; fi
   fi
@@ -245,9 +242,6 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
   ## kubectl
   if check_command kubectl; then
     alias k='kubectl'
-    if check_command patty; then
-      source "$(patty list --full-path | grep dotfiles)/bash/kubectl-completion.bash"
-    fi
   fi
 
   ## cargo
@@ -258,17 +252,15 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     fi
   fi
 
-
-  COMPLETION_DIR="$HOME/dotfiles/bash"
-
-  if [ -d "$COMPLETION_DIR" ]; then
-    for file in "$COMPLETION_DIR"/*; do
-      [ -r "$file" ] && [ -f "$file" ] && source "$file"
-    done
+  ## bash completion
+  if check_command patty; then
+    COMPLETION_DIR="$(patty root)/github.com/ryoo14/dotfiles/bash"
+    if [[ -d "$COMPLETION_DIR" ]]; then
+      for file in "$COMPLETION_DIR"/*; do
+        [[ -r "$file" ]] && [[ -f "$file" ]] && source "$file"
+      done
+    fi
   fi
 fi
 
 export LC_CTYPE="en_US.UTF-8"
-
-export DVM_DIR="$HOME/.dvm"
-export PATH="$DVM_DIR/bin:$PATH"
