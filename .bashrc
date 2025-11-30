@@ -196,10 +196,12 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     export FZF_CTRL_T_COMMAND='find . -type d -name ".git" -prune -o -type d -name "*" -print'
     source "$FZFPATH/shell/key-bindings.bash"
 
-    if [[ $OS == "Linux" ]]; then
-      bind -x '"\C-]": fzf_patty_lin'
-    elif [[ $OS == "Mac" ]]; then
-      bind -x '"\C-]": fzf_patty_mac'
+    if [[ $- == *i* ]];then
+      if [[ $OS == "Linux" ]]; then
+        bind -x '"\C-]": fzf_patty_lin'
+      elif [[ $OS == "Mac" ]]; then
+        bind -x '"\C-]": fzf_patty_mac'
+      fi
     fi
   fi
 
