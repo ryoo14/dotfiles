@@ -179,7 +179,7 @@ if [[ $OS = 'Mac' || $OS = 'Linux' ]]; then
     alias dcv='docker volume'
     alias dcu='docker-compose up -d'
     alias dcd='docker-compose down'
-    alias r='docker run -it --rm -v $(pwd):/root/work ryoo/devcon'
+    alias r='docker run -it --rm -v $(pwd):/root/work ryoo/devcon .'
   fi
 
   ## ansible
